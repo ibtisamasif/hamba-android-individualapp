@@ -2,10 +2,21 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Theme for activities with no ActionBar-->
+    <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="LoginFieldsStyle">
+        <item name="android:background">@drawable/login_fields_bg</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">center</item>
     </style>
 
 </resources>

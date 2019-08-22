@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Hamba</string>
+    <string name="copyrights_notice">Copyright © 2019 Hamba. All Rights Reserved</string>
+
+    <!--User Module Content-->
+    <string name="email_hint">Email / Cell Number</string>
+    <string name="password_hint">password</string>
 </resources>
