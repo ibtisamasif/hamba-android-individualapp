@@ -2,11 +2,11 @@ package com.hadiftech.hamba.core.views
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.EditText
+import android.widget.TextView
 import androidx.annotation.AttrRes
 import com.hadiftech.hamba.core.providers.TypefaceProvider
 
-class HambaEditText : EditText , TypefaceProvider {
+class HambaTextView : TextView , TypefaceProvider {
 
     constructor(context: Context) : super(context) {}
 
