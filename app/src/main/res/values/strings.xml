@@ -4,5 +4,5 @@
 
     <!--User Module Content-->
     <string name="email_hint">Email / Cell Number</string>
-    <string name="password_hint">password</string>
+    <string name="password_hint">Password</string>
 </resources>
