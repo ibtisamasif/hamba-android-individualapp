@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_module_background"
+        android:padding="@dimen/_15sdp"
+        tools:context=".features.signup.JoinUsActivity">
+
+    <ImageView
+            android:id="@+id/imageView_hambaLogo"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:src="@drawable/hamba_logo_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="@string/welcome_to_hamba"
+            android:textSize="@dimen/_20sdp"
+            app:fontType="Regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView_hambaLogo" />
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_joinUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:text="@string/join_us_as"
+            android:textSize="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:fontType="Regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView_welcome" />
+
+    <View
+            android:id="@+id/view_separator"
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/colorGreenDark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView_joinUs" />
+
+    <ImageView
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:src="@drawable/type_business"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/signup_type_button_bg"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            app:layout_constraintTop_toTopOf="@+id/view_separator"
+            app:layout_constraintBottom_toBottomOf="@+id/view_separator"
+            app:layout_constraintEnd_toStartOf="@+id/view_separator" />
+
+    <ImageView
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:src="@drawable/type_individual"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:background="@drawable/signup_type_button_bg"
+            android:paddingHorizontal="@dimen/_9sdp"
+            app:layout_constraintTop_toTopOf="@+id/view_separator"
+            app:layout_constraintBottom_toBottomOf="@+id/view_separator"
+            app:layout_constraintStart_toEndOf="@+id/view_separator" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
