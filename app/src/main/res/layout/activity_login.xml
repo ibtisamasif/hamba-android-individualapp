@@ -14,7 +14,6 @@
             android:id="@+id/imageView_hambaLogo"
             android:layout_width="@dimen/_140sdp"
             android:layout_height="@dimen/_140sdp"
-            android:layout_marginTop="@dimen/_15sdp"
             android:src="@drawable/hamba_logo_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +27,7 @@
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress"
             android:padding="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_40sdp"
             android:layout_marginHorizontal="@dimen/_25sdp"
             app:fontType="Light"
             app:layout_constraintTop_toBottomOf="@+id/imageView_hambaLogo"/>
@@ -57,7 +56,21 @@
             app:fontType="Regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText_password" />
+            app:layout_constraintTop_toBottomOf="@+id/editText_password"/>
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/continue_as_a_guest"
+            android:textColor="@color/colorGreenDark"
+            android:textSize="@dimen/_16sdp"
+            android:background="@color/colorGreenLight"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_8sdp"
+            app:fontType="Regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/view" />
 
     <com.hadiftech.hamba.core.views.HambaTextView
             android:layout_width="wrap_content"
@@ -76,7 +89,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/hambaTextView2"
-            app:layout_constraintTop_toTopOf="@+id/hambaTextView2"/>
+            app:layout_constraintTop_toTopOf="@+id/hambaTextView2" android:id="@+id/view"/>
 
     <com.hadiftech.hamba.core.views.HambaTextView
             android:layout_width="wrap_content"
