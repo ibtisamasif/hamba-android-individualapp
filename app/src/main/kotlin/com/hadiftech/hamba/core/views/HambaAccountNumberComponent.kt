@@ -18,18 +18,18 @@ class HambaAccountNumberComponent : LinearLayout {
     lateinit var mCountryCodePicker: CountryCodePicker
 
     constructor(context: Context) : super(context) {
-        initLayout(context)
+        initialize(context)
     }
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        initLayout(context)
+        initialize(context)
     }
 
     constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        initLayout(context)
+        initialize(context)
     }
 
-    private fun initLayout(context: Context) {
+    private fun initialize(context: Context) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         mView = inflater.inflate(R.layout.layout_account_number_view, this)
 
@@ -37,5 +37,13 @@ class HambaAccountNumberComponent : LinearLayout {
         mPhoneNumberEditText = mView.findViewById(R.id.editText_phoneNumber)
 
         mCountryCodePicker.setTypeFace(Typeface.createFromAsset(context.assets, Fonts.DUCO_HEADLINE_LIGHT));
+    }
+
+    fun getPhoneNumberWithPrefix() : String {
+        return mCountryCodePicker.selectedCountryCodeWithPlus + mPhoneNumberEditText.text
+    }
+
+    fun getPhoneNumber() : String {
+        return mCountryCodePicker.selectedCountryCode + mPhoneNumberEditText.text
     }
 }
