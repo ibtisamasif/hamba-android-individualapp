@@ -5,14 +5,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingVertical="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
         android:background="@drawable/login_module_background"
         tools:context=".features.signup.IndividualSignupActivity">
 
     <ImageView
             android:id="@+id/imageView_hambaLogo"
-            android:layout_width="@dimen/_140sdp"
-            android:layout_height="@dimen/_140sdp"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
             android:src="@drawable/hamba_logo_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,5 +77,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_signUp" />
+
+    <com.hadiftech.hamba.core.views.GmailLoginButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_orLoginWith"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
