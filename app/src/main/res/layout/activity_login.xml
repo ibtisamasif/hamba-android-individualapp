@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/login_module_background"
-        android:padding="@dimen/_15sdp"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingVertical="@dimen/_10sdp"
         tools:context=".features.login.LoginActivity">
 
     <ImageView
@@ -62,16 +63,17 @@
             android:layout_height="wrap_content"
             android:text="@string/continue_as_a_guest"
             android:textColor="@color/colorGreenDark"
-            android:textSize="@dimen/_16sdp"
+            android:textSize="@dimen/_14sdp"
             android:background="@color/colorGreenLight"
             android:layout_marginBottom="@dimen/_10sdp"
             android:paddingHorizontal="@dimen/_8sdp"
             app:fontType="Regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/view" />
+            app:layout_constraintBottom_toTopOf="@+id/view_separator" />
 
     <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/forgot_password"
@@ -79,18 +81,20 @@
             android:textColor="@color/colorWhite"
             app:fontType="Light"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:id="@+id/hambaTextView2"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
     <View
+            android:id="@+id/view_separator"
             android:layout_width="@dimen/_1sdp"
             android:layout_height="@dimen/_20sdp"
             android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/hambaTextView2"
-            app:layout_constraintTop_toTopOf="@+id/hambaTextView2" android:id="@+id/view"/>
+            app:layout_constraintBottom_toBottomOf="@+id/textView_forgotPassword"
+            app:layout_constraintTop_toTopOf="@+id/textView_forgotPassword" />
 
     <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_createAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/create_an_account"
@@ -99,6 +103,6 @@
             android:onClick="onCreateAccountClicked"
             app:fontType="Light"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/hambaTextView"/>
+            app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

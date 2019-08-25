@@ -11,4 +11,8 @@
     <string name="continue_as_a_guest"><u>Continue As a Guest</u></string>
     <string name="welcome_to_hamba">Welcome to Hamba</string>
     <string name="join_us_as">Join us as</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="or_login_with">Or login with</string>
+    <string name="please_enter_an_account_number"><u>Please enter an account number</u></string>
 </resources>
