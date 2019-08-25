@@ -61,6 +61,7 @@
             android:background="@drawable/signup_type_button_bg"
             android:paddingBottom="@dimen/_10sdp"
             android:paddingHorizontal="@dimen/_15sdp"
+            android:onClick="onBusinessSignupClicked"
             app:layout_constraintTop_toTopOf="@+id/view_separator"
             app:layout_constraintBottom_toBottomOf="@+id/view_separator"
             app:layout_constraintEnd_toStartOf="@+id/view_separator" />
@@ -72,6 +73,7 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:background="@drawable/signup_type_button_bg"
             android:paddingHorizontal="@dimen/_9sdp"
+            android:onClick="onIndividualSignupClicked"
             app:layout_constraintTop_toTopOf="@+id/view_separator"
             app:layout_constraintBottom_toBottomOf="@+id/view_separator"
             app:layout_constraintStart_toEndOf="@+id/view_separator" />

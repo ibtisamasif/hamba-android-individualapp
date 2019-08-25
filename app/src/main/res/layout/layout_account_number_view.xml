@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingRight="@dimen/_5sdp"
+        android:background="@drawable/login_fields_bg"
+        android:orientation="horizontal">
+
+    <com.rilixtech.CountryCodePicker
+            android:id="@+id/countryCodePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ccp_hideNameCode="true"
+            app:ccp_textSize="@dimen/_12sdp"
+            app:ccp_setCountryByTimeZone="true"
+            app:ccp_arrowSize="@dimen/_1sdp"
+            app:ccp_textColor="@color/colorWhite" />
+
+    <View
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_6sdp"
+            android:background="@color/colorWhite" />
+
+    <com.hadiftech.hamba.core.views.HambaEditText
+            style="@style/PhoneNumberFieldsStyle"
+            android:id="@+id/editText_phoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/please_enter_an_account_number"
+            android:layout_marginLeft="@dimen/_7sdp"
+            app:fontType="Light" />
+
+</LinearLayout>
