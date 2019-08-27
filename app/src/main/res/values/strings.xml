@@ -16,4 +16,26 @@
     <string name="or_login_with">Or login with</string>
     <string name="please_enter_an_account_number"><u>Please enter an account number</u></string>
     <string name="login_with_gmail">Login with gmail</string>
+
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_order">Order</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_search">Search</string>
+    <string name="title_favourite">Favourite</string>
 </resources>

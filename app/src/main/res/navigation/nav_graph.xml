@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/manageProfileFragment"
+        android:name="com.hadiftech.hamba.features.nav_drawer.ManageProfileFragment"
+        android:label="Manage Profile"
+        tools:layout="@layout/manage_profile_fragment" />
+    <fragment
+        android:id="@+id/discoveryRulesFragment"
+        android:name="com.hadiftech.hamba.features.nav_drawer.DiscoveryRulesFragment"
+        android:label="Discovery Rules"
+        tools:layout="@layout/discovery_rules_fragment" />
+    <fragment
+        android:id="@+id/accountSettingsFragment"
+        android:name="com.hadiftech.hamba.features.nav_drawer.AccountSettingsFragment"
+        android:label="Account Settings"
+        tools:layout="@layout/account_settings_fragment" />
+    <fragment
+        android:id="@+id/manageBookAddressFragment"
+        android:name="com.hadiftech.hamba.features.nav_drawer.ManageBookAddressFragment"
+        android:label="ManageBookAddressFragment"
+        tools:layout="@layout/manage_book_address_fragment" >
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.hadiftech.hamba.features.bottom_nav.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_order"
+        android:name="com.hadiftech.hamba.features.bottom_nav.order.ChatFragment"
+        android:label="@string/title_order"
+        tools:layout="@layout/fragment_order" />
+
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.hadiftech.hamba.features.bottom_nav.cart.CartFragment"
+        android:label="@string/title_cart"
+        tools:layout="@layout/fragment_cart" />
+
+    <fragment
+        android:id="@+id/navigation_favourite"
+        android:name="com.hadiftech.hamba.features.bottom_nav.order.FavouriteFragment"
+        android:label="@string/title_favourite"
+        tools:layout="@layout/fragment_favourite" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.hadiftech.hamba.features.bottom_nav.order.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/navigation_chat"
+        android:name="com.hadiftech.hamba.features.bottom_nav.order.ChatFragment"
+        android:label="@string/title_chat"
+        tools:layout="@layout/fragment_chat" />
+
+</navigation>
