@@ -36,7 +36,7 @@ class HambaAccountNumberComponent : LinearLayout {
         mCountryCodePicker = mView.findViewById(R.id.countryCodePicker)
         mPhoneNumberEditText = mView.findViewById(R.id.editText_phoneNumber)
 
-        mCountryCodePicker.setTypeFace(Typeface.createFromAsset(context.assets, Fonts.DUCO_HEADLINE_LIGHT));
+        mCountryCodePicker.setTypeFace(Typeface.createFromAsset(context.assets, Fonts.CO_HEADLINE_W01_LIGHT));
     }
 
     fun getPhoneNumberWithPrefix() : String {

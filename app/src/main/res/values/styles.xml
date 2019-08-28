@@ -41,4 +41,70 @@
         <item name="android:inputType">phone</item>
     </style>
 
+    <style name="CodeVerificationFieldStyle">
+        <item name="android:background">@drawable/code_verification_fields_bg</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:inputType">number</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLength">6</item>
+    </style>
+
+    <style name="VerifyCodeButtonStyle">
+        <item name="android:background">@drawable/signup_button_background</item>
+        <item name="android:textColor">@color/colorGreenMedium</item>
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="UserNameFieldStyle">
+        <item name="android:background">@drawable/green_medium_strock_bg</item>
+        <item name="android:textColor">@color/colorGreenLight</item>
+        <item name="android:textColorHint">@color/colorGreenLight</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">textCapCharacters</item>
+        <item name="android:maxLength">12</item>
+    </style>
+
+    <style name="ForgetPasswordButtonStyle">
+        <item name="android:background">@drawable/forget_password_button_bg</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ForgetPasswordCounterTextStyle" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@color/colorGreenLight</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="WhatsYourNameTextStyle" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/colorGreenLight</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="ForgetPasswordItsOkayTextStyle" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">@dimen/_19sdp</item>
+        <item name="android:textColor">@color/colorGreenDark</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ForgetPasswordCodeInstructsTextStyle" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="android:textColor">@color/colorGreenLight</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ForgetPasswordFieldStyle">
+        <item name="android:background">@drawable/green_light_strock_bg</item>
+        <item name="android:textColor">@color/colorGreenLight</item>
+        <item name="android:textColorHint">@color/colorGreenLight</item>
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

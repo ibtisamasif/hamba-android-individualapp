@@ -1,10 +1,14 @@
 package com.hadiftech.hamba.core.views
 
 import android.content.Context
+import android.graphics.Canvas
 import android.util.AttributeSet
 import android.widget.TextView
 import androidx.annotation.AttrRes
 import com.hadiftech.hamba.core.providers.TypefaceProvider
+import android.graphics.Paint
+import android.graphics.Rect
+
 
 class HambaTextView : TextView , TypefaceProvider {
 

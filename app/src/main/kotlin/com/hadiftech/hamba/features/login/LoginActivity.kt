@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.features.forget_password.ForgetPasswordActivity
+import com.hadiftech.hamba.features.signup.HelloUserActivity
 import com.hadiftech.hamba.features.signup.JoinUsActivity
 
 class LoginActivity : HambaBaseActivity() {
@@ -17,5 +19,15 @@ class LoginActivity : HambaBaseActivity() {
     fun onCreateAccountClicked(createAccountTextView: View){
         val joinUsIntent = Intent(this, JoinUsActivity::class.java)
         startActivity(joinUsIntent)
+    }
+
+    fun onContinueAsGuestClicked(guestView: View) {
+        val helloUserIntent = Intent(this, HelloUserActivity::class.java)
+        startActivity(helloUserIntent)
+    }
+
+    fun onForgetPasswordClicked(forgetPasswordButton: View) {
+        val forgetPasswordIntent = Intent(this, ForgetPasswordActivity::class.java)
+        startActivity(forgetPasswordIntent)
     }
 }

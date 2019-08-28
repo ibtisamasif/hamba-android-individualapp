@@ -15,9 +15,9 @@ interface TypefaceProvider {
         val fontType = typedArray.getInteger(R.styleable.HambaFontAttributes_fontType, 0)
 
         when(fontType){
-            0 -> fontTypeface = Typeface.createFromAsset(context.assets, Fonts.DUCO_HEADLINE_REGULAR)
-            1 -> fontTypeface = Typeface.createFromAsset(context.assets, Fonts.DUCO_HEADLINE_BOLD)
-            2 -> fontTypeface = Typeface.createFromAsset(context.assets, Fonts.DUCO_HEADLINE_LIGHT)
+            0 -> fontTypeface = Typeface.createFromAsset(context.assets, Fonts.CO_HEADLINE_W01_REGULAR)
+            1 -> fontTypeface = Typeface.createFromAsset(context.assets, Fonts.CO_HEADLINE_W01_BOLD)
+            2 -> fontTypeface = Typeface.createFromAsset(context.assets, Fonts.CO_HEADLINE_W01_LIGHT)
         }
 
         typedArray.recycle()
