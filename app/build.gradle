@@ -12,6 +12,16 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            storeFile file('../keystore/hamba_keystore')
+            storePassword '$$hamba$$**'
+            keyAlias 'hadiftech'
+            keyPassword '$$hamba$$**'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
