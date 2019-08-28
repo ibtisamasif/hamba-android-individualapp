@@ -59,6 +59,7 @@
             android:layout_width="@dimen/_150sdp"
             android:layout_height="@dimen/_30sdp"
             android:text="@string/sign_up"
+            android:onClick="onSignUpButtonClicked"
             android:layout_marginTop="@dimen/_25sdp"
             app:fontType="Regular"
             app:layout_constraintStart_toStartOf="parent"

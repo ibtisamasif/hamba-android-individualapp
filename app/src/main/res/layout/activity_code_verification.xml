@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_25sdp"
+        android:background="@drawable/login_module_background"
+        tools:context=".features.signup.CodeVerificationActivity">
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_code"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14sdp"
+            app:fontType="Regular"/>
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_codeInstructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/code_instructions_email_and_number"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_12sdp"
+            app:fontType="Regular"/>
+
+    <com.hadiftech.hamba.core.views.HambaEditText
+            style="@style/CodeVerificationFieldStyle"
+            android:id="@+id/editText_NumberCode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:hint="@string/enter_code_for_number"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:fontType="Regular"/>
+
+    <com.hadiftech.hamba.core.views.HambaEditText
+            style="@style/CodeVerificationFieldStyle"
+            android:id="@+id/editText_EmailCode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:hint="@string/enter_code_for_email"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:fontType="Regular"/>
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_problemReceivingCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/problem_receiving_a_code"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:fontType="Regular" />
+
+    <com.hadiftech.hamba.core.views.HambaButton
+            style="@style/VerifyCodeButtonStyle"
+            android:id="@+id/button_VerifyCode"
+            android:layout_width="@dimen/_170sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="@string/verify_code"
+            android:onClick="onVerifyCodeClicked"
+            android:layout_marginTop="@dimen/_35sdp"
+            app:fontType="Regular" />
+
+</LinearLayout>
