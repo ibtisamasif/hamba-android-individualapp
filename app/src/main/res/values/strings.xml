@@ -16,7 +16,33 @@
     <string name="or_login_with">Or login with</string>
     <string name="please_enter_an_account_number"><u>Please enter an account number</u></string>
     <string name="login_with_gmail">Login with gmail</string>
-
+    <string name="enter_code">ENTER CODE</string>
+    <string name="code_instructions_email_and_number">We\'ve sent you code on registered number and email. To verify your number and email please enter 6-digit code</string>
+    <string name="code_instructions_email">We\'ve sent you code on registered email. To verify your email please enter 6-digit code</string>
+    <string name="code_instructions_number">We\'ve sent you code on registered number. To verify your number please enter 6-digit code</string>
+    <string name="enter_code_for_email">Enter 6-digit code for email</string>
+    <string name="enter_code_for_number">Enter 6-digit code for number</string>
+    <string name="problem_receiving_a_code"><u>PROBLEM RECEIVING A CODE?</u></string>
+    <string name="verify_code">Verify Code</string>
+    <string name="please_enter_name">Please Enter Name</string>
+    <string name="what">What</string>
+    <string name="is_your_good_name">is your good name?</string>
+    <string name="enter">Enter</string>
+    <string name="its_okay">It\'s okay!</string>
+    <string name="reset_your_password">Reset your password</string>
+    <string name="enter_your_email_address">Enter your email address</string>
+    <string name="continue_">Continue</string>
+    <string name="code_instructions">we have sent you four digit code</string>
+    <string name="on_your_email">on your email</string>
+    <string name="send_me_again"><u>send me again</u></string>
+    <string name="enter_four_digit_code">Enter four digit code</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="done">Done</string>
+    <string name="your_password_has_reset">Your Password has reset successfully!</string>
+    <string name="login_with_new_password">Login with new password</string>
+    <string name="login">Login</string>
 
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

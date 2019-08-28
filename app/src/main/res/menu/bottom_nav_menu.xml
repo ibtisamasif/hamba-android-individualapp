@@ -11,10 +11,10 @@
         android:icon="@drawable/order_unselected"
         android:title="@string/title_order" />
 
-    <item
-            android:id="@+id/navigation_cart"
-            android:icon="@drawable/profile_unselected"
-            android:title="@string/title_cart" />
+<!--    <item-->
+<!--            android:id="@+id/navigation_cart"-->
+<!--            android:icon="@drawable/profile_unselected"-->
+<!--            android:title="@string/title_cart" />-->
 
     <item
         android:id="@+id/navigation_favourite"
@@ -26,9 +26,9 @@
         android:icon="@drawable/profile_unselected"
         android:title="@string/title_search" />
 
-<!--    <item-->
-<!--        android:id="@+id/navigation_chat"-->
-<!--        android:icon="@drawable/chat_unselected"-->
-<!--        android:title="@string/title_chat" />-->
+    <item
+        android:id="@+id/navigation_chat"
+        android:icon="@drawable/chat_unselected"
+        android:title="@string/title_chat" />
 
 </menu>

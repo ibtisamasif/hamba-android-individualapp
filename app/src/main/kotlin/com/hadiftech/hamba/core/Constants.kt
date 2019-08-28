@@ -5,7 +5,7 @@ object Constants {
 }
 
 object Fonts {
-    const val DUCO_HEADLINE_BOLD = "fonts/duco_headline16_bold.ttf"
-    const val DUCO_HEADLINE_LIGHT = "fonts/duco_headline16_light.ttf"
-    const val DUCO_HEADLINE_REGULAR = "fonts/duco_headline16_reg.ttf"
+    const val CO_HEADLINE_W01_BOLD = "fonts/co_headline_w01_bold.ttf"
+    const val CO_HEADLINE_W01_LIGHT = "fonts/co_headline_w01_light.ttf"
+    const val CO_HEADLINE_W01_REGULAR = "fonts/co_headline_w01_reg.ttf"
 }
