@@ -1,19 +1,333 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/text_home"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/tvCurrentLocation"
+            style="@style/CurrentLocationTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/current_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/tvComplete"
+            style="@style/CompleteTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="100% Complete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+            android:id="@+id/tvBanner"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCurrentLocation"
+            app:srcCompat="@drawable/dashboard_banner" />
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/tvTopDeals"
+            style="@style/TopDealsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:elevation="5dp"
+            android:text="Top Deals/Offers"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hsv" />
+
+    <HorizontalScrollView
+            android:id="@+id/hsv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@color/colorGreenLight"
+            android:fillViewport="true"
+            android:measureAllChildren="false"
+            android:padding="@dimen/_10sdp"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBanner">
+
+        <LinearLayout
+                android:id="@+id/innerLay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <LinearLayout
+                    android:id="@+id/card1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image_1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/card2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image_2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/card3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image_3" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/card4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image_1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/card5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image_2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/card6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image_3" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.gridlayout.widget.GridLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:padding="4dp"
+            app:alignmentMode="alignBounds"
+            app:columnCount="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hsv"
+            app:rowCount="4"
+            app:rowOrderPreserved="false"
+            app:useDefaultMargins="true">
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comunity"
+                android:gravity="center"
+                android:text="ABC"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
