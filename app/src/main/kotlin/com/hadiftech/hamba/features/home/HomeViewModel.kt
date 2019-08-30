@@ -1,13 +1,13 @@
-package com.hadiftech.hamba.features.bottom_nav.order
+package com.hadiftech.hamba.features.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ChatViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is chat Fragment"
+        value = "Current Location"
     }
     val text: LiveData<String> = _text
 }

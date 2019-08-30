@@ -1,13 +1,13 @@
-package com.hadiftech.hamba.features.bottom_nav.cart
+package com.hadiftech.hamba.features.order
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class CartViewModel : ViewModel() {
+class FavouriteViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is cart Fragment"
+        value = "This is favourite Fragment"
     }
     val text: LiveData<String> = _text
 }

@@ -1,4 +1,4 @@
-package com.hadiftech.hamba.features.bottom_nav.cart
+package com.hadiftech.hamba.features.order
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.hadiftech.hamba.R
 
-class CartFragment : Fragment() {
+class OrderFragment : Fragment() {
 
-    private lateinit var cartViewModel: CartViewModel
+    private lateinit var orderViewModel: OrderViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        cartViewModel =
-            ViewModelProviders.of(this).get(CartViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_cart, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        cartViewModel.text.observe(this, Observer {
+        orderViewModel =
+            ViewModelProviders.of(this).get(OrderViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_order, container, false)
+        val textView: TextView = root.findViewById(R.id.text)
+        orderViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

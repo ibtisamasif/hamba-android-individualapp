@@ -1,4 +1,4 @@
-package com.hadiftech.hamba.features.bottom_nav.order
+package com.hadiftech.hamba.features.order
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.hadiftech.hamba.R
 
-class ChatFragment : Fragment() {
+class SearchFragment : Fragment() {
 
-    private lateinit var chatViewModel: ChatViewModel
+    private lateinit var searchViewModel: SearchViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        chatViewModel =
-            ViewModelProviders.of(this).get(ChatViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_chat, container, false)
+        searchViewModel =
+            ViewModelProviders.of(this).get(SearchViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_search, container, false)
         val textView: TextView = root.findViewById(R.id.text)
-        chatViewModel.text.observe(this, Observer {
+        searchViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

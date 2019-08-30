@@ -1,4 +1,4 @@
-package com.hadiftech.hamba.features.bottom_nav.home
+package com.hadiftech.hamba.features.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

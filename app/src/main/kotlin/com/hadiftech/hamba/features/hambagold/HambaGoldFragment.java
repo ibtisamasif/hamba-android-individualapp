@@ -1,4 +1,4 @@
-package com.hadiftech.hamba.features.nav_drawer;
+package com.hadiftech.hamba.features.hambagold;
 
 import android.content.Context;
 import android.os.Bundle;

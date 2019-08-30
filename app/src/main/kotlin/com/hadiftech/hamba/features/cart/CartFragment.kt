@@ -1,4 +1,4 @@
-package com.hadiftech.hamba.features.bottom_nav.order
+package com.hadiftech.hamba.features.cart
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.hadiftech.hamba.R
 
-class SearchFragment : Fragment() {
+class CartFragment : Fragment() {
 
-    private lateinit var searchViewModel: SearchViewModel
+    private lateinit var cartViewModel: CartViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        searchViewModel =
-            ViewModelProviders.of(this).get(SearchViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_search, container, false)
-        val textView: TextView = root.findViewById(R.id.text)
-        searchViewModel.text.observe(this, Observer {
+        cartViewModel =
+            ViewModelProviders.of(this).get(CartViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_cart, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+        cartViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

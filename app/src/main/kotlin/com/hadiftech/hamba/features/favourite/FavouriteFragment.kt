@@ -1,4 +1,4 @@
-package com.hadiftech.hamba.features.bottom_nav.order
+package com.hadiftech.hamba.features.order
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.hadiftech.hamba.R
 
-class OrderFragment : Fragment() {
+class FavouriteFragment : Fragment() {
 
-    private lateinit var orderViewModel: OrderViewModel
+    private lateinit var favouriteViewModel: FavouriteViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        orderViewModel =
-            ViewModelProviders.of(this).get(OrderViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_order, container, false)
+        favouriteViewModel =
+            ViewModelProviders.of(this).get(FavouriteViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_favourite, container, false)
         val textView: TextView = root.findViewById(R.id.text)
-        orderViewModel.text.observe(this, Observer {
+        favouriteViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

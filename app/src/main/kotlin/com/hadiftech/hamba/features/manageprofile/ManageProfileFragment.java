@@ -1,4 +1,4 @@
-package com.hadiftech.hamba.features.nav_drawer;
+package com.hadiftech.hamba.features.manageprofile;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.hadiftech.hamba.R;
 
-public class DiscoveryRulesFragment extends Fragment {
+public class ManageProfileFragment extends Fragment {
 
     @Override
     public void onAttach(Context context) {
@@ -22,6 +22,6 @@ public class DiscoveryRulesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.discovery_rules_fragment, container, false);
+        return inflater.inflate(R.layout.manage_profile_fragment, container, false);
     }
 }

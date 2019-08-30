@@ -1,4 +1,4 @@
-package com.hadiftech.hamba.features.bottom_nav.order
+package com.hadiftech.hamba.features.order
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
