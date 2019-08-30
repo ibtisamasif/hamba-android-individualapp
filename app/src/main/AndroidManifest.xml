@@ -23,45 +23,44 @@
                 android:name=".features.login.LoginActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/NoActionBar"
-                android:windowSoftInputMode="stateHidden"/>
+                android:windowSoftInputMode="stateHidden" />
         <activity
                 android:name=".features.signup.JoinUsActivity"
                 android:screenOrientation="portrait"
-                android:theme="@style/NoActionBar"/>
+                android:theme="@style/NoActionBar" />
         <activity
                 android:name=".features.signup.IndividualSignupActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/NoActionBar"
-                android:windowSoftInputMode="stateHidden"/>
+                android:windowSoftInputMode="stateHidden" />
         <activity
                 android:name=".features.signup.CodeVerificationActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/NoActionBar"
-                android:windowSoftInputMode="stateHidden"/>
+                android:windowSoftInputMode="stateHidden" />
         <activity
                 android:name=".features.signup.HelloUserActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/NoActionBar"
-                android:windowSoftInputMode="stateHidden"/>
+                android:windowSoftInputMode="stateHidden" />
         <activity
                 android:name=".features.forget_password.ForgetPasswordActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/NoActionBar"
-                android:windowSoftInputMode="stateHidden"/>
+                android:windowSoftInputMode="stateHidden" />
         <activity
                 android:name=".features.forget_password.PasswordResetStatusActivity"
                 android:screenOrientation="portrait"
-                android:theme="@style/NoActionBar"/>
+                android:theme="@style/NoActionBar" />
         <activity
                 android:name=".features.forget_password.NewPasswordActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/NoActionBar"
-                android:windowSoftInputMode="stateHidden"/>
+                android:windowSoftInputMode="stateHidden" />
         <activity
                 android:name=".features.dashboard.DashboardActivity"
                 android:screenOrientation="portrait"
-                android:theme="@style/NoActionBarDark">
-        </activity>
+                android:theme="@style/NoActionBarDark"/>
     </application>
 
 </manifest>

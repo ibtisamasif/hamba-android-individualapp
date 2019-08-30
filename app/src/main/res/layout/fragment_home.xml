@@ -9,8 +9,8 @@
             style="@style/CurrentLocationTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
             android:text="@string/current_location"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_60sdp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_3sdp"
             android:background="@color/colorGreenLight"
             android:fillViewport="true"
             android:measureAllChildren="false"
@@ -171,11 +171,10 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:padding="4dp"
             app:alignmentMode="alignBounds"
             app:columnCount="4"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hsv"
@@ -184,150 +183,164 @@
             app:useDefaultMargins="true">
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_community"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/community"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_discoveries"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/discoveries"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_stores"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/stores"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_wholesale"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/wholesale"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_shopsinmall"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/shops_in_mall"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_myorders"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/my_orders"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_services"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/services"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_professional"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/professional"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_mywork"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/my_work"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/nearby_shops"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_offers"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/offers"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_wallet"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/wallet"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_mybadges"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/my_badges"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_talktoeve"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/talk_to_eve"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_partners"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/partners"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
+                style="@style/GridItemsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_comunity"
+                android:drawableTop="@drawable/ic_complaints"
                 android:gravity="center"
-                android:text="ABC"
+                android:text="@string/complaints"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal" />
 
     </androidx.gridlayout.widget.GridLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

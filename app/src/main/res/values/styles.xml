@@ -131,6 +131,12 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="GridItemsTextStyle">
+        <item name="android:textColor">@color/colorGreenLight</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 
     <style name="NoActionBarDark" parent="AppTheme">
         <item name="windowActionBar">false</item>
