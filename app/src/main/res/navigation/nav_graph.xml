@@ -6,30 +6,6 @@
     app:startDestination="@id/navigation_home">
 
     <fragment
-        android:id="@+id/manageProfileFragment"
-        android:name="com.hadiftech.hamba.features.manageprofile.ManageProfileFragment"
-        android:label="Manage Profile"
-        tools:layout="@layout/manage_profile_fragment" />
-    <fragment
-        android:id="@+id/discoveryRulesFragment"
-        android:name="com.hadiftech.hamba.features.discovery.DiscoveryRulesFragment"
-        android:label="Discovery Rules"
-        tools:layout="@layout/discovery_rules_fragment" />
-    <fragment
-        android:id="@+id/accountSettingsFragment"
-        android:name="com.hadiftech.hamba.features.accountsettings.AccountSettingsFragment"
-        android:label="Account Settings"
-        tools:layout="@layout/account_settings_fragment" />
-    <fragment
-        android:id="@+id/manageBookAddressFragment"
-        android:name="com.hadiftech.hamba.features.bookaddress.ManageBookAddressFragment"
-        android:label="ManageBookAddressFragment"
-        tools:layout="@layout/manage_book_address_fragment" >
-    </fragment>
-
-
-
-    <fragment
         android:id="@+id/navigation_home"
         android:name="com.hadiftech.hamba.features.home.HomeFragment"
         android:label="@string/title_home"
