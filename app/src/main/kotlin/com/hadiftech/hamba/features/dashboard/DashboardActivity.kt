@@ -13,7 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -38,14 +38,21 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
 
         drawerLayout = findViewById(R.id.drawer_layout)
 
-        NavigationUI.setupActionBarWithNavController(this, findNavController(R.id.nav_host_fragment), drawerLayout)
+        NavigationUI.setupActionBarWithNavController(
+            this,
+            findNavController(R.id.nav_host_fragment),
+            drawerLayout
+        )
 
         navigationView.setNavigationItemSelectedListener(this)
 
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(drawerLayout, Navigation.findNavController(this, R.id.nav_host_fragment))
+        return NavigationUI.navigateUp(
+            drawerLayout,
+            Navigation.findNavController(this, R.id.nav_host_fragment)
+        )
     }
 
     override fun onBackPressed() {
@@ -66,32 +73,56 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
 
         when (id) {
 
-            R.id.item_manage_profile -> findNavController(R.id.nav_host_fragment).navigate(R.id.manageProfileFragment)
+            R.id.item_manage_profile -> {
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+            }
 
-            R.id.item_discovery_rules -> findNavController(R.id.nav_host_fragment).navigate(R.id.discoveryRulesFragment)
 
-            R.id.item_account_settings -> findNavController(R.id.nav_host_fragment).navigate(R.id.accountSettingsFragment)
+            R.id.item_discovery_rules -> {
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+            }
 
-            R.id.item_manage_book_address -> findNavController(R.id.nav_host_fragment).navigate(R.id.manageBookAddressFragment)
 
-            R.id.item_your_orders -> findNavController(R.id.nav_host_fragment).navigate(R.id.item_your_orders)
+            R.id.item_account_settings -> {
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+            }
 
-            R.id.item_special_offers -> findNavController(R.id.nav_host_fragment).navigate(R.id.item_special_offers)
 
-            R.id.item_create_edit_store -> findNavController(R.id.nav_host_fragment).navigate(R.id.item_create_edit_store)
+            R.id.item_manage_book_address -> {
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+            }
 
-            R.id.item_hamba_gold -> findNavController(R.id.nav_host_fragment).navigate(R.id.item_hamba_gold)
+
+            R.id.item_your_orders -> {
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+            }
+
+
+            R.id.item_special_offers -> {
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+            }
+
+
+            R.id.item_create_edit_store -> {
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+            }
+
+
+            R.id.item_hamba_gold -> {
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+            }
+
 
             R.id.item_sign_out -> {
-                Toast.makeText(this, "item_sign_out", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
             }
 
             R.id.item_support -> {
-                Toast.makeText(this, "item_support", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
             }
 
             R.id.item_rate_us -> {
-                Toast.makeText(this, "item_rate_us", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
             }
         }
         return true
