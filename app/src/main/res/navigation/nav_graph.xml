@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/navigation_order"
-        android:name="com.hadiftech.hamba.features.order.ChatFragment"
+        android:name="com.hadiftech.hamba.features.order.OrderFragment"
         android:label="@string/title_order"
         tools:layout="@layout/fragment_order" />
 

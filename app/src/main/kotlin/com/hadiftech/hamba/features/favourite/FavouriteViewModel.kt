@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class FavouriteViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is favourite Fragment"
+        value = "Favourite screen"
     }
     val text: LiveData<String> = _text
 }
