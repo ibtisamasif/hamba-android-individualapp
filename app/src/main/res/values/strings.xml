@@ -70,4 +70,7 @@
     <string name="talk_to_eve">Talk To Eve</string>
     <string name="partners">Partners</string>
     <string name="complaints">Complaints</string>
+    <string name="_100_complete">100% Complete</string>
+    <string name="home_screen_banner">home screen banner</string>
+    <string name="top_deals_offers">Top Deals/Offers</string>
 </resources>

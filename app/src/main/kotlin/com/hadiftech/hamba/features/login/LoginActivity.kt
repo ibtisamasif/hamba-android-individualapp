@@ -20,6 +20,7 @@ class LoginActivity : HambaBaseActivity() {
     fun onSignInButtonClicked(signInTextView: View) {
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
         startActivity(dashboardIntent)
+        finish()
     }
 
     fun onCreateAccountClicked(createAccountTextView: View){
