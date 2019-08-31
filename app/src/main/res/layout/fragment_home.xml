@@ -85,11 +85,12 @@
                         android:id="@+id/card1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
                         android:gravity="center"
                         android:orientation="vertical">
 
                     <ImageView
-                            android:layout_width="120dp"
+                            android:layout_width="125dp"
                             android:layout_height="wrap_content"
                             android:scaleType="centerCrop"
                             android:src="@drawable/image_1" />
@@ -100,11 +101,12 @@
                         android:id="@+id/card2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
                         android:gravity="center"
                         android:orientation="vertical">
 
                     <ImageView
-                            android:layout_width="120dp"
+                            android:layout_width="125dp"
                             android:layout_height="wrap_content"
                             android:scaleType="centerCrop"
                             android:src="@drawable/image_2" />
@@ -115,11 +117,12 @@
                         android:id="@+id/card3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
                         android:gravity="center"
                         android:orientation="vertical">
 
                     <ImageView
-                            android:layout_width="120dp"
+                            android:layout_width="125dp"
                             android:layout_height="wrap_content"
                             android:scaleType="centerCrop"
                             android:src="@drawable/image_3" />
@@ -130,6 +133,7 @@
                         android:id="@+id/card4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
                         android:gravity="center"
                         android:orientation="vertical">
 
@@ -145,6 +149,7 @@
                         android:id="@+id/card5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
                         android:gravity="center"
                         android:orientation="vertical">
 
@@ -160,6 +165,7 @@
                         android:id="@+id/card6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
                         android:gravity="center"
                         android:orientation="vertical">
 
