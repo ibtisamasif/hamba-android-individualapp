@@ -6,42 +6,42 @@
         <item
                 android:id="@+id/item_manage_profile"
                 android:icon="@drawable/man_user"
-                android:title="Manage Profile" />
+                android:title="@string/manage_profile" />
 
         <item
                 android:id="@+id/item_discovery_rules"
                 android:icon="@drawable/file"
-                android:title="Discovery Rules" />
+                android:title="@string/discovery_rules" />
 
         <item
                 android:id="@+id/item_account_settings"
                 android:icon="@drawable/settings_work_tool"
-                android:title="Account Settings" />
+                android:title="@string/account_settings" />
 
         <item
                 android:id="@+id/item_manage_book_address"
                 android:icon="@drawable/maps_and_flags"
-                android:title="Manage Address Book" />
+                android:title="@string/manage_book_address" />
 
         <item
                 android:id="@+id/item_your_orders"
                 android:icon="@drawable/shopping_bag"
-                android:title="Your Orders" />
+                android:title="@string/your_orders" />
 
         <item
                 android:id="@+id/item_special_offers"
                 android:icon="@drawable/gift_card"
-                android:title="Special Offers" />
+                android:title="@string/special_offers" />
 
         <item
                 android:id="@+id/item_create_edit_store"
                 android:icon="@drawable/store"
-                android:title="Create / Edit Store" />
+                android:title="@string/create_edit_store" />
 
         <item
                 android:id="@+id/item_hamba_gold"
                 android:icon="@drawable/hamba"
-                android:title="Hamba Gold" />
+                android:title="@string/hamba_gold" />
 
     </group>
 
@@ -50,17 +50,17 @@
         <item
                 android:id="@+id/item_sign_out"
                 android:icon="@drawable/logout"
-                android:title="Sign Out" />
+                android:title="@string/sign_out" />
 
         <item
                 android:id="@+id/item_support"
                 android:icon="@drawable/hours_support"
-                android:title="Support" />
+                android:title="@string/support" />
 
         <item
                 android:id="@+id/item_rate_us"
                 android:icon="@drawable/star"
-                android:title="Rate Us" />
+                android:title="@string/rate_us" />
 
     </group>
 
