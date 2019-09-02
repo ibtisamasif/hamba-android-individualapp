@@ -145,19 +145,11 @@
         <item name="android:gravity">start</item>
     </style>
 
-    <style name="navigationHeaderSubtitleTextStyle">
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">@dimen/_12sdp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:gravity">start</item>
-    </style>
-
     <style name="navigationItemsTextStyle">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/_12sdp</item>
-        <item name="android:fontFamily">@font/titillium_web"</item>
+        <item name="android:fontFamily">@font/co_headline_w01_light_xml</item>
     </style>
-
 
     <style name="NoActionBarDark" parent="AppTheme">
         <item name="windowActionBar">false</item>
@@ -167,6 +159,5 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-
+    
 </resources>

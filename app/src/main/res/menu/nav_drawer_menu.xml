@@ -45,7 +45,7 @@
 
     </group>
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="none">
 
         <item
                 android:id="@+id/item_sign_out"
