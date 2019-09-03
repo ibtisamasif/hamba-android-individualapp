@@ -38,25 +38,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:layout_marginTop="@dimen/_2sdp"
+                android:contentDescription="@string/home_screen_banner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvCurrentLocation"
-                app:srcCompat="@drawable/dashboard_banner"
-                android:contentDescription="@string/home_screen_banner" />
+                app:srcCompat="@drawable/dashboard_banner" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvTopDeals"
                 style="@style/TopDealsTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
                 android:elevation="5dp"
                 android:text="@string/top_deals_offers"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/hsv"
-                android:layout_marginStart="@dimen/_16sdp" />
+                app:layout_constraintTop_toTopOf="@id/hsv" />
 
         <HorizontalScrollView
                 android:id="@+id/hsv"
