@@ -59,8 +59,7 @@
                 android:windowSoftInputMode="stateHidden" />
         <activity
                 android:name=".features.dashboard.DashboardActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/NoActionBarDark"/>
+                android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

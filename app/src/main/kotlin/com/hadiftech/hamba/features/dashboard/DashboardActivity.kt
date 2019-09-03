@@ -23,9 +23,6 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
-
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         bottom_nav_view.setupWithNavController(findNavController(R.id.nav_host_fragment))
