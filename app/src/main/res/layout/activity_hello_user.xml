@@ -16,8 +16,8 @@
             android:src="@drawable/robot_image"
             android:layout_marginRight="@dimen/_9sdp"
             android:scaleType="fitEnd"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout_userName"
-            app:layout_constraintBottom_toTopOf="@+id/textInputLayout_userName"/>
+            app:layout_constraintEnd_toEndOf="@+id/editText_userName"
+            app:layout_constraintBottom_toTopOf="@+id/editText_userName"/>
 
     <ImageView
             android:id="@+id/imageView_helloBubble"
@@ -50,29 +50,23 @@
             android:layout_marginRight="@dimen/_8sdp"
             app:fontType="Regular"
             app:layout_constraintEnd_toStartOf="@+id/imageView_robot"
-            app:layout_constraintBottom_toTopOf="@+id/textInputLayout_userName"/>
+            app:layout_constraintBottom_toTopOf="@+id/editText_userName"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout_userName"
+    <com.hadiftech.hamba.core.views.HambaLoginEditText
+            android:id="@+id/editText_userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:counterEnabled="true"
-            app:counterMaxLength="12"
-            app:hintEnabled="false"
-            app:counterTextAppearance="@style/ForgetPasswordCounterTextStyle"
+            android:hint="@string/please_enter_name"
+            android:inputType="textCapWords"
+            android:gravity="center"
+            android:maxLength="12"
+            app:fontType="Light"
+            app:showCounter="true"
+            app:editTextTheme="Green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" >
-
-        <com.hadiftech.hamba.core.views.HambaEditText
-                style="@style/UserNameFieldStyle"
-                android:id="@+id/editText_userName"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:hint="@string/please_enter_name" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintStart_toStartOf="parent" />
 
     <com.hadiftech.hamba.core.views.HambaButton
             style="@style/ForgetPasswordButtonStyle"
@@ -83,6 +77,6 @@
             app:fontType="Regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_userName"/>
+            app:layout_constraintTop_toBottomOf="@+id/editText_userName"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

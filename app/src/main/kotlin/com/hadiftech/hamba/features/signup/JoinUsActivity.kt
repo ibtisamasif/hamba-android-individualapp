@@ -19,6 +19,7 @@ class JoinUsActivity : HambaBaseActivity() {
     }
 
     fun onBusinessSignupClicked(businessSignupView: View){
-        // TODO: Move to Business Signup Page
+        val businessSignupIntent = Intent(this, BusinessSignUpActivity::class.java)
+        startActivity(businessSignupIntent)
     }
 }

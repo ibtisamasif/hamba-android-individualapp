@@ -12,7 +12,7 @@ interface TypefaceProvider {
 
         var fontTypeface: Typeface? = null
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.HambaFontAttributes, 0, 0)
-        val fontType = typedArray.getInteger(R.styleable.HambaFontAttributes_fontType, 0)
+        val fontType = typedArray.getInteger(R.styleable.HambaFontAttributes_fontType, 2)
 
         when(fontType){
             0 -> fontTypeface = Typeface.createFromAsset(context.assets, Fonts.CO_HEADLINE_W01_REGULAR)

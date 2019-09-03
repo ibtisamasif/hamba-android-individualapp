@@ -11,7 +11,7 @@ import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Fonts
 import com.rilixtech.CountryCodePicker
 
-class HambaAccountNumberComponent : LinearLayout {
+class HambaMobileNumberComponent : LinearLayout {
 
     lateinit var mView: View
     lateinit var mPhoneNumberEditText: HambaEditText
