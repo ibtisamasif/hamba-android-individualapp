@@ -24,19 +24,19 @@
                 android:title="@string/manage_book_address" />
 
         <item
-                android:id="@+id/item_your_orders"
+                android:id="@+id/item_manage_payments"
                 android:icon="@drawable/shopping_bag"
-                android:title="@string/your_orders" />
+                android:title="@string/manage_payments" />
+
+        <item
+                android:id="@+id/item_my_orders"
+                android:icon="@drawable/shopping_bag"
+                android:title="@string/my_orders" />
 
         <item
                 android:id="@+id/item_special_offers"
                 android:icon="@drawable/gift_card"
                 android:title="@string/special_offers" />
-
-        <item
-                android:id="@+id/item_create_edit_store"
-                android:icon="@drawable/store"
-                android:title="@string/create_edit_store" />
 
         <item
                 android:id="@+id/item_hamba_gold"
@@ -56,6 +56,11 @@
                 android:id="@+id/item_support"
                 android:icon="@drawable/hours_support"
                 android:title="@string/support" />
+
+        <item
+                android:id="@+id/item_faqs"
+                android:icon="@drawable/hours_support"
+                android:title="@string/faqs" />
 
         <item
                 android:id="@+id/item_rate_us"

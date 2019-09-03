@@ -77,11 +77,12 @@
     <string name="discovery_rules">Discovery Rules</string>
     <string name="account_settings">Account Settings</string>
     <string name="manage_book_address">Manage Book Address</string>
-    <string name="your_orders">Your Orders</string>
     <string name="special_offers">Special Offers</string>
     <string name="create_edit_store">Create / Edit Store</string>
     <string name="hamba_gold">Hamba Gold</string>
     <string name="sign_out">Sign Out</string>
     <string name="support">Support</string>
     <string name="rate_us">Rate Us</string>
+    <string name="manage_payments">Manage Payments</string>
+    <string name="faqs">FAQ\'s</string>
 </resources>

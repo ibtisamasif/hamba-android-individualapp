@@ -68,13 +68,13 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
             R.id.item_manage_book_address -> {
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
             }
-            R.id.item_your_orders -> {
+            R.id.item_manage_payments -> {
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+            }
+            R.id.item_my_orders -> {
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
             }
             R.id.item_special_offers -> {
-                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
-            }
-            R.id.item_create_edit_store -> {
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
             }
             R.id.item_hamba_gold -> {
@@ -84,6 +84,9 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
             }
             R.id.item_support -> {
+                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+            }
+            R.id.item_faqs -> {
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
             }
             R.id.item_rate_us -> {
