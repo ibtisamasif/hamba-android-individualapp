@@ -9,9 +9,9 @@ import android.widget.LinearLayout
 import androidx.annotation.AttrRes
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Fonts
-import com.rilixtech.CountryCodePicker
+import com.rilixtech.widget.countrycodepicker.CountryCodePicker
 
-class HambaAccountNumberComponent : LinearLayout {
+class HambaMobileNumberComponent : LinearLayout {
 
     lateinit var mView: View
     lateinit var mPhoneNumberEditText: HambaEditText

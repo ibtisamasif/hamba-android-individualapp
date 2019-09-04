@@ -34,19 +34,19 @@
             style="@style/CodeVerificationFieldStyle"
             android:id="@+id/editText_NumberCode"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_height="@dimen/_33sdp"
             android:hint="@string/enter_code_for_number"
             android:layout_marginTop="@dimen/_15sdp"
-            app:fontType="Regular"/>
+            app:fontType="Light"/>
 
     <com.hadiftech.hamba.core.views.HambaEditText
             style="@style/CodeVerificationFieldStyle"
             android:id="@+id/editText_EmailCode"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_height="@dimen/_33sdp"
             android:hint="@string/enter_code_for_email"
             android:layout_marginTop="@dimen/_10sdp"
-            app:fontType="Regular"/>
+            app:fontType="Light"/>
 
     <com.hadiftech.hamba.core.views.HambaTextView
             android:id="@+id/textView_problemReceivingCode"

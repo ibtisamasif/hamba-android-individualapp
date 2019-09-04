@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/loginField_Container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_33sdp"
+        android:background="@drawable/login_fields_white_bg"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp">
+
+    <com.hadiftech.hamba.core.views.HambaEditText
+            android:id="@+id/editText_loginFields"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/relativeLayout_rightViewContainer"
+            android:background="@null"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="@dimen/_14sdp"
+            app:fontType="Light" />
+
+    <RelativeLayout
+            android:id="@+id/relativeLayout_rightViewContainer"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:visibility="gone">
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:id="@+id/textView_Counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_13sdp"
+                android:visibility="gone" />
+
+        <ImageView
+                android:id="@+id/imageView_rightDrawable"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                android:src="@drawable/help_icon"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

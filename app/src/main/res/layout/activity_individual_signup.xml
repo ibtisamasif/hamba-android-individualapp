@@ -25,6 +25,7 @@
             android:textColor="@color/colorWhite"
             android:text="@string/welcome_to_hamba"
             android:textSize="@dimen/_14sdp"
+            android:visibility="invisible"
             app:fontType="Regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,13 +39,14 @@
             android:text="@string/phone_number"
             android:textSize="@dimen/_14sdp"
             android:layout_marginTop="@dimen/_40sdp"
+            android:visibility="invisible"
             app:fontType="Regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView_welcome" />
 
-    <com.hadiftech.hamba.core.views.HambaAccountNumberComponent
-            android:id="@+id/accountNumberComponent"
+    <com.hadiftech.hamba.core.views.HambaMobileNumberComponent
+            android:id="@+id/individualSignUp_mobileNumberComponent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
@@ -57,21 +59,21 @@
             style="@style/SignupButtonStyle"
             android:id="@+id/button_signUp"
             android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="@dimen/_33sdp"
             android:text="@string/sign_up"
             android:onClick="onSignUpButtonClicked"
             android:layout_marginTop="@dimen/_25sdp"
             app:fontType="Regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/accountNumberComponent"/>
+            app:layout_constraintTop_toBottomOf="@+id/individualSignUp_mobileNumberComponent"/>
 
     <com.hadiftech.hamba.core.views.HambaTextView
             android:id="@+id/textView_orLoginWith"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorGreenDark"
-            android:text="@string/or_login_with"
+            android:text="@string/or"
             android:textSize="@dimen/_14sdp"
             android:layout_marginTop="@dimen/_30sdp"
             app:fontType="Regular"

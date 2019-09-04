@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="@dimen/_33sdp"
+        android:background="@drawable/login_fields_white_bg"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingLeft="@dimen/_10sdp"
-        android:paddingRight="@dimen/_5sdp"
-        android:background="@drawable/login_fields_bg"
-        android:orientation="horizontal">
+        android:paddingRight="@dimen/_10sdp">
 
-    <com.rilixtech.CountryCodePicker
+    <com.rilixtech.widget.countrycodepicker.CountryCodePicker
             android:id="@+id/countryCodePicker"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:ccp_hideNameCode="true"
-            app:ccp_textSize="@dimen/_12sdp"
             app:ccp_setCountryByTimeZone="true"
-            app:ccp_arrowSize="@dimen/_1sdp"
-            app:ccp_textColor="@color/colorWhite" />
-
-    <View
-            android:layout_width="0.5dp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_6sdp"
-            android:background="@color/colorWhite" />
+            app:ccp_textColor="@color/colorWhite"
+            app:ccp_textSize="@dimen/_14sdp" />
 
     <com.hadiftech.hamba.core.views.HambaEditText
-            style="@style/PhoneNumberFieldsStyle"
             android:id="@+id/editText_phoneNumber"
+            style="@style/MobileNumberFieldsStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/please_enter_an_account_number"
-            android:layout_marginLeft="@dimen/_7sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:hint="@string/enter_mobile_number"
             app:fontType="Light" />
 
 </LinearLayout>

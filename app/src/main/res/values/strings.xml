@@ -8,21 +8,31 @@
     <string name="sign_in">Sign In</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="create_an_account">Create an Account</string>
-    <string name="continue_as_a_guest"><u>Continue As a Guest</u></string>
+    <string name="continue_as_a_guest">
+        <u>Continue As a Guest</u>
+    </string>
     <string name="welcome_to_hamba">Welcome to Hamba</string>
     <string name="join_us_as">Join us as</string>
     <string name="phone_number">Phone Number</string>
     <string name="sign_up">Sign Up</string>
-    <string name="or_login_with">Or login with</string>
-    <string name="please_enter_an_account_number"><u>Please enter an account number</u></string>
+    <string name="or">Or</string>
+    <string name="enter_mobile_number">Enter mobile no</string>
     <string name="login_with_gmail">Login with gmail</string>
     <string name="enter_code">ENTER CODE</string>
-    <string name="code_instructions_email_and_number">We\'ve sent you code on registered number and email. To verify your number and email please enter 6-digit code</string>
-    <string name="code_instructions_email">We\'ve sent you code on registered email. To verify your email please enter 6-digit code</string>
-    <string name="code_instructions_number">We\'ve sent you code on registered number. To verify your number please enter 6-digit code</string>
+    <string name="code_instructions_email_and_number">We\'ve sent you code on registered number and email. To verify
+        your number and email please enter 6-digit code
+    </string>
+    <string name="code_instructions_email">We\'ve sent you code on registered email. To verify your email please enter
+        6-digit code
+    </string>
+    <string name="code_instructions_number">We\'ve sent you code on registered number. To verify your number please
+        enter 6-digit code
+    </string>
     <string name="enter_code_for_email">Enter 6-digit code for email</string>
     <string name="enter_code_for_number">Enter 6-digit code for number</string>
-    <string name="problem_receiving_a_code"><u>PROBLEM RECEIVING A CODE?</u></string>
+    <string name="problem_receiving_a_code">
+        <u>PROBLEM RECEIVING A CODE?</u>
+    </string>
     <string name="verify_code">Verify Code</string>
     <string name="please_enter_name">Please Enter Name</string>
     <string name="what">What</string>
@@ -34,7 +44,9 @@
     <string name="continue_">Continue</string>
     <string name="code_instructions">we have sent you four digit code</string>
     <string name="on_your_email">on your email</string>
-    <string name="send_me_again"><u>send me again</u></string>
+    <string name="send_me_again">
+        <u>send me again</u>
+    </string>
     <string name="enter_four_digit_code">Enter four digit code</string>
     <string name="new_password">New Password</string>
     <string name="confirm_password">Confirm Password</string>
@@ -43,6 +55,15 @@
     <string name="your_password_has_reset">Your Password has reset successfully!</string>
     <string name="login_with_new_password">Login with new password</string>
     <string name="login">Login</string>
+    <string name="business_employee_sign_up">Business Employee Signup</string>
+    <string name="pre_shared_key">Pre Shared Key</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="business_name">Store/Business Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="counter_text">%1$d/12</string>
+    <string name="individual">INDIVIDUAL</string>
+    <string name="employee">EMPLOYEE</string>
 
     <!--Dashboard Screen Content-->
     <string name="title_home">Home</string>

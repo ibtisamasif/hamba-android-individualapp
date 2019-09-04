@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.github.joielechong'
+version = "2.4.1"
+def verCode = 241
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 29
+        versionCode verCode
+        versionName version
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    api 'io.michaelrocks:libphonenumber-android:8.10.16'
+}

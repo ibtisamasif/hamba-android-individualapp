@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.features.signup.enums.CodeVerificationType
 
 class IndividualSignupActivity : HambaBaseActivity() {
 
@@ -19,6 +20,7 @@ class IndividualSignupActivity : HambaBaseActivity() {
 
     private fun moveToCodeVerificationActivity() {
         val codeVerificationIntent = Intent(this, CodeVerificationActivity::class.java)
+        codeVerificationIntent.putExtra(CodeVerificationActivity.KEY_SIGN_UP_TYPE, CodeVerificationType.NumberVerification)
         startActivity(codeVerificationIntent)
     }
 }

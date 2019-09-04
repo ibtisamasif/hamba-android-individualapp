@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <declare-styleable name="HambaFontAttributes">
         <attr name="fontType" format="enum">
             <enum name="Regular" value="0" />
@@ -7,4 +8,19 @@
             <enum name="Light" value="2" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="HambaLoginEditTextAttributes">
+        <attr name="android:hint" />
+        <attr name="android:gravity" />
+        <attr name="android:inputType" />
+        <attr name="android:maxLength" />
+        <attr name="android:drawableRight" />
+        <attr name="showCounter" format="boolean" />
+        <attr name="showRightDrawable" format="boolean" />
+        <attr name="editTextTheme" format="enum">
+            <enum name="White" value="0" />
+            <enum name="Green" value="1" />
+        </attr>
+    </declare-styleable>
+
 </resources>

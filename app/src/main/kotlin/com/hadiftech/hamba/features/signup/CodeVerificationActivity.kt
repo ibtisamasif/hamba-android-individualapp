@@ -5,26 +5,33 @@ import android.os.Bundle
 import android.view.View
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.features.signup.enums.CodeVerificationType
 import kotlinx.android.synthetic.main.activity_code_verification.*
 
 class CodeVerificationActivity : HambaBaseActivity() {
 
+    companion object {
+        @JvmStatic val KEY_SIGN_UP_TYPE = "SignUpType"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_code_verification)
 
-        setupScreenDisplay(CodeVerificationType.EmailAndNumberVerification)
+        var signUpType = intent.getSerializableExtra(KEY_SIGN_UP_TYPE) as CodeVerificationType
+        setupScreenDisplay(signUpType)
     }
 
     fun onVerifyCodeClicked(btnVerifyCode: View) {
-        // TODO: Do code verification
-        moveToHelloUserActivity()
+        moveToLoginActivity()
     }
 
-    private fun moveToHelloUserActivity() {
-        val helloUserIntent = Intent(this, HelloUserActivity::class.java)
-        startActivity(helloUserIntent)
+    private fun moveToLoginActivity() {
+        val loginIntent = Intent(this, LoginActivity::class.java)
+        loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(loginIntent)
+        finish()
     }
 
     private fun setupScreenDisplay(codeVerificationType: CodeVerificationType) {
