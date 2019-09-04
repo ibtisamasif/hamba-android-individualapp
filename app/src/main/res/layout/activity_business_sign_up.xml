@@ -124,6 +124,7 @@
             android:layout_height="@dimen/_35sdp"
             android:text="@string/sign_up"
             android:layout_marginHorizontal="@dimen/_55sdp"
+            android:onClick="onSignUpButtonClicked"
             app:fontType="Regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_password"/>
