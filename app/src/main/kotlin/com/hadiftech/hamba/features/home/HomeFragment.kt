@@ -8,22 +8,18 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.view.animation.TranslateAnimation
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.hadiftech.hamba.R
+import com.hadiftech.hamba.core.HambaBaseFragment
+import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : HambaBaseFragment() {
 
     private lateinit var homeViewModel: HomeViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
             ViewModelProviders.of(this).get(HomeViewModel::class.java)
@@ -33,23 +29,28 @@ class HomeFragment : Fragment() {
             textView.text = it
         })
 
-        val animation = AnimationDrawable()
-        animation.addFrame(resources.getDrawable(R.drawable.image_1), 2000)
-        animation.addFrame(resources.getDrawable(R.drawable.image_2), 2500)
-        animation.addFrame(resources.getDrawable(R.drawable.image_3), 3000)
-        animation.isOneShot = false
-        val tvBanner: ImageView = root.findViewById(R.id.tvBanner)
-        tvBanner.setBackgroundDrawable(animation)
-        animation.start()
+        bannerAnimation()
+        llHorizontalScroll.animation = topDealsAnimation()
 
+        return root
+    }
+
+    private fun bannerAnimation(){
+        val animation = AnimationDrawable()
+                animation.addFrame(resources.getDrawable(R.drawable.top_deals_image_1), 2000)
+        animation.addFrame(resources.getDrawable(R.drawable.top_deals_image_2), 2500)
+        animation.addFrame(resources.getDrawable(R.drawable.top_deals_image_3), 3000)
+        animation.isOneShot = false
+        ivBanner.setBackgroundDrawable(animation)
+        animation.start()
+    }
+
+    private fun topDealsAnimation() : Animation{
         val translateAnimation: Animation = TranslateAnimation(TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 1000f, TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 0f)
         translateAnimation.duration = 10000
         translateAnimation.repeatCount = -1
         translateAnimation.repeatMode = Animation.REVERSE
         translateAnimation.interpolator = LinearInterpolator()
-        val innerLay: LinearLayout = root.findViewById(R.id.innerLay)
-        innerLay.animation = translateAnimation
-
-        return root
+        return translateAnimation
     }
 }

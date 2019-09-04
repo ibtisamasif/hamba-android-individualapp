@@ -3,7 +3,6 @@ package com.hadiftech.hamba.features.dashboard
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -17,8 +16,8 @@ import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSelectedListener {
-    lateinit var toolbar: Toolbar
-    lateinit var drawerLayout: DrawerLayout
+
+    private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +27,7 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
         bottom_nav_view.setupWithNavController(findNavController(R.id.nav_host_fragment))
-        navigationView.setupWithNavController(findNavController(R.id.nav_host_fragment))
+        navigationDrawerView.setupWithNavController(findNavController(R.id.nav_host_fragment))
 
         drawerLayout = findViewById(R.id.drawer_layout)
         NavigationUI.setupActionBarWithNavController(
@@ -37,7 +36,7 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
             drawerLayout
         )
 
-        navigationView.setNavigationItemSelectedListener(this)
+        navigationDrawerView.setNavigationItemSelectedListener(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {
