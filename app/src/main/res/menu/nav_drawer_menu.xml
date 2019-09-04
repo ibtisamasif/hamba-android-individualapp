@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+                android:id="@+id/item_manage_profile"
+                android:icon="@drawable/ic_male_user"
+                android:title="@string/manage_profile" />
+
+        <item
+                android:id="@+id/item_discovery_rules"
+                android:icon="@drawable/ic_file"
+                android:title="@string/discovery_rules" />
+
+        <item
+                android:id="@+id/item_account_settings"
+                android:icon="@drawable/ic_settings_tool"
+                android:title="@string/account_settings" />
+
+        <item
+                android:id="@+id/item_manage_book_address"
+                android:icon="@drawable/ic_location"
+                android:title="@string/manage_book_address" />
+
+        <item
+                android:id="@+id/item_manage_payments"
+                android:icon="@drawable/ic_shopping_bag"
+                android:title="@string/manage_payments" />
+
+        <item
+                android:id="@+id/item_my_orders"
+                android:icon="@drawable/ic_shopping_bag"
+                android:title="@string/my_orders" />
+
+        <item
+                android:id="@+id/item_special_offers"
+                android:icon="@drawable/ic_gift_card"
+                android:title="@string/special_offers" />
+
+        <item
+                android:id="@+id/item_hamba_gold"
+                android:icon="@drawable/hamba_mango_logo"
+                android:title="@string/hamba_gold" />
+
+    </group>
+
+    <group android:checkableBehavior="none">
+
+        <item
+                android:id="@+id/item_sign_out"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/sign_out" />
+
+        <item
+                android:id="@+id/item_support"
+                android:icon="@drawable/ic_hours_support"
+                android:title="@string/support" />
+
+        <item
+                android:id="@+id/item_faqs"
+                android:icon="@drawable/ic_hours_support"
+                android:title="@string/faqs" />
+
+        <item
+                android:id="@+id/item_rate_us"
+                android:icon="@drawable/ic_star"
+                android:title="@string/rate_us" />
+
+    </group>
+
+</menu>
