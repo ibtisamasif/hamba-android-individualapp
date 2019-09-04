@@ -10,6 +10,8 @@
     <!-- Theme for activities with no ActionBar-->
     <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar" />
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="LoginFieldsStyle">
         <item name="android:background">@drawable/login_fields_bg</item>
         <item name="android:textColor">@color/colorWhite</item>
@@ -137,7 +139,7 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="navigationHeaderTitleTextStyle">
+    <style name="NavigationHeaderTitleTextStyle">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/_14sdp</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
@@ -145,19 +147,10 @@
         <item name="android:gravity">start</item>
     </style>
 
-    <style name="navigationItemsTextStyle">
+    <style name="NavigationItemsTextStyle">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/_12sdp</item>
-        <item name="android:fontFamily">@font/co_headline_w01_light_xml</item>
+        <item name="android:fontFamily">@font/co_headline_w01_light_font</item>
     </style>
-
-    <style name="NoActionBarDark" parent="AppTheme">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

@@ -44,6 +44,7 @@
     <string name="login_with_new_password">Login with new password</string>
     <string name="login">Login</string>
 
+    <!--Dashboard Screen Content-->
     <string name="title_home">Home</string>
     <string name="nav_header_title">Steven Clarkson</string>
     <string name="nav_header_subtitle">Barista Coffee</string>

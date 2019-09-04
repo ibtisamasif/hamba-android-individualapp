@@ -23,16 +23,20 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
+
         bottom_nav_view.setupWithNavController(findNavController(R.id.nav_host_fragment))
         navigationView.setupWithNavController(findNavController(R.id.nav_host_fragment))
+
         drawerLayout = findViewById(R.id.drawer_layout)
         NavigationUI.setupActionBarWithNavController(
             this,
             findNavController(R.id.nav_host_fragment),
             drawerLayout
         )
+
         navigationView.setNavigationItemSelectedListener(this)
     }
 
@@ -50,8 +54,10 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
+
         menuItem.isChecked = true
         drawerLayout.closeDrawers()
+
         when (menuItem.itemId) {
             R.id.item_manage_profile -> {
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()

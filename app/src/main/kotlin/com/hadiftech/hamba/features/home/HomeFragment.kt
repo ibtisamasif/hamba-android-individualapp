@@ -40,7 +40,6 @@ class HomeFragment : Fragment() {
         animation.isOneShot = false
         val tvBanner: ImageView = root.findViewById(R.id.tvBanner)
         tvBanner.setBackgroundDrawable(animation)
-        // start the animation!
         animation.start()
 
         val translateAnimation: Animation = TranslateAnimation(TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 1000f, TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 0f)

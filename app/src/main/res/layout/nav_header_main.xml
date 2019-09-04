@@ -22,9 +22,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_user_white" />
 
-
     <com.hadiftech.hamba.core.views.HambaTextView
-            style="@style/navigationHeaderTitleTextStyle"
+            style="@style/NavigationHeaderTitleTextStyle"
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

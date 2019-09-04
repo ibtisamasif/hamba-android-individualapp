@@ -23,7 +23,7 @@
             app:headerLayout="@layout/nav_header_main"
             app:itemBackground="@drawable/navigation_drawer_item_background"
             app:itemIconTint="@color/colorWhite"
-            app:itemTextAppearance="@style/navigationItemsTextStyle"
+            app:itemTextAppearance="@style/NavigationItemsTextStyle"
             app:itemTextColor="@color/colorWhite"
             app:menu="@menu/nav_drawer_menu" />
 
