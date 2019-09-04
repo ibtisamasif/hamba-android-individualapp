@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/login_module_background"
@@ -16,31 +15,31 @@
             android:src="@drawable/hamba_logo_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     <com.hadiftech.hamba.core.views.HambaTextView
             android:id="@+id/textView_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
             android:text="@string/welcome_to_hamba"
-            android:textSize="@dimen/_20sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_18sdp"
             app:fontType="Regular"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView_hambaLogo" />
 
     <com.hadiftech.hamba.core.views.HambaTextView
             android:id="@+id/textView_joinUs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorWhite"
-            android:text="@string/join_us_as"
-            android:textSize="@dimen/_18sdp"
             android:layout_marginTop="@dimen/_30sdp"
+            android:text="@string/join_us_as"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_16sdp"
             app:fontType="Regular"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView_welcome" />
 
     <View
@@ -49,34 +48,63 @@
             android:layout_height="@dimen/_150sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@color/colorGreenDark"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView_joinUs" />
 
-    <ImageView
+    <LinearLayout
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_90sdp"
-            android:src="@drawable/type_business"
             android:layout_marginRight="@dimen/_15sdp"
             android:background="@drawable/signup_type_button_bg"
-            android:paddingBottom="@dimen/_10sdp"
-            android:paddingHorizontal="@dimen/_15sdp"
+            android:gravity="center"
             android:onClick="onBusinessSignupClicked"
-            app:layout_constraintTop_toTopOf="@+id/view_separator"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/view_separator"
-            app:layout_constraintEnd_toStartOf="@+id/view_separator" />
+            app:layout_constraintEnd_toStartOf="@+id/view_separator"
+            app:layout_constraintTop_toTopOf="@+id/view_separator">
 
-    <ImageView
+        <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/type_business" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/employee"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_13sdp"
+                app:fontType="Regular" />
+
+    </LinearLayout>
+
+    <LinearLayout
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_90sdp"
-            android:src="@drawable/type_individual"
             android:layout_marginLeft="@dimen/_15sdp"
             android:background="@drawable/signup_type_button_bg"
-            android:paddingHorizontal="@dimen/_9sdp"
+            android:gravity="center"
             android:onClick="onIndividualSignupClicked"
-            app:layout_constraintTop_toTopOf="@+id/view_separator"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/view_separator"
-            app:layout_constraintStart_toEndOf="@+id/view_separator" />
+            app:layout_constraintStart_toEndOf="@+id/view_separator"
+            app:layout_constraintTop_toTopOf="@+id/view_separator">
 
+        <ImageView
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="@dimen/_48sdp"
+                android:src="@drawable/type_individual" />
+
+        <com.hadiftech.hamba.core.views.HambaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:text="@string/individual"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_13sdp"
+                app:fontType="Regular" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

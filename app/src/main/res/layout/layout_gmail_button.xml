@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="horizontal"
         android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="@dimen/_33sdp"
         android:gravity="center_vertical"
         android:paddingHorizontal="@dimen/_15sdp"
         android:background="@drawable/gmail_button_bg">

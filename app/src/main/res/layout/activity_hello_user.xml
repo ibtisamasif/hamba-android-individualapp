@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="@dimen/_20sdp"
-        android:background="@drawable/hello_screen_bg"
+        android:background="@color/colorWhite"
         tools:context=".features.signup.HelloUserActivity">
 
     <ImageView
@@ -25,6 +25,7 @@
             android:layout_height="@dimen/_65sdp"
             android:scaleType="fitEnd"
             android:layout_marginBottom="@dimen/_15sdp"
+            android:visibility="invisible"
             android:src="@drawable/hello_bubble_image"
             app:layout_constraintEnd_toStartOf="@+id/imageView_robot"
             app:layout_constraintBottom_toTopOf="@+id/textView_what"/>
@@ -36,6 +37,7 @@
             android:layout_height="wrap_content"
             android:text="@string/what"
             android:layout_marginRight="@dimen/_8sdp"
+            android:visibility="invisible"
             app:fontType="Regular"
             app:layout_constraintEnd_toStartOf="@+id/imageView_robot"
             app:layout_constraintBottom_toTopOf="@+id/textView_IsYourName"/>
@@ -48,6 +50,7 @@
             android:text="@string/is_your_good_name"
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_marginRight="@dimen/_8sdp"
+            android:visibility="invisible"
             app:fontType="Regular"
             app:layout_constraintEnd_toStartOf="@+id/imageView_robot"
             app:layout_constraintBottom_toTopOf="@+id/editText_userName"/>
@@ -60,6 +63,7 @@
             android:inputType="textCapWords"
             android:gravity="center"
             android:maxLength="12"
+            android:visibility="invisible"
             app:fontType="Light"
             app:showCounter="true"
             app:editTextTheme="Green"
@@ -70,10 +74,12 @@
 
     <com.hadiftech.hamba.core.views.HambaButton
             style="@style/ForgetPasswordButtonStyle"
+            android:id="@+id/button_enter"
             android:layout_width="@dimen/_130sdp"
             android:layout_height="@dimen/_32sdp"
             android:text="@string/enter"
             android:layout_marginTop="@dimen/_40sdp"
+            android:visibility="invisible"
             app:fontType="Regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

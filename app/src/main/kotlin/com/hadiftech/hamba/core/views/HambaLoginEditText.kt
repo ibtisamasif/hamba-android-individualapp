@@ -49,7 +49,7 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
         editText_loginFields.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
 
         val themeType = typedArray.getInteger(R.styleable.HambaLoginEditTextAttributes_editTextTheme, 0)
-        when(themeType){
+        when (themeType) {
             0 -> setThemeWhite(context)
             1 -> setThemeGreen(context)
         }
@@ -69,8 +69,8 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
         imageView_rightDrawable.setImageResource(resourceId)
     }
 
-    private fun showRightViewContainer(drawableVisibility: Boolean, counterVisibility: Boolean){
-        if (drawableVisibility || counterVisibility){
+    private fun showRightViewContainer(drawableVisibility: Boolean, counterVisibility: Boolean) {
+        if (drawableVisibility || counterVisibility) {
             relativeLayout_rightViewContainer.visibility = View.VISIBLE
         } else {
             relativeLayout_rightViewContainer.visibility = View.GONE
@@ -78,8 +78,11 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
     }
 
     private fun showRightDrawable(visibility: Boolean) {
-        if (visibility) { imageView_rightDrawable.visibility = View.VISIBLE }
-        else { imageView_rightDrawable.visibility = View.GONE }
+        if (visibility) {
+            imageView_rightDrawable.visibility = View.VISIBLE
+        } else {
+            imageView_rightDrawable.visibility = View.GONE
+        }
     }
 
     private fun showCounter(visibility: Boolean) {
@@ -106,9 +109,12 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
         loginField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_white_bg)
     }
 
-    private fun setTextChangedListener(){
+    fun setTextChangedListener(textChangeListener: TextWatcher) {
+        editText_loginFields.addTextChangedListener(textChangeListener)
+    }
 
-        editText_loginFields.addTextChangedListener(object : TextWatcher {
+    private fun setTextChangedListener() {
+        setTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
 
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
