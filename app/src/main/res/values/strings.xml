@@ -43,4 +43,47 @@
     <string name="your_password_has_reset">Your Password has reset successfully!</string>
     <string name="login_with_new_password">Login with new password</string>
     <string name="login">Login</string>
+
+    <!--Dashboard Screen Content-->
+    <string name="title_home">Home</string>
+    <string name="nav_header_title">Steven Clarkson</string>
+    <string name="nav_header_subtitle">Barista Coffee</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_order">Order</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_search">Search</string>
+    <string name="title_favourite">Favourite</string>
+    <string name="current_location">Current Location</string>
+    <string name="community">Community</string>
+    <string name="discoveries">Discoveries</string>
+    <string name="stores">Stores</string>
+    <string name="wholesale">Wholesale</string>
+    <string name="shops_in_mall">Shops in Mall</string>
+    <string name="my_orders">My Orders</string>
+    <string name="services">Services</string>
+    <string name="professional">Professional</string>
+    <string name="my_work">My Work</string>
+    <string name="nearby_shops">Nearby Shops</string>
+    <string name="offers">Offers</string>
+    <string name="wallet">Wallet</string>
+    <string name="my_badges">My Badges</string>
+    <string name="talk_to_eve">Talk To Eve</string>
+    <string name="partners">Partners</string>
+    <string name="complaints">Complaints</string>
+    <string name="_100_complete">100% Complete</string>
+    <string name="home_screen_banner">home screen banner</string>
+    <string name="top_deals_offers">Top Deals/Offers</string>
+    <string name="manage_profile">Manage Profile</string>
+    <string name="discovery_rules">Discovery Rules</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="manage_book_address">Manage Book Address</string>
+    <string name="special_offers">Special Offers</string>
+    <string name="create_edit_store">Create / Edit Store</string>
+    <string name="hamba_gold">Hamba Gold</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="support">Support</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="manage_payments">Manage Payments</string>
+    <string name="faqs">FAQ\'s</string>
 </resources>
