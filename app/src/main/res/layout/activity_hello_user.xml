@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="@dimen/_20sdp"
-        android:background="@color/colorWhite"
+        android:background="@drawable/hello_screen_bg"
         tools:context=".features.signup.HelloUserActivity">
 
     <ImageView
@@ -16,6 +16,7 @@
             android:src="@drawable/robot_image"
             android:layout_marginRight="@dimen/_9sdp"
             android:scaleType="fitEnd"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/editText_userName"
             app:layout_constraintBottom_toTopOf="@+id/editText_userName"/>
 

@@ -20,7 +20,7 @@ class SplashActivity : HambaBaseActivity() {
         mDelayHandler!!.postDelayed(mRunnable, SPLASH_DELAY)
     }
 
-    internal val mRunnable: Runnable = Runnable {
+    private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
             moveToLoginActivity()
         }

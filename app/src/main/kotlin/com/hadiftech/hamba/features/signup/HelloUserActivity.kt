@@ -1,6 +1,7 @@
 package com.hadiftech.hamba.features.signup
 
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -12,6 +13,9 @@ import kotlinx.android.synthetic.main.activity_hello_user.*
 
 class HelloUserActivity : HambaBaseActivity() {
 
+    private var mDelayHandler: Handler? = null
+    private val ANIMATIONS_DELAY: Long = 400
+
     private lateinit var robotAnimation: Animation
     private lateinit var userNameAnimation: Animation
     private lateinit var helloBubbleAnimation: Animation
@@ -22,8 +26,27 @@ class HelloUserActivity : HambaBaseActivity() {
         setContentView(R.layout.activity_hello_user)
 
         loadAnimations()
-        startRobotAnimations()
         setUserNameTextChangedListener()
+        startAnimationsWithDelay()
+    }
+
+    private fun startAnimationsWithDelay() {
+        mDelayHandler = Handler()
+        mDelayHandler!!.postDelayed(mRunnable, ANIMATIONS_DELAY)
+    }
+
+    private val mRunnable: Runnable = Runnable {
+        if (!isFinishing) {
+            startRobotAnimations()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        if (mDelayHandler != null) {
+            mDelayHandler!!.removeCallbacks(mRunnable)
+        }
     }
 
     private fun loadAnimations(){
@@ -52,6 +75,7 @@ class HelloUserActivity : HambaBaseActivity() {
     }
 
     private fun startRobotAnimations(){
+        imageView_robot.visibility = View.VISIBLE
         imageView_robot.startAnimation(robotAnimation)
     }
 
