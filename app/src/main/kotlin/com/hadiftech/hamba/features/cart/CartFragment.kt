@@ -14,15 +14,16 @@ class CartFragment : HambaBaseFragment() {
 
     private lateinit var cartViewModel: CartViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        cartViewModel =
-            ViewModelProviders.of(this).get(CartViewModel::class.java)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        cartViewModel = ViewModelProviders.of(this).get(CartViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_cart, container, false)
         val textView: TextView = root.findViewById(R.id.text_notifications)
+
         cartViewModel.text.observe(this, Observer {
             textView.text = it
         })
+
         return root
     }
 }
