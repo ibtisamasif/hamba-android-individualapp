@@ -17,7 +17,7 @@ class LoginActivity : HambaBaseActivity() {
         setContentView(R.layout.activity_login)
     }
 
-    fun onSignInButtonClicked(signInTextView: View) {
+    fun onSignInButtonClicked(signInButton: View) {
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
         startActivity(dashboardIntent)
         finish()
