@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/edit_profile_background"
+        android:paddingHorizontal="@dimen/_15sdp"
+        tools:context=".features.signup.BusinessSignUpActivity">
+
+    <LinearLayout
+            android:id="@+id/linearLayout_userName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_33sdp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            tools:layout_editor_absoluteX="19dp"
+            tools:layout_editor_absoluteY="93dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView_personType2">
+
+        <com.hadiftech.hamba.core.views.HambaLoginEditText
+                android:id="@+id/editText_prefix"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.45"
+                android:hint="Prefix"
+                android:inputType="textCapWords"
+                app:editTextTheme="Green"
+                app:fontType="Light" />
+
+        <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1" />
+
+        <com.hadiftech.hamba.core.views.HambaLoginEditText
+                android:id="@+id/editText_lastName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.45"
+                android:hint="@string/first_name"
+                android:inputType="textCapWords"
+                app:editTextTheme="Green"
+                app:fontType="Light" />
+
+    </LinearLayout>
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_personType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:inputType="textCapWords"
+            android:text="Person Type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_personType2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:inputType="textCapWords"
+            android:text="Person Type"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="144dp" />
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_personType5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:inputType="textCapWords"
+            android:text="Person Type"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="287dp" />
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_personType3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:text="Person Type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_personType2"
+            tools:layout_editor_absoluteY="144dp" />
+
+    <Spinner
+            android:id="@+id/editText_preSharedKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/help_icon"
+            android:hint="@string/pre_shared_key"
+            app:layout_constraintTop_toBottomOf="@+id/textView_personType"
+            app:showRightDrawable="true"
+            tools:layout_editor_absoluteX="19dp" />
+
+    <LinearLayout
+            android:id="@+id/linearLayout_userName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_33sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintTop_toBottomOf="@+id/editText_preSharedKey">
+
+        <com.hadiftech.hamba.core.views.HambaLoginEditText
+                android:id="@+id/editText_prefix"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.45"
+                android:hint="Prefix"
+                android:inputType="textCapWords"
+                app:editTextTheme="Green"
+                app:fontType="Light" />
+
+        <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1" />
+
+        <com.hadiftech.hamba.core.views.HambaLoginEditText
+                android:id="@+id/editText_lastName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.45"
+                android:hint="@string/first_name"
+                android:inputType="textCapWords"
+                app:editTextTheme="Green"
+                app:fontType="Light" />
+
+    </LinearLayout>
+
+    <!--    <com.hadiftech.hamba.core.views.HambaLoginEditText-->
+    <!--            android:id="@+id/editText_businessName"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="@dimen/_7sdp"-->
+    <!--            app:fontType="Light"-->
+    <!--            app:editTextTheme="Green"-->
+    <!--            android:hint="@string/business_name"-->
+    <!--            android:inputType="textCapWords"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/linearLayout_userName" />-->
+
+    <com.hadiftech.hamba.core.views.HambaButton
+            style="@style/LoginButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginHorizontal="@dimen/_55sdp"
+            android:layout_marginBottom="32dp"
+            android:text="Save"
+            app:fontType="Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="91dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
