@@ -5,6 +5,7 @@
         android:layout_height="@dimen/_33sdp"
         android:background="@drawable/login_fields_white_bg"
         android:gravity="center_vertical"
+        android:id="@+id/profilePhoneField_Container"
         android:orientation="horizontal"
         android:paddingLeft="@dimen/_10sdp"
         android:paddingRight="@dimen/_10sdp">

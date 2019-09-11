@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.AttrRes
+import androidx.core.content.ContextCompat
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Fonts
 import com.rilixtech.widget.countrycodepicker.CountryCodePicker
+import kotlinx.android.synthetic.main.layout_account_number_view.view.*
 
 class HambaMobileNumberComponent : LinearLayout {
 
@@ -17,19 +19,17 @@ class HambaMobileNumberComponent : LinearLayout {
     lateinit var mPhoneNumberEditText: HambaEditText
     lateinit var mCountryCodePicker: CountryCodePicker
 
-    constructor(context: Context) : super(context) {
-        initialize(context)
-    }
+    constructor(context: Context) : super(context) {}
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        initialize(context)
+        initialize(context, attrs)
     }
 
     constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        initialize(context)
+        initialize(context, attrs)
     }
 
-    private fun initialize(context: Context) {
+    private fun initialize(context: Context, attrs: AttributeSet?) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         mView = inflater.inflate(R.layout.layout_account_number_view, this)
 
@@ -37,6 +37,27 @@ class HambaMobileNumberComponent : LinearLayout {
         mPhoneNumberEditText = mView.findViewById(R.id.editText_phoneNumber)
 
         mCountryCodePicker.setTypeFace(Typeface.createFromAsset(context.assets, Fonts.CO_HEADLINE_W01_LIGHT));
+
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.HambaLoginEditTextAttributes, 0, 0)
+        val themeType = typedArray.getInteger(R.styleable.HambaLoginEditTextAttributes_editTextTheme, 0)
+        when (themeType) {
+            0 -> setThemeWhite(context)
+            1 -> setThemeGreen(context)
+        }
+    }
+
+    private fun setThemeGreen(context: Context) {
+        mCountryCodePicker.textColor = ContextCompat.getColor(context, R.color.colorGreenLight)
+        mPhoneNumberEditText.setTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
+        mPhoneNumberEditText.setHintTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
+        profilePhoneField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_green_bg)
+    }
+
+    private fun setThemeWhite(context: Context) {
+        mCountryCodePicker.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
+        mPhoneNumberEditText.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
+        mPhoneNumberEditText.setHintTextColor(ContextCompat.getColor(context, R.color.colorWhite))
+        profilePhoneField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_white_bg)
     }
 
     fun getPhoneNumberWithPrefix() : String {

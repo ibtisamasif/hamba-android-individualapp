@@ -198,4 +198,8 @@
         <item name="android:textColor">@color/colorGreenMedium</item>
     </style>
 
+    <style name="ProfileScreenSwitchStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
 </resources>
