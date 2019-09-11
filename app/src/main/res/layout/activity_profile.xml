@@ -629,10 +629,11 @@
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_marginTop="32dp"
-                android:layout_marginBottom="64dp"
+                android:layout_marginBottom="24dp"
                 android:onClick="onSaveButtonClicked"
                 android:text="@string/save"
                 app:fontType="Light"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/swOthersCanSeeMyAge" />

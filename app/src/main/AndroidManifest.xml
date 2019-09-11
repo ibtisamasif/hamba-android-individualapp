@@ -61,14 +61,14 @@
                 android:name=".features.signup.BusinessSignUpActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/NoActionBar"
-                android:windowSoftInputMode="stateHidden"/>
+                android:windowSoftInputMode="stateHidden" />
         <activity
                 android:name=".features.dashboard.DashboardActivity"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".features.profile.ProfileActivity"
-                android:screenOrientation="portrait">
-        </activity>
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>
