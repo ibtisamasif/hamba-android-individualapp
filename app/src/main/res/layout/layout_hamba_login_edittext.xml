@@ -8,17 +8,28 @@
         android:paddingLeft="@dimen/_10sdp"
         android:paddingRight="@dimen/_10sdp">
 
-    <com.hadiftech.hamba.core.views.HambaEditText
-            android:id="@+id/editText_loginFields"
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayout_loginField"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/relativeLayout_rightViewContainer"
-            android:background="@null"
-            android:textColor="@color/colorWhite"
-            android:textColorHint="@color/colorWhite"
-            android:textSize="@dimen/_14sdp"
-            app:fontType="Light" />
+            app:hintEnabled="false"
+            app:errorTextAppearance="@style/ErrorTextAppearance" >
+
+        <com.hadiftech.hamba.core.views.HambaEditText
+                android:id="@+id/editText_loginField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="@dimen/_14sdp"
+                app:fontType="Light" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <RelativeLayout
             android:id="@+id/relativeLayout_rightViewContainer"
@@ -44,8 +55,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:scaleType="fitCenter"
-                android:visibility="gone"
-                android:src="@drawable/help_icon"/>
+                android:src="@drawable/help_icon"
+                android:visibility="gone" />
 
     </RelativeLayout>
 

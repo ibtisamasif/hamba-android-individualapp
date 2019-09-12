@@ -114,4 +114,7 @@
     <string name="sorry_something_went_wrong">Sorry something went wrong!</string>
     <string name="no_network_available">No Network Available</string>
     <string name="password_incorrect">Your cell number or password is incorrect.</string>
+    <string name="please_enter_valid_cell_number">Please Enter Valid Cell Number</string>
+    <string name="please_enter_password">Please Enter Password</string>
+    <string name="session_not_available">Session Not Available</string>
 </resources>
