@@ -57,6 +57,10 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
         typedArray.recycle()
     }
 
+    fun getText() : String {
+        return editText_loginFields.text.toString()
+    }
+
     fun setHint(hint: String) {
         editText_loginFields.hint = hint
     }

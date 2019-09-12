@@ -2,7 +2,7 @@ package com.hadiftech.hamba.core
 
 import android.util.Log
 
-class HambaLogger {
+object HambaLogger {
 
     private val TAG = Constants.LOGGER_TAG
     private val Logs_Enabled = true
