@@ -107,4 +107,11 @@
     <string name="rate_us">Rate Us</string>
     <string name="manage_payments">Manage Payments</string>
     <string name="faqs">FAQ\'s</string>
+
+    <!--API Module Content-->
+    <string name="error">Error</string>
+    <string name="alert">Alert</string>
+    <string name="sorry_something_went_wrong">Sorry something went wrong!</string>
+    <string name="no_network_available">No Network Available</string>
+    <string name="password_incorrect">Your cell number or password is incorrect.</string>
 </resources>
