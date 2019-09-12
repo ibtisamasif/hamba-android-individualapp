@@ -20,11 +20,11 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
     <com.hadiftech.hamba.core.views.HambaLoginEditText
-            android:id="@+id/editText_email"
+            android:id="@+id/editText_emailOrNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email_hint"
-            android:inputType="textEmailAddress"
+            android:inputType="phone"
             android:gravity="center"
             android:layout_marginTop="@dimen/_40sdp"
             android:layout_marginHorizontal="@dimen/_25sdp"
@@ -41,7 +41,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginHorizontal="@dimen/_25sdp"
             app:fontType="Light"
-            app:layout_constraintTop_toBottomOf="@+id/editText_email" />
+            app:layout_constraintTop_toBottomOf="@+id/editText_emailOrNumber" />
 
     <com.hadiftech.hamba.core.views.HambaButton
             style="@style/LoginButtonStyle"
