@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.layout_hamba_login_edittext.view.*
 import android.text.InputFilter
 import android.text.TextWatcher
 
-
 class HambaLoginEditText : RelativeLayout, TypefaceProvider {
 
     constructor(context: Context) : super(context) {}
@@ -40,13 +39,13 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
         showCounter(counterVisibility)
 
         imageView_rightDrawable.setImageResource(typedArray.getResourceId(R.styleable.HambaLoginEditTextAttributes_android_drawableRight, R.drawable.help_icon))
-        editText_loginFields.inputType = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_inputType, InputType.TYPE_CLASS_TEXT)
-        editText_loginFields.gravity = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_gravity, Gravity.CENTER_VERTICAL)
-        editText_loginFields.hint = typedArray.getString(R.styleable.HambaLoginEditTextAttributes_android_hint)
-        editText_loginFields.typeface = getTypefaceFromXml(context, attrs)
+        editText_loginField.inputType = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_inputType, InputType.TYPE_CLASS_TEXT)
+        editText_loginField.gravity = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_gravity, Gravity.CENTER_VERTICAL)
+        editText_loginField.hint = typedArray.getString(R.styleable.HambaLoginEditTextAttributes_android_hint)
+        editText_loginField.typeface = getTypefaceFromXml(context, attrs)
 
         val maxLength = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_maxLength, 40)
-        editText_loginFields.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
+        editText_loginField.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
 
         val themeType = typedArray.getInteger(R.styleable.HambaLoginEditTextAttributes_editTextTheme, 0)
         when (themeType) {
@@ -54,19 +53,24 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
             1 -> setThemeGreen(context)
         }
 
+        setTextChangedListener()
         typedArray.recycle()
     }
 
+    fun setError(error: String) {
+        inputLayout_loginField.error = error
+    }
+
     fun getText() : String {
-        return editText_loginFields.text.toString()
+        return editText_loginField.text.toString()
     }
 
     fun setHint(hint: String) {
-        editText_loginFields.hint = hint
+        editText_loginField.hint = hint
     }
 
     fun setInputType(inputType: Int) {
-        editText_loginFields.inputType = inputType
+        editText_loginField.inputType = inputType
     }
 
     fun setRightDrawable(resourceId: Int) {
@@ -93,7 +97,6 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
         if (visibility) {
             textView_Counter.text = context.resources.getString(R.string.counter_text, 0)
             textView_Counter.visibility = View.VISIBLE
-            setTextChangedListener()
         } else {
             textView_Counter.visibility = View.GONE
         }
@@ -101,20 +104,20 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
 
     private fun setThemeGreen(context: Context) {
         textView_Counter.setTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
-        editText_loginFields.setTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
-        editText_loginFields.setHintTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
+        editText_loginField.setTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
+        editText_loginField.setHintTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
         loginField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_green_bg)
     }
 
     private fun setThemeWhite(context: Context) {
         textView_Counter.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
-        editText_loginFields.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
-        editText_loginFields.setHintTextColor(ContextCompat.getColor(context, R.color.colorWhite))
+        editText_loginField.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
+        editText_loginField.setHintTextColor(ContextCompat.getColor(context, R.color.colorWhite))
         loginField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_white_bg)
     }
 
     fun setTextChangedListener(textChangeListener: TextWatcher) {
-        editText_loginFields.addTextChangedListener(textChangeListener)
+        editText_loginField.addTextChangedListener(textChangeListener)
     }
 
     private fun setTextChangedListener() {
@@ -124,6 +127,7 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                inputLayout_loginField.isErrorEnabled = false
                 textView_Counter.text = context.resources.getString(R.string.counter_text, s.length)
             }
         })

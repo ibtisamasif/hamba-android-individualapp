@@ -86,14 +86,12 @@ class LoginActivity : HambaBaseActivity() {
     private fun checkValidations() : Boolean {
 
         if (editText_emailOrNumber.getText().length < 10) {
-            //ToDo: Replace Toast with proper validation UI display
-            Toast.makeText(this, "Please Enter Valid Cell Number", Toast.LENGTH_LONG).show()
+            editText_emailOrNumber.setError(getString(R.string.please_enter_valid_cell_number))
             return false
         }
 
         if (editText_password.getText().isEmpty()) {
-            //ToDo: Replace Toast with proper validation UI display
-            Toast.makeText(this, "Please Enter Password", Toast.LENGTH_LONG).show()
+            editText_password.setError(getString(R.string.please_enter_password))
             return false
         }
 
