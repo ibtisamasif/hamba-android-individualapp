@@ -31,7 +31,7 @@
                 android:id="@+id/spinner_personType"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_height="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
