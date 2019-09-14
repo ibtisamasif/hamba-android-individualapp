@@ -537,29 +537,27 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingInterest" />
 
 
-        <TextView
+        <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingPushNotifications"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/push_notifications"
                 android:textSize="@dimen/_8sdp"
                 app:layout_constraintEnd_toStartOf="@+id/tvHeadingShowMyMobileNumber"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingShowMyMobileNumber" />
 
-        <TextView
+        <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingShowMyMobileNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/show_my_mobile_number"
                 android:textSize="@dimen/_8sdp"
                 app:layout_constraintEnd_toStartOf="@+id/tvHeadingOthersCanSeeMyAge"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/tvHeadingPushNotifications"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingOthersCanSeeMyAge" />
 
-        <TextView
+        <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingOthersCanSeeMyAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -567,7 +565,6 @@
                 android:text="@string/others_can_see_my_age"
                 android:textSize="@dimen/_8sdp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/tvHeadingShowMyMobileNumber"
                 app:layout_constraintTop_toBottomOf="@+id/spInterest" />
 
