@@ -147,4 +147,5 @@
     <string name="show_my_mobile_number">Show my mobile number</string>
     <string name="others_can_see_my_age">Others can see my age</string>
     <string name="save">Save</string>
+    <string name="address_type">Address Type</string>
 </resources>

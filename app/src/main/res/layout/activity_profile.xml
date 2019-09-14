@@ -19,11 +19,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/person_type"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/service_provider"
                 app:editTextTheme="White"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingPersonType" />
@@ -48,11 +48,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/prefix"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/spinner_prefix"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_personType" />
 
@@ -61,10 +61,10 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
                 android:text="@string/first_name"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/editText_firstName"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingPrefix" />
 
@@ -78,7 +78,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toStartOf="@+id/editText_firstName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingPrefix" />
@@ -95,7 +95,7 @@
                 android:inputType="textCapWords"
                 android:nextFocusForward="@+id/editText_middleName"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/spinner_prefix"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingFirstName" />
@@ -105,11 +105,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/middle_name"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/editText_middleName"
                 app:layout_constraintTop_toBottomOf="@+id/editText_firstName" />
 
@@ -118,10 +118,10 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
                 android:text="@string/last_name"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/editText_lastName"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingMiddleName" />
 
@@ -137,7 +137,7 @@
                 android:inputType="textCapWords"
                 android:nextFocusForward="@+id/editText_lastName"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toStartOf="@+id/editText_lastName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingMiddleName" />
@@ -152,7 +152,7 @@
                 android:layout_marginRight="@dimen/_4sdp"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editText_middleName"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingLastName" />
@@ -162,11 +162,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/date_of_birth"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/editText_lastName"
                 app:layout_constraintTop_toBottomOf="@+id/editText_lastName" />
 
@@ -175,10 +175,10 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
                 android:text="@string/i_am"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/editText_iAm"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingIAm" />
 
@@ -194,11 +194,11 @@
                 android:hint="@string/female"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
-                app:fontType="Light"
-                app:showRightDrawable="true"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toStartOf="@+id/editText_dateOfBirth"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvHeadingIAm" />
+                app:layout_constraintTop_toBottomOf="@+id/tvHeadingIAm"
+                app:showRightDrawable="true" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
                 android:id="@+id/editText_dateOfBirth"
@@ -211,7 +211,7 @@
                 android:drawableRight="@drawable/ic_calendar_green"
                 android:hint="@string/aug_24_2019"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editText_iAm"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingDateOfBirth"
@@ -222,11 +222,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/nationality"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/editText_iAm"
                 app:layout_constraintTop_toBottomOf="@+id/editText_dateOfBirth" />
 
@@ -241,7 +241,7 @@
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_nationality"
                 app:editTextTheme="White"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingNationality" />
@@ -251,11 +251,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/identity"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/editText_iAm"
                 app:layout_constraintTop_toBottomOf="@+id/spinnerNationality" />
 
@@ -270,7 +270,7 @@
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/national_id"
                 app:editTextTheme="White"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingIdentity" />
@@ -284,7 +284,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_identity" />
@@ -294,11 +294,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/email"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText_identityValue" />
 
@@ -313,7 +313,7 @@
                 android:hint="@string/abcd_abc_com"
                 android:inputType="textEmailAddress"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingEmail" />
@@ -323,11 +323,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/phone"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText_email" />
 
@@ -341,7 +341,7 @@
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/type_phone_number"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingPhone" />
@@ -351,11 +351,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/country"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText_phone" />
 
@@ -370,7 +370,7 @@
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_country"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingCountry" />
@@ -380,12 +380,12 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/city"
-                app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/spinner_country"
+                app:fontType="Regular"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_country" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
@@ -393,10 +393,10 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
                 android:text="@string/zip_code"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/editText_zipCode"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingCity" />
 
@@ -412,11 +412,11 @@
                 android:hint="@string/city"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
-                app:fontType="Light"
-                app:showRightDrawable="true"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toStartOf="@+id/editText_zipCode"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvHeadingCity" />
+                app:layout_constraintTop_toBottomOf="@+id/tvHeadingCity"
+                app:showRightDrawable="true" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
                 android:id="@+id/editText_zipCode"
@@ -430,7 +430,7 @@
                 android:hint="@string/zip_code"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editTextCity"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingZipCode" />
@@ -440,11 +440,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:text="@string/select_address_type"
-                app:fontType="Light"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:text="@string/address_type"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/spinner_addressType"
                 app:layout_constraintTop_toBottomOf="@+id/editText_zipCode" />
 
@@ -459,7 +459,7 @@
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_address_type"
                 app:editTextTheme="White"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingAddressType" />
@@ -476,7 +476,7 @@
                 android:hint="@string/enter_address"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_addressType" />
@@ -486,11 +486,11 @@
                 style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/interests"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="@+id/editText_iAm"
                 app:layout_constraintTop_toBottomOf="@+id/editText_address" />
 
@@ -505,7 +505,7 @@
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_interest"
                 app:editTextTheme="White"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingInterest" />
@@ -516,6 +516,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/push_notifications"
                 android:textSize="@dimen/_8sdp"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toStartOf="@+id/tvHeadingShowMyMobileNumber"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -527,6 +528,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/show_my_mobile_number"
                 android:textSize="@dimen/_8sdp"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toStartOf="@+id/tvHeadingOthersCanSeeMyAge"
                 app:layout_constraintStart_toEndOf="@+id/tvHeadingPushNotifications"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingOthersCanSeeMyAge" />
@@ -538,6 +540,7 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:text="@string/others_can_see_my_age"
                 android:textSize="@dimen/_8sdp"
+                app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvHeadingShowMyMobileNumber"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_interest" />
@@ -584,7 +587,7 @@
                 android:layout_marginBottom="24dp"
                 android:onClick="onSaveButtonClicked"
                 android:text="@string/save"
-                app:fontType="Light"
+                app:fontType="Regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
