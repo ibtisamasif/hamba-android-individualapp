@@ -22,7 +22,6 @@
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:inputType="textCapWords"
                 android:text="@string/person_type"
                 app:fontType="Light"
                 app:layout_constraintStart_toStartOf="parent"

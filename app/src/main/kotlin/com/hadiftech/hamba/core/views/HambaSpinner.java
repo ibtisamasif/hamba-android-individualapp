@@ -6,7 +6,7 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.ArrayRes;
 import androidx.appcompat.widget.AppCompatSpinner;
 import com.hadiftech.hamba.R;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class HambaSpinner extends AppCompatSpinner {
@@ -17,12 +17,6 @@ public class HambaSpinner extends AppCompatSpinner {
 
     public HambaSpinner(Context context, AttributeSet attrs) {
         super(context, attrs);
-    }
-
-    public void populate(Context context, int layout, String item) {
-        List<String> list = new ArrayList<>();
-        list.add(item);
-        populate(context, layout, list);
     }
 
     public void populate(Context context, int layout, List<String> spinnerItems) {

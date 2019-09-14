@@ -81,6 +81,7 @@
             android:text="@string/enter"
             android:layout_marginTop="@dimen/_40sdp"
             android:visibility="invisible"
+            android:onClick="onEnterButtonClicked"
             app:fontType="Regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
