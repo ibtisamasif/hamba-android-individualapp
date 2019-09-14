@@ -25,13 +25,13 @@ class ProfileActivity: HambaBaseActivity(){
     private fun populatePersonTypeDropDown() {
         val items = ArrayList<String>()
         items.add("Service Provider")
-        spPersonType.populate(this, R.layout.spinner_item_dark, items)
+        spinner_personType.populate(this, R.layout.spinner_item_dark, items)
     }
 
     private fun populatePrefixDropDown() {
         val items = ArrayList<String>()
         items.add("Mr.")
-        spPrefix.populate(this, R.layout.spinner_item_light, items)
+        spinner_prefix.populate(this, R.layout.spinner_item_light, items)
     }
 
     private fun populateNationalityDropDown() {
