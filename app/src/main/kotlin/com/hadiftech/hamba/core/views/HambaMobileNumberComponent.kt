@@ -48,6 +48,7 @@ class HambaMobileNumberComponent : LinearLayout {
 
     private fun setThemeGreen(context: Context) {
         mCountryCodePicker.textColor = ContextCompat.getColor(context, R.color.colorGreenLight)
+        mCountryCodePicker.setSeparatorColor(ContextCompat.getColor(context, R.color.colorGreenLight))
         mPhoneNumberEditText.setTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
         mPhoneNumberEditText.setHintTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
         container_mobileNumberComponent.background = ContextCompat.getDrawable(context, R.drawable.login_fields_green_bg)
@@ -55,6 +56,7 @@ class HambaMobileNumberComponent : LinearLayout {
 
     private fun setThemeWhite(context: Context) {
         mCountryCodePicker.textColor = (ContextCompat.getColor(context, R.color.colorWhite))
+        mCountryCodePicker.setSeparatorColor(ContextCompat.getColor(context, R.color.colorWhite))
         mPhoneNumberEditText.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
         mPhoneNumberEditText.setHintTextColor(ContextCompat.getColor(context, R.color.colorWhite))
         container_mobileNumberComponent.background = ContextCompat.getDrawable(context, R.drawable.login_fields_white_bg)
