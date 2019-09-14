@@ -169,10 +169,10 @@
         <item name="android:textColor">@color/colorRedError</item>
     </style>
 
-    <style name="ProfileScreenHeadingTextStyle">
+    <style name="ProfileScreenLabelTextStyle">
         <item name="android:drawablePadding">@dimen/_4sdp</item>
         <item name="android:textColor">@color/colorGreenLight</item>
-        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
         <item name="android:gravity">center</item>
     </style>
 

@@ -3,12 +3,9 @@ package com.hadiftech.hamba.core.views;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ArrayAdapter;
-
 import androidx.annotation.ArrayRes;
 import androidx.appcompat.widget.AppCompatSpinner;
-
 import com.hadiftech.hamba.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,5 +36,4 @@ public class HambaSpinner extends AppCompatSpinner {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.setAdapter(adapter);
     }
-
 }
