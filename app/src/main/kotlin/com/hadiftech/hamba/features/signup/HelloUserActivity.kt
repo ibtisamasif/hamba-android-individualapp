@@ -1,5 +1,6 @@
 package com.hadiftech.hamba.features.signup
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
@@ -9,6 +10,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.features.dashboard.DashboardActivity
 import kotlinx.android.synthetic.main.activity_hello_user.*
 
 class HelloUserActivity : HambaBaseActivity() {
@@ -108,5 +110,12 @@ class HelloUserActivity : HambaBaseActivity() {
                 else { button_enter.visibility = View.INVISIBLE }
             }
         })
+    }
+
+    fun onEnterButtonClicked(enterButton: View) {
+        val dashboardIntent = Intent(this, DashboardActivity::class.java)
+        dashboardIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(dashboardIntent)
+        finish()
     }
 }

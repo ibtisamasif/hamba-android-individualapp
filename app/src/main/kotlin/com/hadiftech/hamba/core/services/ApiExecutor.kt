@@ -34,13 +34,9 @@ class ApiExecutor<T> : Callback<T> {
 
     fun addCallToQueue(context: Context, apiCall: Call<T>, apiCallbacks: ApiCallbacks) {
         if (HambaUtils.isNetworkAvailable(context)){
-            if (Session.isSessionAvailable()) {
-                this.mApiCallbacks = apiCallbacks
-                apiCallbacks.doBeforeApiCall()
-                apiCall.enqueue(this)    
-            } else {
-                AlertDialogProvider.showAlertDialog(context, context.getString(R.string.session_not_available))
-            }
+            this.mApiCallbacks = apiCallbacks
+            apiCallbacks.doBeforeApiCall()
+            apiCall.enqueue(this)
         } else {
             AlertDialogProvider.showAlertDialog(context, context.getString(R.string.no_network_available))
         }
