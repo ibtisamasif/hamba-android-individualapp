@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/edit_profile_background"
+        android:background="@drawable/profile_screen_background"
         android:fillViewport="true"
         android:paddingHorizontal="@dimen/_15sdp"
         android:scrollbars="none"
@@ -16,7 +16,7 @@
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingPersonType"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -31,7 +31,7 @@
                 android:id="@+id/spinner_personType"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_height="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
@@ -45,7 +45,7 @@
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingPrefix"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -58,56 +58,51 @@
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingFirstName"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:text="@string/first_name"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/etFirstName"
+                app:layout_constraintStart_toStartOf="@+id/editText_firstName"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingPrefix" />
-
 
         <com.hadiftech.hamba.core.views.HambaSpinner
                 android:id="@+id/spinner_prefix"
                 style="@style/ProfileScreenLightDropDownStyle"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_height="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:layout_weight="1.45"
                 app:editTextTheme="Green"
                 app:fontType="Light"
-                app:layout_constraintEnd_toStartOf="@+id/etFirstName"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toStartOf="@+id/editText_firstName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingPrefix" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
-                android:id="@+id/etFirstName"
+                android:id="@+id/editText_firstName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:layout_weight="1.45"
                 android:imeOptions="actionNext"
                 android:inputType="textCapWords"
-                android:nextFocusForward="@+id/etMiddleName"
+                android:nextFocusForward="@+id/editText_middleName"
                 app:editTextTheme="Green"
                 app:fontType="Light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/spinner_prefix"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingFirstName" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingMiddleName"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -115,61 +110,56 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:text="@string/middle_name"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/etMiddleName"
-                app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
+                app:layout_constraintStart_toStartOf="@+id/editText_middleName"
+                app:layout_constraintTop_toBottomOf="@+id/editText_firstName" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingLastName"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:text="@string/last_name"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/etLastName"
+                app:layout_constraintStart_toStartOf="@+id/editText_lastName"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingMiddleName" />
 
-
         <com.hadiftech.hamba.core.views.HambaLoginEditText
-                android:id="@+id/etMiddleName"
+                android:id="@+id/editText_middleName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:layout_weight="1.45"
                 android:imeOptions="actionNext"
                 android:inputType="textCapWords"
-                android:nextFocusForward="@+id/etLastName"
+                android:nextFocusForward="@+id/editText_lastName"
                 app:editTextTheme="Green"
                 app:fontType="Light"
-                app:layout_constraintEnd_toStartOf="@+id/etLastName"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toStartOf="@+id/editText_lastName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingMiddleName" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
-                android:id="@+id/etLastName"
+                android:id="@+id/editText_lastName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:layout_weight="1.45"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
                 app:fontType="Light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/etMiddleName"
+                app:layout_constraintStart_toEndOf="@+id/editText_middleName"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingLastName" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingIAm"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -177,65 +167,59 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:text="@string/date_of_birth"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/etLastName"
-                app:layout_constraintTop_toBottomOf="@+id/etLastName" />
+                app:layout_constraintStart_toStartOf="@+id/editText_lastName"
+                app:layout_constraintTop_toBottomOf="@+id/editText_lastName" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingDateOfBirth"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:text="@string/i_am"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/etIAm"
+                app:layout_constraintStart_toStartOf="@+id/editText_iAm"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingIAm" />
 
-
         <com.hadiftech.hamba.core.views.HambaLoginEditText
-                android:id="@+id/etIAm"
+                android:id="@+id/editText_iAm"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:layout_weight="1.45"
-                android:drawableEnd="@drawable/help_icon"
                 android:drawableRight="@drawable/help_icon"
                 android:hint="@string/female"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
                 app:fontType="Light"
-                app:layout_constraintEnd_toStartOf="@+id/etDateOfBirth"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:showRightDrawable="true"
+                app:layout_constraintEnd_toStartOf="@+id/editText_dateOfBirth"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingIAm" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
-                android:id="@+id/etDateOfBirth"
+                android:id="@+id/editText_dateOfBirth"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:layout_weight="1.45"
                 android:drawableRight="@drawable/ic_calendar_green"
                 android:hint="@string/aug_24_2019"
-                android:inputType="textCapWords"
                 app:editTextTheme="Green"
                 app:fontType="Light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/etIAm"
+                app:layout_constraintStart_toEndOf="@+id/editText_iAm"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingDateOfBirth"
                 app:showRightDrawable="true" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingNationality"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -243,15 +227,14 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:text="@string/nationality"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/etIAm"
-                app:layout_constraintTop_toBottomOf="@+id/etDateOfBirth" />
-
+                app:layout_constraintStart_toStartOf="@+id/editText_iAm"
+                app:layout_constraintTop_toBottomOf="@+id/editText_dateOfBirth" />
 
         <com.hadiftech.hamba.core.views.HambaSpinner
-                android:id="@+id/spNationality"
+                android:id="@+id/spinnerNationality"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_height="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
@@ -265,7 +248,7 @@
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingIdentity"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -273,14 +256,14 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:text="@string/identity"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/etIAm"
-                app:layout_constraintTop_toBottomOf="@+id/spNationality" />
+                app:layout_constraintStart_toStartOf="@+id/editText_iAm"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerNationality" />
 
         <com.hadiftech.hamba.core.views.HambaSpinner
-                android:id="@+id/spIdentity"
+                android:id="@+id/spinner_identity"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_height="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
@@ -293,24 +276,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingIdentity" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
-                android:id="@+id/etIdentityValue"
+                android:id="@+id/editText_identityValue"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginTop="@dimen/_4sdp"
-                android:layout_weight="1.45"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
                 app:fontType="Light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spIdentity" />
+                app:layout_constraintTop_toBottomOf="@+id/spinner_identity" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingEmail"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -319,10 +300,10 @@
                 android:text="@string/email"
                 app:fontType="Light"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etIdentityValue" />
+                app:layout_constraintTop_toBottomOf="@+id/editText_identityValue" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
-                android:id="@+id/etEmail"
+                android:id="@+id/editText_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
@@ -330,7 +311,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/abcd_abc_com"
-                android:inputType="textCapWords"
+                android:inputType="textEmailAddress"
                 app:editTextTheme="Green"
                 app:fontType="Light"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -339,7 +320,7 @@
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingPhone"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -348,10 +329,10 @@
                 android:text="@string/phone"
                 app:fontType="Light"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+                app:layout_constraintTop_toBottomOf="@+id/editText_email" />
 
         <com.hadiftech.hamba.core.views.HambaMobileNumberComponent
-                android:id="@+id/etPhone"
+                android:id="@+id/editText_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
@@ -359,7 +340,6 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/type_phone_number"
-                android:inputType="textCapWords"
                 app:editTextTheme="Green"
                 app:fontType="Light"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -368,7 +348,7 @@
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingCountry"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -377,13 +357,13 @@
                 android:text="@string/country"
                 app:fontType="Light"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+                app:layout_constraintTop_toBottomOf="@+id/editText_phone" />
 
         <com.hadiftech.hamba.core.views.HambaSpinner
-                android:id="@+id/spCountry"
+                android:id="@+id/spinner_country"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_height="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
@@ -397,7 +377,7 @@
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingCity"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -405,65 +385,59 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:text="@string/city"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/spCountry"
-                app:layout_constraintTop_toBottomOf="@+id/spCountry" />
+                app:layout_constraintStart_toStartOf="@+id/spinner_country"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_country" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingZipCode"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:text="@string/zip_code"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/etZipCode"
+                app:layout_constraintStart_toStartOf="@+id/editText_zipCode"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingCity" />
 
-
         <com.hadiftech.hamba.core.views.HambaLoginEditText
-                android:id="@+id/etCity"
+                android:id="@+id/editTextCity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:layout_weight="1.45"
-                android:drawableEnd="@drawable/help_icon"
                 android:drawableRight="@drawable/help_icon"
                 android:hint="@string/city"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
                 app:fontType="Light"
-                app:layout_constraintEnd_toStartOf="@+id/etZipCode"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:showRightDrawable="true"
+                app:layout_constraintEnd_toStartOf="@+id/editText_zipCode"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingCity" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
-                android:id="@+id/etZipCode"
+                android:id="@+id/editText_zipCode"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:layout_weight="1.45"
-                android:drawableStart="@drawable/help_icon"
                 android:drawableLeft="@drawable/help_icon"
                 android:hint="@string/zip_code"
                 android:inputType="textCapWords"
                 app:editTextTheme="Green"
                 app:fontType="Light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/etCity"
+                app:layout_constraintStart_toEndOf="@+id/editTextCity"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingZipCode" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingAddressType"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -471,14 +445,14 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:text="@string/select_address_type"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/spAddressType"
-                app:layout_constraintTop_toBottomOf="@+id/etZipCode" />
+                app:layout_constraintStart_toStartOf="@+id/spinner_addressType"
+                app:layout_constraintTop_toBottomOf="@+id/editText_zipCode" />
 
         <com.hadiftech.hamba.core.views.HambaSpinner
-                android:id="@+id/spAddressType"
+                android:id="@+id/spinner_addressType"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_height="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
@@ -491,7 +465,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingAddressType" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
-                android:id="@+id/etAddress"
+                android:id="@+id/editText_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
@@ -505,11 +479,11 @@
                 app:fontType="Light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spAddressType" />
+                app:layout_constraintTop_toBottomOf="@+id/spinner_addressType" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingInterest"
-                style="@style/ProfileScreenHeadingTextStyle"
+                style="@style/ProfileScreenLabelTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -517,14 +491,14 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:text="@string/interests"
                 app:fontType="Light"
-                app:layout_constraintStart_toStartOf="@+id/etIAm"
-                app:layout_constraintTop_toBottomOf="@+id/etAddress" />
+                app:layout_constraintStart_toStartOf="@+id/editText_iAm"
+                app:layout_constraintTop_toBottomOf="@+id/editText_address" />
 
         <com.hadiftech.hamba.core.views.HambaSpinner
-                android:id="@+id/spInterest"
+                android:id="@+id/spinner_interest"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_height="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
@@ -536,7 +510,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingInterest" />
 
-
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingPushNotifications"
                 android:layout_width="wrap_content"
@@ -544,6 +517,7 @@
                 android:text="@string/push_notifications"
                 android:textSize="@dimen/_8sdp"
                 app:layout_constraintEnd_toStartOf="@+id/tvHeadingShowMyMobileNumber"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingShowMyMobileNumber" />
 
@@ -566,7 +540,7 @@
                 android:textSize="@dimen/_8sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvHeadingShowMyMobileNumber"
-                app:layout_constraintTop_toBottomOf="@+id/spInterest" />
+                app:layout_constraintTop_toBottomOf="@+id/spinner_interest" />
 
         <Switch
                 android:id="@+id/swPushNotifications"
@@ -602,7 +576,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingOthersCanSeeMyAge" />
 
         <com.hadiftech.hamba.core.views.HambaButton
-                android:id="@+id/bSave"
+                android:id="@+id/btn_save"
                 style="@style/ForgetPasswordButtonStyle"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_35sdp"

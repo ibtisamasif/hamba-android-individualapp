@@ -11,13 +11,13 @@ import androidx.core.content.ContextCompat
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Fonts
 import com.rilixtech.widget.countrycodepicker.CountryCodePicker
-import kotlinx.android.synthetic.main.layout_account_number_view.view.*
+import kotlinx.android.synthetic.main.layout_mobile_number_view.view.*
 
 class HambaMobileNumberComponent : LinearLayout {
 
-    lateinit var mView: View
-    lateinit var mPhoneNumberEditText: HambaEditText
-    lateinit var mCountryCodePicker: CountryCodePicker
+    private lateinit var mView: View
+    private lateinit var mPhoneNumberEditText: HambaEditText
+    private lateinit var mCountryCodePicker: CountryCodePicker
 
     constructor(context: Context) : super(context) {}
 
@@ -31,7 +31,7 @@ class HambaMobileNumberComponent : LinearLayout {
 
     private fun initialize(context: Context, attrs: AttributeSet?) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        mView = inflater.inflate(R.layout.layout_account_number_view, this)
+        mView = inflater.inflate(R.layout.layout_mobile_number_view, this)
 
         mCountryCodePicker = mView.findViewById(R.id.countryCodePicker)
         mPhoneNumberEditText = mView.findViewById(R.id.editText_phoneNumber)
@@ -48,16 +48,18 @@ class HambaMobileNumberComponent : LinearLayout {
 
     private fun setThemeGreen(context: Context) {
         mCountryCodePicker.textColor = ContextCompat.getColor(context, R.color.colorGreenLight)
+        mCountryCodePicker.setSeparatorColor(ContextCompat.getColor(context, R.color.colorGreenLight))
         mPhoneNumberEditText.setTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
         mPhoneNumberEditText.setHintTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
-        profilePhoneField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_green_bg)
+        container_mobileNumberComponent.background = ContextCompat.getDrawable(context, R.drawable.login_fields_green_bg)
     }
 
     private fun setThemeWhite(context: Context) {
-        mCountryCodePicker.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
+        mCountryCodePicker.textColor = (ContextCompat.getColor(context, R.color.colorWhite))
+        mCountryCodePicker.setSeparatorColor(ContextCompat.getColor(context, R.color.colorWhite))
         mPhoneNumberEditText.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
         mPhoneNumberEditText.setHintTextColor(ContextCompat.getColor(context, R.color.colorWhite))
-        profilePhoneField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_white_bg)
+        container_mobileNumberComponent.background = ContextCompat.getDrawable(context, R.drawable.login_fields_white_bg)
     }
 
     fun getPhoneNumberWithPrefix() : String {

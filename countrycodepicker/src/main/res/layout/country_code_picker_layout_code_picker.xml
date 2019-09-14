@@ -29,6 +29,7 @@
                     android:src="@drawable/flag_indonesia" />
 
             <View
+                    android:id="@+id/view_separator"
                     android:layout_width="1dp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_marginLeft="@dimen/_8sdp"
