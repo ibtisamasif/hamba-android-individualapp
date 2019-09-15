@@ -53,12 +53,11 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
             1 -> setThemeGreen(context)
         }
 
-        setTextChangedListener()
         typedArray.recycle()
     }
 
     fun setError(error: String) {
-        inputLayout_loginField.error = error
+        editText_loginField.error = error
     }
 
     fun getText() : String {
@@ -97,6 +96,7 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
         if (visibility) {
             textView_Counter.text = context.resources.getString(R.string.counter_text, 0)
             textView_Counter.visibility = View.VISIBLE
+            setTextChangedListener()
         } else {
             textView_Counter.visibility = View.GONE
         }
@@ -127,7 +127,6 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                inputLayout_loginField.isErrorEnabled = false
                 textView_Counter.text = context.resources.getString(R.string.counter_text, s.length)
             }
         })

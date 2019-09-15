@@ -1,4 +1,4 @@
-package com.hadiftech.hamba.features.login
+package com.hadiftech.hamba.features.login.login_service
 
 import com.google.gson.annotations.SerializedName
 import com.hadiftech.hamba.core.Constants
