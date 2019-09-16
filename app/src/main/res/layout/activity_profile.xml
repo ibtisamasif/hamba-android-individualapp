@@ -397,8 +397,7 @@
                 app:fontType="Regular"
                 app:layout_constraintEnd_toStartOf="@+id/editText_zipCode"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvHeadingCity"
-                app:showRightDrawable="true" />
+                app:layout_constraintTop_toBottomOf="@+id/tvHeadingCity" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
                 android:id="@+id/editText_zipCode"
