@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_33sdp"
+        android:background="@drawable/green_light_strock_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/female"
+            android:inputType="textCapWords"
+            android:textColor="@color/colorGreenLight"
+            android:textSize="@dimen/_14sdp"
+            app:editTextTheme="Green"
+            app:fontType="Regular" />
+
+    <RadioGroup
+            android:id="@+id/myRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginLeft="@dimen/_2sdp"
+            android:checkedButton="@+id/radioButton_female"
+            android:orientation="horizontal">
+
+        <RadioButton
+                android:id="@+id/radioButton_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_1sdp"
+                android:background="@drawable/gender_user_male_selector"
+                android:button="@null"
+                android:tag="Male" />
+
+        <RadioButton
+                android:id="@+id/radioButton_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_1sdp"
+                android:background="@drawable/gender_user_female_selector"
+                android:button="@null"
+                android:tag="Female" />
+
+    </RadioGroup>
+
+</LinearLayout>

@@ -182,7 +182,7 @@
                 app:layout_constraintStart_toStartOf="@+id/editText_iAm"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingIAm" />
 
-        <com.hadiftech.hamba.core.views.HambaLoginEditText
+        <com.hadiftech.hamba.core.views.HambaGenderSelectionComponent
                 android:id="@+id/editText_iAm"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -190,15 +190,9 @@
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:drawableRight="@drawable/forget_password_logo_1"
-                android:hint="@string/female"
-                android:inputType="textCapWords"
-                app:editTextTheme="Green"
-                app:fontType="Regular"
                 app:layout_constraintEnd_toStartOf="@+id/editText_dateOfBirth"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvHeadingIAm"
-                app:showRightDrawable="true" />
+                app:layout_constraintTop_toBottomOf="@+id/tvHeadingIAm" />
 
         <com.hadiftech.hamba.core.views.HambaLoginEditText
                 android:id="@+id/editText_dateOfBirth"
