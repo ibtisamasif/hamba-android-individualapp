@@ -542,6 +542,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:showText="true"
                 android:switchTextAppearance="@style/ProfileScreenSwitchStyle"
+                android:thumb="@drawable/spinner_thumb_bg"
                 app:layout_constraintEnd_toEndOf="@+id/tvHeadingPushNotifications"
                 app:layout_constraintStart_toStartOf="@+id/tvHeadingPushNotifications"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingPushNotifications" />
@@ -553,6 +554,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:showText="true"
                 android:switchTextAppearance="@style/ProfileScreenSwitchStyle"
+                android:thumb="@drawable/spinner_thumb_bg"
                 app:layout_constraintEnd_toEndOf="@+id/tvHeadingShowMyMobileNumber"
                 app:layout_constraintStart_toStartOf="@+id/tvHeadingShowMyMobileNumber"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingShowMyMobileNumber" />
@@ -564,6 +566,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:showText="true"
                 android:switchTextAppearance="@style/ProfileScreenSwitchStyle"
+                android:thumb="@drawable/spinner_thumb_bg"
                 app:layout_constraintEnd_toEndOf="@+id/tvHeadingOthersCanSeeMyAge"
                 app:layout_constraintStart_toStartOf="@+id/tvHeadingOthersCanSeeMyAge"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingOthersCanSeeMyAge" />

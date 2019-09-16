@@ -197,6 +197,7 @@
 
     <style name="ProfileScreenSwitchStyle">
         <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">10sp</item>
     </style>
 
 </resources>
