@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:hint="@string/female"
+            android:text="@string/female"
             android:inputType="textCapWords"
             android:textColor="@color/colorGreenLight"
             android:textSize="@dimen/_14sdp"
