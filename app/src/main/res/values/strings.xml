@@ -117,4 +117,34 @@
     <string name="please_enter_valid_cell_number">Please Enter Valid Cell Number</string>
     <string name="please_enter_password">Please Enter Password</string>
     <string name="session_not_available">Session Not Available</string>
+
+    <!--User Profile Content-->
+    <string name="person_type">Person Type</string>
+    <string name="service_provider">Service Provider</string>
+    <string name="prefix">Prefix</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="i_am">I am</string>
+    <string name="female">Female</string>
+    <string name="aug_24_2019">Aug/24/2019</string>
+    <string name="nationality">Nationality</string>
+    <string name="select_nationality">Select Nationality</string>
+    <string name="identity">Identity</string>
+    <string name="national_id">National ID</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="type_phone_number">Type phone number</string>
+    <string name="country">Country</string>
+    <string name="select_country">Select Country</string>
+    <string name="city">City</string>
+    <string name="zip_code">Zip Code</string>
+    <string name="select_address_type">Select Address Type</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="interests">Interests</string>
+    <string name="select_interest">Select Interest</string>
+    <string name="push_notifications">Push Notifications</string>
+    <string name="show_my_mobile_number">Show my mobile number</string>
+    <string name="others_can_see_my_age">Others can see my age</string>
+    <string name="save">Save</string>
+    <string name="address_type">Address Type</string>
 </resources>

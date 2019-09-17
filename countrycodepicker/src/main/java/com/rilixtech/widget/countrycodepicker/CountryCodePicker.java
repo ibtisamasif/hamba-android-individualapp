@@ -57,6 +57,7 @@ public class CountryCodePicker extends RelativeLayout {
   private PhoneNumberWatcher mPhoneNumberWatcher;
   PhoneNumberInputValidityListener mPhoneNumberInputValidityListener;
 
+  private View separatorView;
   private TextView mTvSelectedCountry;
   private TextView mRegisteredPhoneNumberTextView;
   private RelativeLayout mRlyHolder;
@@ -139,6 +140,7 @@ public class CountryCodePicker extends RelativeLayout {
   private void init(AttributeSet attrs) {
     inflate(getContext(), R.layout.country_code_picker_layout_code_picker, this);
 
+    separatorView = findViewById(R.id.view_separator);
     mTvSelectedCountry = findViewById(R.id.selected_country_tv);
     mRlyHolder = findViewById(R.id.country_code_holder_rly);
     mImvArrow = findViewById(R.id.arrow_imv);
@@ -1389,5 +1391,9 @@ public class CountryCodePicker extends RelativeLayout {
     } else {
       return context.getResources().getColor(id);
     }
+  }
+
+  public void setSeparatorColor(int resId){
+    separatorView.setBackgroundColor(resId);
   }
 }

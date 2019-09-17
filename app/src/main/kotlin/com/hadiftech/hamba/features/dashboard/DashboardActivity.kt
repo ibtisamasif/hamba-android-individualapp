@@ -1,5 +1,6 @@
 package com.hadiftech.hamba.features.dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -12,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.features.profile.ProfileActivity
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -59,7 +61,7 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
 
         when (menuItem.itemId) {
             R.id.item_manage_profile -> {
-                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, ProfileActivity::class.java))
             }
             R.id.item_discovery_rules -> {
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
