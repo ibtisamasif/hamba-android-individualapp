@@ -176,7 +176,7 @@
     </style>
 
     <style name="ProfileScreenDarkDropDownStyle">
-        <item name="android:background">@drawable/profile_dark_dropdown_background</item>
+        <item name="android:background">@drawable/dropdown_background_dark</item>
         <item name="android:drawablePadding">@dimen/_40sdp</item>
         <item name="android:paddingStart">@dimen/_12sdp</item>
         <item name="android:paddingLeft">@dimen/_12sdp</item>
@@ -196,7 +196,7 @@
     </style>
 
     <style name="ProfileScreenLightDropDownStyle">
-        <item name="android:background">@drawable/profile_light_dropdown_background</item>
+        <item name="android:background">@drawable/dropdown_background_light</item>
         <item name="android:drawablePadding">@dimen/_40sdp</item>
         <item name="android:paddingStart">@dimen/_12sdp</item>
         <item name="android:paddingLeft">@dimen/_12sdp</item>
