@@ -1,6 +1,7 @@
 package com.hadiftech.hamba.core.providers
 
 import android.content.Context
+import android.content.DialogInterface
 import androidx.appcompat.app.AlertDialog
 import com.hadiftech.hamba.R
 
@@ -15,12 +16,21 @@ object AlertDialogProvider {
         dialogBuilder.show()
     }
 
-    fun showAlertDialog(context: Context, message: String?){
+    fun showAlertDialog(context: Context, message: String?) {
         val dialogBuilder = AlertDialog.Builder(context)
         dialogBuilder.setCancelable(false)
         dialogBuilder.setTitle(context.getString(R.string.alert))
         dialogBuilder.setMessage(message)
         dialogBuilder.setPositiveButton(android.R.string.yes) { dialog, which -> }
+        dialogBuilder.show()
+    }
+
+    fun showAlertDialog(context: Context, message: String?, yesBtnText: String?, yesBtnClickListener: DialogInterface.OnClickListener) {
+        val dialogBuilder = AlertDialog.Builder(context)
+        dialogBuilder.setCancelable(false)
+        dialogBuilder.setTitle(context.getString(R.string.alert))
+        dialogBuilder.setMessage(message)
+        dialogBuilder.setPositiveButton(yesBtnText, yesBtnClickListener)
         dialogBuilder.show()
     }
 }

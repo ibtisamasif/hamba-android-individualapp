@@ -111,6 +111,7 @@
     <!--API Module Content-->
     <string name="error">Error</string>
     <string name="alert">Alert</string>
+    <string name="verify">Verify</string>
     <string name="sorry_something_went_wrong">Sorry something went wrong!</string>
     <string name="no_network_available">No Network Available</string>
     <string name="password_incorrect">Your cell number or password is incorrect.</string>
@@ -123,4 +124,8 @@
     <string name="please_confirm_password">Please Confirm Password</string>
     <string name="confirm_password_should_match_new_password">Confirm Password Should Match New Password</string>
     <string name="session_not_available">Session Not Available</string>
+    <string name="please_enter_pre_shared_key">Please Enter PreShared Key</string>
+    <string name="please_enter_first_name">Please Enter First Name</string>
+    <string name="please_enter_last_name">Please Enter Last Name</string>
+    <string name="please_enter_business_name">Please Enter Business Name</string>
 </resources>

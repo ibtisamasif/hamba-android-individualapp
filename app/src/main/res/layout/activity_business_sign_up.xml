@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:paddingHorizontal="@dimen/_15sdp"
         android:background="@drawable/login_module_background"
-        tools:context=".features.signup.BusinessSignUpActivity">
+        tools:context=".features.signup.EmployeeSignUpActivity">
 
     <ImageView
             android:id="@+id/imageView_hambaLogo"
@@ -96,27 +96,15 @@
             android:layout_marginTop="@dimen/_7sdp"
             app:layout_constraintTop_toBottomOf="@+id/editText_emailAddress" />
 
-    <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout_password"
+    <com.hadiftech.hamba.core.views.HambaLoginEditText
+            android:id="@+id/editText_password"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_33sdp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_7sdp"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/colorWhite"
-            app:hintEnabled="false"
-            app:layout_constraintTop_toBottomOf="@+id/businessSigUp_mobileNumberComponent" >
-
-        <com.hadiftech.hamba.core.views.HambaEditText
-                style="@style/SignUpFieldsStyle"
-                android:id="@+id/editText_password"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/password_hint"
-                android:inputType="textPassword"
-                android:paddingHorizontal="@dimen/_10sdp"
-                app:fontType="Light" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            app:fontType="Light"
+            app:layout_constraintTop_toBottomOf="@+id/businessSigUp_mobileNumberComponent" />
 
     <com.hadiftech.hamba.core.views.HambaButton
             style="@style/LoginButtonStyle"
@@ -127,6 +115,6 @@
             android:onClick="onSignUpButtonClicked"
             app:fontType="Regular"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_password"/>
+            app:layout_constraintTop_toBottomOf="@+id/editText_password"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

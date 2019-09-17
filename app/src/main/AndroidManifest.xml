@@ -64,7 +64,7 @@
                 android:theme="@style/NoActionBar"
                 android:windowSoftInputMode="stateHidden" />
         <activity
-                android:name=".features.signup.BusinessSignUpActivity"
+                android:name=".features.signup.EmployeeSignUpActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/NoActionBar"
                 android:windowSoftInputMode="stateHidden"/>

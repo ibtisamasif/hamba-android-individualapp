@@ -1,15 +1,19 @@
 package com.hadiftech.hamba.features.forget_password
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.core.enums.UserType
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
 import com.hadiftech.hamba.features.forget_password.new_password_service.NewPasswordRequest
 import com.hadiftech.hamba.features.forget_password.new_password_service.NewPasswordResponse
+import com.hadiftech.hamba.features.signup.resend_otp_service.ResendOtpRequest
+import com.hadiftech.hamba.features.signup.resend_otp_service.ResendOtpResponse
 import kotlinx.android.synthetic.main.activity_new_password.*
 
 class NewPasswordActivity : HambaBaseActivity() {
@@ -41,11 +45,28 @@ class NewPasswordActivity : HambaBaseActivity() {
                 AlertDialogProvider.showAlertDialog(this, apiResponse.message)
             }
         }
+
+        if (apiResponse is ResendOtpResponse) {
+            if(apiResponse.success!!){
+                AlertDialogProvider.showAlertDialog(this, apiResponse.message, getString(R.string.verify), DialogInterface.OnClickListener {
+                        dialog, _ -> dialog.dismiss()
+                })
+            } else {
+                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+            }
+        }
     }
 
     private fun moveToSuccessMessageScreen(){
         val passwordResetIntent = Intent(this, PasswordResetStatusActivity::class.java)
         startActivity(passwordResetIntent)
+    }
+
+    fun onSendOtpAgainClicked (view: View) {
+        var resendOtpRequest = ResendOtpRequest()
+        resendOtpRequest.userType = UserType.BUSINESS_EMPLOYEE.name
+        resendOtpRequest.email = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS)
+        APiManager.resendOtpCode(this, this, resendOtpRequest)
     }
 
     private fun checkValidations() : Boolean {

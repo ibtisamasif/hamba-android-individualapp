@@ -1,30 +1,93 @@
 package com.hadiftech.hamba.features.signup
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.features.login.LoginActivity
-import com.hadiftech.hamba.features.signup.enums.CodeVerificationType
+import com.hadiftech.hamba.core.enums.UserType
+import com.hadiftech.hamba.core.providers.AlertDialogProvider
+import com.hadiftech.hamba.core.services.APiManager
+import com.hadiftech.hamba.core.services.HambaBaseApiResponse
+import com.hadiftech.hamba.features.signup.code_verification_service.VerifyBusinessOtpRequest
+import com.hadiftech.hamba.features.signup.code_verification_service.VerifyOtpRequest
+import com.hadiftech.hamba.features.signup.code_verification_service.VerifyOtpResponse
+import com.hadiftech.hamba.features.signup.resend_otp_service.ResendOtpRequest
+import com.hadiftech.hamba.features.signup.resend_otp_service.ResendOtpResponse
 import kotlinx.android.synthetic.main.activity_code_verification.*
 
 class CodeVerificationActivity : HambaBaseActivity() {
 
+    private var userType = UserType.INDIVIDUAL
+
     companion object {
-        @JvmStatic val KEY_SIGN_UP_TYPE = "SignUpType"
+        @JvmStatic val KEY_USER_TYPE = "UserType"
+        @JvmStatic val KEY_USER_EMAIL = "UserEMAIL"
+        @JvmStatic val KEY_USER_NUMBER = "UserNUMBER"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_code_verification)
 
-        var signUpType = intent.getSerializableExtra(KEY_SIGN_UP_TYPE) as CodeVerificationType
-        setupScreenDisplay(signUpType)
+        userType = intent.getSerializableExtra(KEY_USER_TYPE) as UserType
+        setupScreenDisplay()
     }
 
     fun onVerifyCodeClicked(btnVerifyCode: View) {
-        moveToLoginActivity()
+
+        if (checkValidations()) {
+            when (userType) {
+                UserType.INDIVIDUAL -> {
+                    var verifyOtpRequest = VerifyOtpRequest()
+                    verifyOtpRequest.userType = userType.name
+                    verifyOtpRequest.otpCode = editText_NumberCode.text.toString()
+                    APiManager.verifyOtpCode(this, this, verifyOtpRequest)
+                }
+                UserType.BUSINESS_EMPLOYEE, UserType.BUSINESS_OWNER -> {
+                    var verifyBusinessOtpRequest = VerifyBusinessOtpRequest()
+                    verifyBusinessOtpRequest.userType = userType.name
+                    verifyBusinessOtpRequest.otpCode = editText_NumberCode.text.toString()
+                    verifyBusinessOtpRequest.otpCodeEmail = editText_EmailCode.text.toString()
+                    APiManager.verifyOtpCode(this, this, verifyBusinessOtpRequest)
+                }
+            }
+        }
+    }
+
+    fun onProblemReceivingCodeClicked (view: View) {
+        var resendOtpRequest = ResendOtpRequest()
+        resendOtpRequest.userType = userType.name
+        resendOtpRequest.email = intent.getStringExtra(KEY_USER_EMAIL)
+        resendOtpRequest.number = intent.getStringExtra(KEY_USER_NUMBER)
+        APiManager.resendOtpCode(this, this, resendOtpRequest)
+    }
+
+    override fun onApiSuccess(apiResponse: HambaBaseApiResponse) {
+        super.onApiSuccess(apiResponse)
+
+        if (apiResponse is VerifyOtpResponse) {
+            if (apiResponse.success!!){
+                AlertDialogProvider.showAlertDialog(this, apiResponse.message, getString(R.string.login), DialogInterface.OnClickListener {
+                        _, _ -> moveToLoginActivity()
+                })
+            } else {
+                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+            }
+        }
+
+        if (apiResponse is ResendOtpResponse) {
+            if (apiResponse.success!!){
+                AlertDialogProvider.showAlertDialog(this, apiResponse.message, getString(R.string.verify), DialogInterface.OnClickListener {
+                        dialog, _ -> dialog.dismiss()
+                })
+            } else {
+                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+            }
+        }
     }
 
     private fun moveToLoginActivity() {
@@ -34,11 +97,11 @@ class CodeVerificationActivity : HambaBaseActivity() {
         finish()
     }
 
-    private fun setupScreenDisplay(codeVerificationType: CodeVerificationType) {
-        when (codeVerificationType) {
-            CodeVerificationType.EmailVerification -> displayEmailVerification()
-            CodeVerificationType.NumberVerification -> displayNumberVerification()
-            CodeVerificationType.EmailAndNumberVerification -> displayEmailAndNumberVerification()
+    private fun setupScreenDisplay() {
+        when (userType) {
+            UserType.INDIVIDUAL -> displayNumberVerification()
+            UserType.BUSINESS_EMPLOYEE -> displayEmailVerification()
+            UserType.BUSINESS_OWNER -> displayEmailAndNumberVerification()
         }
     }
 
@@ -58,5 +121,20 @@ class CodeVerificationActivity : HambaBaseActivity() {
         textView_codeInstructions.setText(R.string.code_instructions_email_and_number)
         editText_EmailCode.visibility = View.VISIBLE
         editText_NumberCode.visibility = View.VISIBLE
+    }
+
+    private fun checkValidations() : Boolean {
+
+        if(editText_NumberCode.isVisible && editText_NumberCode.text.isEmpty()) {
+            editText_NumberCode.setError(getString(R.string.please_enter_otp_code))
+            return false
+        }
+
+        if(editText_EmailCode.isVisible && editText_EmailCode.text.isEmpty()) {
+            editText_EmailCode.setError(getString(R.string.please_enter_otp_code))
+            return false
+        }
+
+        return true
     }
 }

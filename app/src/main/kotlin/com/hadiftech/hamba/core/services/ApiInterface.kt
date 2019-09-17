@@ -7,6 +7,12 @@ import com.hadiftech.hamba.features.forget_password.new_password_service.NewPass
 import com.hadiftech.hamba.features.forget_password.new_password_service.NewPasswordResponse
 import com.hadiftech.hamba.features.login.login_service.LoginRequest
 import com.hadiftech.hamba.features.login.login_service.LoginResponse
+import com.hadiftech.hamba.features.signup.code_verification_service.VerifyOtpRequest
+import com.hadiftech.hamba.features.signup.code_verification_service.VerifyOtpResponse
+import com.hadiftech.hamba.features.signup.resend_otp_service.ResendOtpRequest
+import com.hadiftech.hamba.features.signup.resend_otp_service.ResendOtpResponse
+import com.hadiftech.hamba.features.signup.sign_up_service.SignUpRequest
+import com.hadiftech.hamba.features.signup.sign_up_service.SignUpResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -21,4 +27,13 @@ interface ApiInterface {
 
     @POST(EndPoints.API_RESET_PASSWORD)
     fun resetPassword(@Body newPasswordRequest: NewPasswordRequest) : Call<NewPasswordResponse>
+
+    @POST(EndPoints.API_SIGN_UP)
+    fun signUpToHamba(@Body signUpRequest: SignUpRequest) : Call<SignUpResponse>
+
+    @POST(EndPoints.API_VERIFY_OTP)
+    fun verifyOtpCode(@Body verifyOtpRequest: VerifyOtpRequest) : Call<VerifyOtpResponse>
+
+    @POST(EndPoints.API_RESEND_OTP)
+    fun resendOtpCode(@Body resendOtpRequest: ResendOtpRequest) : Call<ResendOtpResponse>
 }

@@ -56,6 +56,10 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
         typedArray.recycle()
     }
 
+    fun showPasswordVisibilityToggle(visibility: Boolean) {
+        inputLayout_loginField.isPasswordVisibilityToggleEnabled = visibility
+    }
+
     fun setError(error: String) {
         editText_loginField.error = error
     }
@@ -107,6 +111,7 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
         editText_loginField.setTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
         editText_loginField.setHintTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
         loginField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_green_bg)
+        inputLayout_loginField.setPasswordVisibilityToggleTintList(ContextCompat.getColorStateList(context, R.color.colorGreenLight))
     }
 
     private fun setThemeWhite(context: Context) {
@@ -114,6 +119,7 @@ class HambaLoginEditText : RelativeLayout, TypefaceProvider {
         editText_loginField.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
         editText_loginField.setHintTextColor(ContextCompat.getColor(context, R.color.colorWhite))
         loginField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_white_bg)
+        inputLayout_loginField.setPasswordVisibilityToggleTintList(ContextCompat.getColorStateList(context, R.color.colorWhite))
     }
 
     fun setTextChangedListener(textChangeListener: TextWatcher) {

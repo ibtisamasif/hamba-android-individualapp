@@ -39,6 +39,10 @@ class HambaMobileNumberComponent : LinearLayout {
         mCountryCodePicker.setTypeFace(Typeface.createFromAsset(context.assets, Fonts.CO_HEADLINE_W01_LIGHT));
     }
 
+    fun setError(error: String) {
+        mPhoneNumberEditText.error = error
+    }
+
     fun getPhoneNumberWithPrefix() : String {
         return mCountryCodePicker.selectedCountryCodeWithPlus + mPhoneNumberEditText.text
     }
