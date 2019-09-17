@@ -178,7 +178,7 @@
                 app:layout_constraintStart_toStartOf="@+id/editText_iAm"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingIAm" />
 
-        <com.hadiftech.hamba.core.views.HambaGenderSelectionComponent
+        <com.hadiftech.hamba.core.views.HambaGenderComponent
                 android:id="@+id/editText_iAm"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -296,7 +296,7 @@
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:hint="@string/abcd_abc_com"
+                android:hint="@string/email_address"
                 android:inputType="textEmailAddress"
                 app:editTextTheme="Green"
                 app:fontType="Regular"
@@ -493,7 +493,6 @@
                 android:textSize="@dimen/_8sdp"
                 app:fontType="Regular"
                 app:layout_constraintEnd_toStartOf="@+id/tvHeadingShowMyMobileNumber"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingShowMyMobileNumber" />
 
@@ -527,7 +526,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:showText="true"
                 android:switchTextAppearance="@style/ProfileScreenSwitchStyle"
-                android:thumb="@drawable/spinner_thumb_bg"
+                android:thumb="@drawable/switch_thumb_bg"
                 app:layout_constraintEnd_toEndOf="@+id/tvHeadingPushNotifications"
                 app:layout_constraintStart_toStartOf="@+id/tvHeadingPushNotifications"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingPushNotifications" />
@@ -539,7 +538,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:showText="true"
                 android:switchTextAppearance="@style/ProfileScreenSwitchStyle"
-                android:thumb="@drawable/spinner_thumb_bg"
+                android:thumb="@drawable/switch_thumb_bg"
                 app:layout_constraintEnd_toEndOf="@+id/tvHeadingShowMyMobileNumber"
                 app:layout_constraintStart_toStartOf="@+id/tvHeadingShowMyMobileNumber"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingShowMyMobileNumber" />
@@ -551,7 +550,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:showText="true"
                 android:switchTextAppearance="@style/ProfileScreenSwitchStyle"
-                android:thumb="@drawable/spinner_thumb_bg"
+                android:thumb="@drawable/switch_thumb_bg"
                 app:layout_constraintEnd_toEndOf="@+id/tvHeadingOthersCanSeeMyAge"
                 app:layout_constraintStart_toStartOf="@+id/tvHeadingOthersCanSeeMyAge"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingOthersCanSeeMyAge" />
@@ -561,8 +560,8 @@
                 style="@style/ForgetPasswordButtonStyle"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_35sdp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginTop="@dimen/_32sdp"
+                android:layout_marginBottom="@dimen/_24sdp"
                 android:onClick="onSaveButtonClicked"
                 android:text="@string/save"
                 app:fontType="Regular"

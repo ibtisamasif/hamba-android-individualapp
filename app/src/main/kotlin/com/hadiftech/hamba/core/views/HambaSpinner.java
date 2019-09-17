@@ -21,13 +21,13 @@ public class HambaSpinner extends AppCompatSpinner {
 
     public void populate(Context context, int layout, List<String> spinnerItems) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, layout, spinnerItems);
-        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         this.setAdapter(adapter);
     }
 
     public void populate(Context context, @ArrayRes int textArrayResId) {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context, textArrayResId, R.layout.spinner_item_dark);
-        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         this.setAdapter(adapter);
     }
 }

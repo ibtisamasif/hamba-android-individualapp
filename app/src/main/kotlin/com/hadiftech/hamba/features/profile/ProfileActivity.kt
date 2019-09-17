@@ -31,6 +31,8 @@ class ProfileActivity : HambaBaseActivity() {
     private fun populatePrefixDropDown() {
         val items = ArrayList<String>()
         items.add("Mr.")
+        items.add("Mrs.")
+        items.add("Miss")
         spinner_prefix.populate(this, R.layout.spinner_item_light, items)
     }
 

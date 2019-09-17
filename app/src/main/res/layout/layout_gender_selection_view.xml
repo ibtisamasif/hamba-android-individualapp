@@ -4,8 +4,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_33sdp"
         android:background="@drawable/green_light_strock_bg"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
         android:paddingHorizontal="@dimen/_10sdp">
 
     <com.hadiftech.hamba.core.views.HambaTextView
@@ -14,14 +12,12 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="@string/female"
-            android:inputType="textCapWords"
             android:textColor="@color/colorGreenLight"
             android:textSize="@dimen/_14sdp"
-            app:editTextTheme="Green"
             app:fontType="Regular" />
 
     <RadioGroup
-            android:id="@+id/myRadioGroup"
+            android:id="@+id/genderRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -36,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_2sdp"
-                android:background="@drawable/gender_user_male_selector"
+                android:background="@drawable/selector_gender_male"
                 android:button="@null"
                 android:tag="Male" />
 
@@ -45,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_2sdp"
-                android:background="@drawable/gender_user_female_selector"
+                android:background="@drawable/selector_gender_female"
                 android:button="@null"
                 android:tag="Female" />
 
