@@ -62,6 +62,10 @@ class HambaMobileNumberComponent : LinearLayout {
         container_mobileNumberComponent.background = ContextCompat.getDrawable(context, R.drawable.login_fields_white_bg)
     }
 
+    fun setError(error: String) {
+        mPhoneNumberEditText.error = error
+    }
+
     fun getPhoneNumberWithPrefix() : String {
         return mCountryCodePicker.selectedCountryCodeWithPlus + mPhoneNumberEditText.text
     }

@@ -3,7 +3,6 @@ package com.hadiftech.hamba.features.login
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
@@ -13,6 +12,8 @@ import com.hadiftech.hamba.core.services.HttpErrorCodes
 import com.hadiftech.hamba.core.session.Session
 import com.hadiftech.hamba.features.dashboard.DashboardActivity
 import com.hadiftech.hamba.features.forget_password.ForgetPasswordActivity
+import com.hadiftech.hamba.features.login.login_service.LoginRequest
+import com.hadiftech.hamba.features.login.login_service.LoginResponse
 import com.hadiftech.hamba.features.signup.HelloUserActivity
 import com.hadiftech.hamba.features.signup.JoinUsActivity
 import kotlinx.android.synthetic.main.activity_login.*

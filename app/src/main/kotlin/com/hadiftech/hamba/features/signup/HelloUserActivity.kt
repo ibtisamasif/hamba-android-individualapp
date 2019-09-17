@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_hello_user.*
 class HelloUserActivity : HambaBaseActivity() {
 
     private var mDelayHandler: Handler? = null
-    private val ANIMATIONS_DELAY: Long = 400
+    private val ANIMATIONS_DELAY: Long = 500
 
     private lateinit var robotAnimation: Animation
     private lateinit var userNameAnimation: Animation
