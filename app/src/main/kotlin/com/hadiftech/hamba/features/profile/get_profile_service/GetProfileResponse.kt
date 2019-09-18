@@ -87,6 +87,6 @@ class GetProfileResponse : HambaBaseApiResponse() {
         var avatar: String? = Constants.EMPTY_STRING
 
         @SerializedName("employee")
-        var employee: String? = Constants.EMPTY_STRING
+        var employee: Boolean? = false
     }
 }

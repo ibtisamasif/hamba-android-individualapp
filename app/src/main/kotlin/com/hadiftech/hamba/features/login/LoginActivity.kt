@@ -78,7 +78,7 @@ class LoginActivity : HambaBaseActivity() {
         startActivity(forgetPasswordIntent)
     }
 
-    fun moveToDashboardScreen() {
+    private fun moveToDashboardScreen() {
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
         startActivity(dashboardIntent)
         finish()

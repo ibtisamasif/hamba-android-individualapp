@@ -62,8 +62,7 @@ object APiManager {
     }
 
     fun getUserProfile(context: Context, apiCallbacks: ApiCallbacks) {
-        val getProfileApiCall = hambaServices.getUserProfile("Bearer " + Session.getAccessToken())
+        val getProfileApiCall = hambaServices.getUserProfile(Session.getAccessToken())
         ApiExecutor<GetProfileResponse>().addCallToQueue(context, getProfileApiCall, apiCallbacks)
-
     }
 }

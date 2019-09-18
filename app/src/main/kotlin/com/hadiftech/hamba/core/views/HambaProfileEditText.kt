@@ -68,6 +68,10 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
         return editText_loginField.text.toString()
     }
 
+    fun setText(text: String) {
+        editText_loginField.setText(text)
+    }
+
     fun setHint(hint: String) {
         editText_loginField.hint = hint
     }
@@ -78,6 +82,10 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
 
     fun setRightDrawable(resourceId: Int) {
         imageView_rightDrawable.setImageResource(resourceId)
+    }
+
+    fun setEditTextClickable(value: Boolean) {
+        editText_loginField.isEnabled = value
     }
 
     private fun showRightViewContainer(drawableVisibility: Boolean, counterVisibility: Boolean) {

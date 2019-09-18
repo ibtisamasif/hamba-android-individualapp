@@ -199,7 +199,6 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:drawableRight="@drawable/ic_calendar_green"
-                android:hint="@string/aug_24_2019"
                 app:editTextTheme="Green"
                 app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -73,4 +73,12 @@ class HambaMobileNumberComponent : LinearLayout {
     fun getPhoneNumber() : String {
         return mCountryCodePicker.selectedCountryCode + mPhoneNumberEditText.text
     }
+
+    fun setPhoneNumber(number: String) {
+        mPhoneNumberEditText.setText(number)
+    }
+
+    fun setCountryCode(code: Int) {
+        mCountryCodePicker.setCountryForPhoneCode(code)
+    }
 }

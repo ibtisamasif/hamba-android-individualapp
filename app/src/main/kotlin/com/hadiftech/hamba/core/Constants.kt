@@ -2,6 +2,7 @@ package com.hadiftech.hamba.core
 
 object Constants {
     const val EMPTY_STRING = ""
+    const val SPACE_STRING = " "
     const val LOGGER_TAG = "Hamba App"
 }
 
