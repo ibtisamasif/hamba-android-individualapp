@@ -18,4 +18,9 @@ object EndPoints {
     const val API_SIGN_UP = "/api/auth/signup"
     const val API_VERIFY_OTP = "/api/auth/verify_otp"
     const val API_RESEND_OTP = "/api/auth/resend_otp"
+    const val API_GET_PROFILE = "/api/auth/get_profile"
+}
+
+object Key {
+    const val AUTHORIZATION = "Authorization"
 }

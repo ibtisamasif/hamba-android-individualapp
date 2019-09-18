@@ -130,6 +130,7 @@
     <string name="please_enter_business_name">Please Enter Business Name</string>
 
     <!--User Profile Content-->
+    <string name="edit_profile">Edit Profile</string>
     <string name="person_type">Person Type</string>
     <string name="service_provider">Service Provider</string>
     <string name="prefix">Prefix</string>
