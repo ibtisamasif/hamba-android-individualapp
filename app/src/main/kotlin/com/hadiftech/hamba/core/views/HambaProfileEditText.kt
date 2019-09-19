@@ -64,12 +64,6 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
         editText_loginField.error = error
     }
 
-    fun setText(text: String?) {
-        if (text != null) {
-            editText_loginField.setText(text)
-        }
-    }
-
     fun getText(): String {
         return editText_loginField.text.toString()
     }
