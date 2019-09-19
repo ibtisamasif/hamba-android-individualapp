@@ -69,7 +69,7 @@ object APiManager {
     }
 
     fun editUserIndividualProfileApi(context: Context, apiCallbacks: ApiCallbacks, editUserIndividualProfileRequest: EditUserIndividualProfileRequest) {
-        val editUserIndividualProfileApiCall = hambaServices.editUserIndividualProfile(editUserIndividualProfileRequest)
+        val editUserIndividualProfileApiCall = hambaServices.editUserIndividualProfile(Session.getAccessToken(), editUserIndividualProfileRequest)
         ApiExecutor<EditUserIndividualProfileResponse>().addCallToQueue(context, editUserIndividualProfileApiCall, apiCallbacks)
     }
 }

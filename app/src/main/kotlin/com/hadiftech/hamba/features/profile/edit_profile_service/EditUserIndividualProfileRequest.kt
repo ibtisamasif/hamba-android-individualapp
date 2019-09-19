@@ -28,6 +28,22 @@ class EditUserIndividualProfileRequest : HambaBaseApiResponse() {
         @SerializedName("registrationType")
         var registrationType: String? = Constants.EMPTY_STRING
 
+        @SerializedName("imgExtension")
+        var imgExtension: String? = Constants.EMPTY_STRING
+
+        @SerializedName("interests")
+        var interests: List<String> = ArrayList()
+
+        @SerializedName("firstName")
+        var firstName: String? = Constants.EMPTY_STRING
+
+        @SerializedName("lastName")
+        var lastName: String? = Constants.EMPTY_STRING
+
+
+        @SerializedName("middleName")
+        var middleName: String? = Constants.EMPTY_STRING
+
         @SerializedName("number")
         var number: String? = Constants.EMPTY_STRING
 
@@ -55,24 +71,9 @@ class EditUserIndividualProfileRequest : HambaBaseApiResponse() {
         @SerializedName("email")
         var email: String? = Constants.EMPTY_STRING
 
-        @SerializedName("firstName")
-        var firstName: String? = Constants.EMPTY_STRING
-
-        @SerializedName("middleName")
-        var middleName: String? = Constants.EMPTY_STRING
-
-        @SerializedName("lastName")
-        var lastName: String? = Constants.EMPTY_STRING
-
         @SerializedName("avatar")
         var avatar: String? = Constants.EMPTY_STRING
 
         @SerializedName("employee")
         var employee: String? = Constants.EMPTY_STRING
-
-        @SerializedName("imgExtension")
-        var imgExtension: String? = Constants.EMPTY_STRING
-
-        @SerializedName("interests")
-        var interests: List<String>? = ArrayList()
 }

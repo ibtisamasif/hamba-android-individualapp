@@ -109,7 +109,7 @@ class ProfileActivity : HambaBaseActivity() {
         }
 
         if (details.cityName != null && details.cityName!!.isNotEmpty()) {
-            editTextCity.setText(details.cityName!!)
+            editText_city.setText(details.cityName!!)
         }
 
         if (details.country != null && details.country!!.isNotEmpty()) {
@@ -189,23 +189,30 @@ class ProfileActivity : HambaBaseActivity() {
     }
 
     fun onSaveButtonClicked(saveButton: View) {
+        //Required fields
         val editUserIndividualProfileRequest = EditUserIndividualProfileRequest()
         editUserIndividualProfileRequest.personType = spinner_personType.selectedItem.toString()
+        editUserIndividualProfileRequest.prefix = spinner_prefix.selectedItem.toString()
         editUserIndividualProfileRequest.firstName = editText_firstName.getText()
         editUserIndividualProfileRequest.lastName = editText_lastName.getText()
-        editUserIndividualProfileRequest.prefix = spinner_prefix.selectedItem.toString()
         editUserIndividualProfileRequest.gender = editText_gender.getText()
         editUserIndividualProfileRequest.birthDate = editText_dateOfBirth.getText()
         editUserIndividualProfileRequest.nationality = spinner_nationality.selectedItem.toString()
-
+        //ToDo refactor code below
         editUserIndividualProfileRequest.registrationNo = "9999"
         editUserIndividualProfileRequest.registrationType = "text"
         editUserIndividualProfileRequest.imgExtension = "text"
-        val str = ArrayList<String>()
-        str.add("Geeks")
-        editUserIndividualProfileRequest.interests = str
+        val selectedInterests = ArrayList<String>()
+        selectedInterests.add(spinner_interest.selectedItem.toString())
+        editUserIndividualProfileRequest.interests = selectedInterests
 
+        //Non-Required fields
         editUserIndividualProfileRequest.middleName = editText_middleName.getText()
+        editUserIndividualProfileRequest.cityName = editText_city.getText()
+        editUserIndividualProfileRequest.cityName = editText_zipCode.getText()
+        editUserIndividualProfileRequest.country = spinner_country.selectedItem.toString()
+        editUserIndividualProfileRequest.email = editText_email.getText()
+        editUserIndividualProfileRequest.number = editText_phone.getPhoneNumber()
         editUserIndividualProfileRequest.addressType = spinner_addressType.selectedItem.toString()
         editUserIndividualProfileRequest.address = editText_address.getText()
 

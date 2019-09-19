@@ -384,7 +384,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingCity" />
 
         <com.hadiftech.hamba.core.views.HambaProfileEditText
-                android:id="@+id/editTextCity"
+                android:id="@+id/editText_city"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
@@ -410,7 +410,7 @@
                 app:editTextTheme="Green"
                 app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editTextCity"
+                app:layout_constraintStart_toEndOf="@+id/editText_city"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingZipCode" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
