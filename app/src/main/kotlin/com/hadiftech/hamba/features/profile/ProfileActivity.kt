@@ -93,6 +93,14 @@ class ProfileActivity : HambaBaseActivity() {
             spinner_nationality.setSelection(resources.getStringArray(R.array.nationalities).indexOf(details.nationality))
         }
 
+        if (details.registrationType != null && details.registrationType!!.isNotEmpty()) {
+            spinner_identity.setSelection(resources.getStringArray(R.array.identities).indexOf(details.registrationType))
+        }
+
+        if (details.registrationNo != null && details.registrationNo!!.isNotEmpty()) {
+            editText_identityValue.setText(details.registrationNo!!)
+        }
+
         if (details.birthDate != null && details.birthDate!!.isNotEmpty()) {
             editText_dateOfBirth.setText(details.birthDate!!)
         }
@@ -209,10 +217,10 @@ class ProfileActivity : HambaBaseActivity() {
         editUserIndividualProfileRequest.gender = editText_gender.getText()
         editUserIndividualProfileRequest.birthDate = editText_dateOfBirth.getText()
         editUserIndividualProfileRequest.nationality = spinner_nationality.selectedItem.toString()
-        //ToDo refactor code below (these are required fields but we don't have them in UI)
-        editUserIndividualProfileRequest.registrationNo = "9999"
-        editUserIndividualProfileRequest.registrationType = "text"
-        editUserIndividualProfileRequest.imgExtension = "text"
+        editUserIndividualProfileRequest.registrationNo = editText_identityValue.getText()
+        editUserIndividualProfileRequest.registrationType = spinner_identity.selectedItem.toString()
+        //Todo implement later
+        editUserIndividualProfileRequest.imgExtension = "some_url"
         //ToDo interest would be a different widget or multi select dropdown
         val selectedInterests = ArrayList<String>()
         selectedInterests.add(spinner_interest.selectedItem.toString())
