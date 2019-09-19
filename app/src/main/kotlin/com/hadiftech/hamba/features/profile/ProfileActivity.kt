@@ -83,7 +83,7 @@ class ProfileActivity : HambaBaseActivity() {
         }
 
         if (details.birthDate != null && details.birthDate!!.isNotEmpty()) {
-
+            editText_dateOfBirth.setText(details.birthDate!!)
         }
 
         if (details.prefix != null && details.prefix!!.isNotEmpty()) {
@@ -95,7 +95,7 @@ class ProfileActivity : HambaBaseActivity() {
         }
 
         if (details.number != null && details.number!!.isNotEmpty()) {
-            var phoneNumber = PhoneNumberUtil.createInstance(this).parse(details.number, Constants.EMPTY_STRING)
+            val phoneNumber = PhoneNumberUtil.createInstance(this).parse(details.number, Constants.EMPTY_STRING)
             editText_phone.setPhoneNumber(phoneNumber.nationalNumber.toString())
             editText_phone.setCountryCode(phoneNumber.countryCode)
         }
@@ -198,10 +198,11 @@ class ProfileActivity : HambaBaseActivity() {
         editUserIndividualProfileRequest.gender = editText_gender.getText()
         editUserIndividualProfileRequest.birthDate = editText_dateOfBirth.getText()
         editUserIndividualProfileRequest.nationality = spinner_nationality.selectedItem.toString()
-        //ToDo refactor code below
+        //ToDo refactor code below (these are required fields but we dont have them in UI)
         editUserIndividualProfileRequest.registrationNo = "9999"
         editUserIndividualProfileRequest.registrationType = "text"
         editUserIndividualProfileRequest.imgExtension = "text"
+        //ToDo interest would be a different widget or multi select dropdown
         val selectedInterests = ArrayList<String>()
         selectedInterests.add(spinner_interest.selectedItem.toString())
         editUserIndividualProfileRequest.interests = selectedInterests
@@ -209,12 +210,13 @@ class ProfileActivity : HambaBaseActivity() {
         //Non-Required fields
         editUserIndividualProfileRequest.middleName = editText_middleName.getText()
         editUserIndividualProfileRequest.cityName = editText_city.getText()
-        editUserIndividualProfileRequest.cityName = editText_zipCode.getText()
+        editUserIndividualProfileRequest.zipCode= editText_zipCode.getText()
         editUserIndividualProfileRequest.country = spinner_country.selectedItem.toString()
         editUserIndividualProfileRequest.email = editText_email.getText()
         editUserIndividualProfileRequest.number = editText_phone.getPhoneNumber()
         editUserIndividualProfileRequest.addressType = spinner_addressType.selectedItem.toString()
         editUserIndividualProfileRequest.address = editText_address.getText()
+        editUserIndividualProfileRequest.enableNotification = swPushNotifications.isChecked
 
         if (checkValidations()) {
             APiManager.editUserIndividualProfileApi(this, this, editUserIndividualProfileRequest)
@@ -240,15 +242,6 @@ class ProfileActivity : HambaBaseActivity() {
             editText_dateOfBirth.setError(getString(R.string.please_enter_valid_date_of_birth))
             return false
         }
-
-        // prefix
-
-        //nationality
-
-        //registrationNo
-
-        //registrationType
-
         return true
     }
 }
