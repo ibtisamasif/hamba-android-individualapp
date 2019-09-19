@@ -2,6 +2,7 @@ package com.hadiftech.hamba.features.profile
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import com.hadiftech.hamba.R
@@ -39,6 +40,16 @@ class ProfileActivity : HambaBaseActivity() {
         setDatePickListener()
 
         APiManager.getUserProfile(this, this)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onApiSuccess(apiResponse: HambaBaseApiResponse) {
@@ -198,7 +209,7 @@ class ProfileActivity : HambaBaseActivity() {
         editUserIndividualProfileRequest.gender = editText_gender.getText()
         editUserIndividualProfileRequest.birthDate = editText_dateOfBirth.getText()
         editUserIndividualProfileRequest.nationality = spinner_nationality.selectedItem.toString()
-        //ToDo refactor code below (these are required fields but we dont have them in UI)
+        //ToDo refactor code below (these are required fields but we don't have them in UI)
         editUserIndividualProfileRequest.registrationNo = "9999"
         editUserIndividualProfileRequest.registrationType = "text"
         editUserIndividualProfileRequest.imgExtension = "text"
@@ -210,7 +221,7 @@ class ProfileActivity : HambaBaseActivity() {
         //Non-Required fields
         editUserIndividualProfileRequest.middleName = editText_middleName.getText()
         editUserIndividualProfileRequest.cityName = editText_city.getText()
-        editUserIndividualProfileRequest.zipCode= editText_zipCode.getText()
+        editUserIndividualProfileRequest.zipCode = editText_zipCode.getText()
         editUserIndividualProfileRequest.country = spinner_country.selectedItem.toString()
         editUserIndividualProfileRequest.email = editText_email.getText()
         editUserIndividualProfileRequest.number = editText_phone.getPhoneNumber()
@@ -244,4 +255,5 @@ class ProfileActivity : HambaBaseActivity() {
         }
         return true
     }
+
 }
