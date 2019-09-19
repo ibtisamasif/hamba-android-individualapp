@@ -3,6 +3,7 @@ package com.hadiftech.hamba.features.profile.edit_profile_service
 import com.google.gson.annotations.SerializedName
 import com.hadiftech.hamba.core.Constants
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
+import java.util.ArrayList
 
 class EditUserIndividualProfileRequest : HambaBaseApiResponse() {
 
@@ -68,4 +69,10 @@ class EditUserIndividualProfileRequest : HambaBaseApiResponse() {
 
         @SerializedName("employee")
         var employee: String? = Constants.EMPTY_STRING
+
+        @SerializedName("imgExtension")
+        var imgExtension: String? = Constants.EMPTY_STRING
+
+        @SerializedName("interests")
+        var interests: List<String>? = ArrayList()
 }
