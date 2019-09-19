@@ -37,6 +37,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/service_provider"
+                app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingPersonType" />
@@ -75,6 +76,7 @@
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
+                app:spinnerTheme="Green"
                 app:layout_constraintEnd_toStartOf="@+id/editText_firstName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingPrefix" />
@@ -229,6 +231,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_nationality"
+                app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingNationality" />
@@ -256,6 +259,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/national_id"
+                app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingIdentity" />
@@ -354,6 +358,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_country"
+                app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingCountry" />
@@ -436,6 +441,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_address_type"
+                app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingAddressType" />
@@ -480,6 +486,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_interest"
+                app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingInterest" />

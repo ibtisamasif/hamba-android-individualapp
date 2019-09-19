@@ -23,4 +23,11 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="HambaLoginSpinnerAttributes">
+        <attr name="spinnerTheme" format="enum">
+            <enum name="White" value="0" />
+            <enum name="Green" value="1" />
+        </attr>
+    </declare-styleable>
+
 </resources>
