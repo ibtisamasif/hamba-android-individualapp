@@ -10,6 +10,7 @@ import android.widget.RadioGroup
 import androidx.annotation.AttrRes
 import com.hadiftech.hamba.R
 import kotlinx.android.synthetic.main.layout_gender_selection_view.view.*
+import kotlinx.android.synthetic.main.layout_hamba_login_edittext.view.*
 
 class HambaGenderComponent : LinearLayout {
 
@@ -45,7 +46,11 @@ class HambaGenderComponent : LinearLayout {
         }
     }
 
-    fun getGender(): String {
+    fun setError(error: String) {
+        textView_gender.error = error
+    }
+
+    fun getText(): String {
         return textView_gender.text.toString()
     }
 

@@ -19,8 +19,8 @@ public class HambaSpinner extends AppCompatSpinner {
         super(context, attrs);
     }
 
-    public void populate(Context context, int layout, List<String> spinnerItems) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, layout, spinnerItems);
+    public void populate(Context context, List<String> spinnerItems) {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.spinner_item_dark, spinnerItems);
         adapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         this.setAdapter(adapter);
     }

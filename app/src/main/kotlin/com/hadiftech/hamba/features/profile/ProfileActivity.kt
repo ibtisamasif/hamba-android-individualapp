@@ -58,7 +58,7 @@ class ProfileActivity : HambaBaseActivity() {
         }
 
         if(details.nationality != null && details.nationality!!.isNotEmpty()) {
-            spinnerNationality.setSelection(resources.getStringArray(R.array.nationalities).indexOf(details.nationality))
+            spinner_nationality.setSelection(resources.getStringArray(R.array.nationalities).indexOf(details.nationality))
         }
 
         if(details.birthDate != null && details.birthDate!!.isNotEmpty()) {
@@ -70,7 +70,7 @@ class ProfileActivity : HambaBaseActivity() {
         }
 
         if(details.gender != null && details.gender!!.isNotEmpty()) {
-            editText_iAm.setGender(details.gender!!)
+            editText_gender.setGender(details.gender!!)
         }
 
         if(details.number != null && details.number!!.isNotEmpty()) {
@@ -153,7 +153,7 @@ class ProfileActivity : HambaBaseActivity() {
     }
 
     private fun populateNationalityDropDown() {
-        spinnerNationality.populate(this, R.array.nationalities)
+        spinner_nationality.populate(this, R.array.nationalities)
     }
 
     private fun populateIdentityDropDown() {
