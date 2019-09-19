@@ -8,6 +8,8 @@ import com.hadiftech.hamba.features.forget_password.new_password_service.NewPass
 import com.hadiftech.hamba.features.forget_password.new_password_service.NewPasswordResponse
 import com.hadiftech.hamba.features.login.login_service.LoginRequest
 import com.hadiftech.hamba.features.login.login_service.LoginResponse
+import com.hadiftech.hamba.features.profile.edit_profile_service.EditUserIndividualProfileRequest
+import com.hadiftech.hamba.features.profile.edit_profile_service.EditUserIndividualProfileResponse
 import com.hadiftech.hamba.features.profile.get_profile_service.GetProfileResponse
 import com.hadiftech.hamba.features.signup.code_verification_service.VerifyOtpRequest
 import com.hadiftech.hamba.features.signup.code_verification_service.VerifyOtpResponse
@@ -65,5 +67,10 @@ object APiManager {
         val getProfileApiCall = hambaServices.getUserProfile("Bearer " + Session.getAccessToken())
         ApiExecutor<GetProfileResponse>().addCallToQueue(context, getProfileApiCall, apiCallbacks)
 
+    }
+
+    fun editUserIndividualProfileApi(context: Context, apiCallbacks: ApiCallbacks, editUserIndividualProfileRequest: EditUserIndividualProfileRequest) {
+        val editUserIndividualProfileApiCall = hambaServices.editUserIndividualProfile(editUserIndividualProfileRequest)
+        ApiExecutor<EditUserIndividualProfileResponse>().addCallToQueue(context, editUserIndividualProfileApiCall, apiCallbacks)
     }
 }

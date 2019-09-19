@@ -175,11 +175,11 @@
                 android:layout_marginLeft="@dimen/_14sdp"
                 android:text="@string/i_am"
                 app:fontType="Regular"
-                app:layout_constraintStart_toStartOf="@+id/editText_iAm"
+                app:layout_constraintStart_toStartOf="@+id/editText_gender"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingIAm" />
 
         <com.hadiftech.hamba.core.views.HambaGenderComponent
-                android:id="@+id/editText_iAm"
+                android:id="@+id/editText_gender"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
@@ -203,7 +203,7 @@
                 app:editTextTheme="Green"
                 app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editText_iAm"
+                app:layout_constraintStart_toEndOf="@+id/editText_gender"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingDateOfBirth"
                 app:showRightDrawable="true" />
 
@@ -217,11 +217,11 @@
                 android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/nationality"
                 app:fontType="Regular"
-                app:layout_constraintStart_toStartOf="@+id/editText_iAm"
+                app:layout_constraintStart_toStartOf="@+id/editText_gender"
                 app:layout_constraintTop_toBottomOf="@+id/editText_dateOfBirth" />
 
         <com.hadiftech.hamba.core.views.HambaSpinner
-                android:id="@+id/spinnerNationality"
+                android:id="@+id/spinner_nationality"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_33sdp"
@@ -244,8 +244,8 @@
                 android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/identity"
                 app:fontType="Regular"
-                app:layout_constraintStart_toStartOf="@+id/editText_iAm"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerNationality" />
+                app:layout_constraintStart_toStartOf="@+id/editText_gender"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_nationality" />
 
         <com.hadiftech.hamba.core.views.HambaSpinner
                 android:id="@+id/spinner_identity"
@@ -468,7 +468,7 @@
                 android:layout_marginTop="@dimen/_14sdp"
                 android:text="@string/interests"
                 app:fontType="Regular"
-                app:layout_constraintStart_toStartOf="@+id/editText_iAm"
+                app:layout_constraintStart_toStartOf="@+id/editText_gender"
                 app:layout_constraintTop_toBottomOf="@+id/editText_address" />
 
         <com.hadiftech.hamba.core.views.HambaSpinner
