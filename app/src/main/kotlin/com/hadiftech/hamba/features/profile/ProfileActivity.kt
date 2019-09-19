@@ -10,6 +10,9 @@ import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
+import com.hadiftech.hamba.core.services.HttpErrorCodes
+import com.hadiftech.hamba.features.profile.edit_profile_service.EditUserIndividualProfileRequest
+import com.hadiftech.hamba.features.profile.edit_profile_service.EditUserIndividualProfileResponse
 import com.hadiftech.hamba.features.profile.get_profile_service.GetProfileResponse
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
 import kotlinx.android.synthetic.main.activity_profile.*
@@ -46,6 +49,22 @@ class ProfileActivity : HambaBaseActivity() {
             } else {
                 AlertDialogProvider.showAlertDialog(this, apiResponse.message)
             }
+        }
+
+        if (apiResponse is EditUserIndividualProfileResponse) {
+            if (apiResponse.success!!) {
+                Toast.makeText(this, "Record Edited Successfully", Toast.LENGTH_SHORT).show()
+            } else {
+                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+            }
+        }
+    }
+
+    override fun onApiFailure(errorCode: Int) {
+        if (errorCode == HttpErrorCodes.Unauthorized.code) {
+            AlertDialogProvider.showAlertDialog(this, getString(R.string.password_incorrect))
+        } else {
+            super.onApiFailure(errorCode)
         }
     }
 
@@ -172,7 +191,51 @@ class ProfileActivity : HambaBaseActivity() {
         spinner_interest.populate(this, R.array.interests)
     }
 
-    fun onSaveButtonClicked(bSave: View) {
-        Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
+    fun onSaveButtonClicked(saveButton: View) {
+        val editUserIndividualProfileRequest = EditUserIndividualProfileRequest()
+        editUserIndividualProfileRequest.firstName = editText_firstName.getText()
+        editUserIndividualProfileRequest.middleName = editText_middleName.getText()
+        editUserIndividualProfileRequest.lastName = editText_lastName.getText()
+        editUserIndividualProfileRequest.gender = editText_gender.getText()
+        editUserIndividualProfileRequest.birthDate = editText_dateOfBirth.getText()
+        editUserIndividualProfileRequest.prefix = "test"
+        editUserIndividualProfileRequest.nationality = "test"
+        editUserIndividualProfileRequest.registrationNo = "test"
+        editUserIndividualProfileRequest.registrationType = "test"
+
+        if (checkValidations()) {
+            APiManager.editUserIndividualProfileApi(this, this, editUserIndividualProfileRequest)
+        }
+    }
+
+    private fun checkValidations(): Boolean {
+        // added sample validations just to complete structure
+
+        if (editText_firstName.getText().length < 4) {
+            editText_firstName.setError("Please enter valid first name")
+            return false
+        }
+        if (editText_lastName.getText().isEmpty()) {
+            editText_lastName.setError("Please enter valid last name")
+            return false
+        }
+        if (editText_gender.getText().isEmpty()) {
+            editText_gender.setError("Please enter valid gender")
+            return false
+        }
+        if (editText_dateOfBirth.getText().isEmpty()) {
+            editText_dateOfBirth.setError("Please enter valid date of birth")
+            return false
+        }
+
+        // prefix
+
+        //nationality
+
+        //registrationNo
+
+        //registrationType
+
+        return true
     }
 }
