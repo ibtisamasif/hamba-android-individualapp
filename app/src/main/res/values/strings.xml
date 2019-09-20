@@ -162,4 +162,5 @@
     <string name="action_forbidden">Action Forbidden</string>
     <string name="not_found">Not Found</string>
     <string name="record_updated_successfully">Record Updated Successfully!!</string>
+    <string name="please_select_valid_date">Please select valid date!!</string>
 </resources>

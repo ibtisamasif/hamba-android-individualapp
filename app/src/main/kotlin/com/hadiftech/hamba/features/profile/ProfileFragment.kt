@@ -2,6 +2,7 @@ package com.hadiftech.hamba.features.profile
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -167,8 +168,16 @@ class ProfileFragment : HambaBaseFragment() {
         DatePickerDialog(activity!!, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
             val calendar = Calendar.getInstance()
             calendar.set(year, monthOfYear, dayOfMonth)
-            editText_dateOfBirth.setText(SimpleDateFormat(Constants.DOB_FORMAT).format(calendar.time))
+            onDateSelected(calendar)
         }, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH)).show()
+    }
+
+    private fun onDateSelected(calendar: Calendar) {
+        if (DateUtils.isToday(calendar.timeInMillis) || calendar.time.after(Date())) {
+            AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.please_select_valid_date))
+        } else {
+            editText_dateOfBirth.setText(SimpleDateFormat(Constants.DOB_FORMAT).format(calendar.time))
+        }
     }
 
     private fun populatePersonTypeDropDown() {
