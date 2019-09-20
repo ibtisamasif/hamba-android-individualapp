@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -13,7 +14,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
-import com.hadiftech.hamba.features.profile.ProfileActivity
+import com.hadiftech.hamba.core.HambaFrameActivity
+import com.hadiftech.hamba.features.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -25,6 +27,9 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
@@ -32,11 +37,7 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
         navigationDrawerView.setupWithNavController(findNavController(R.id.nav_host_fragment))
 
         drawerLayout = findViewById(R.id.drawer_layout)
-        NavigationUI.setupActionBarWithNavController(
-            this,
-            findNavController(R.id.nav_host_fragment),
-            drawerLayout
-        )
+        NavigationUI.setupActionBarWithNavController(this, findNavController(R.id.nav_host_fragment), drawerLayout)
 
         navigationDrawerView.setNavigationItemSelectedListener(this)
     }
@@ -56,12 +57,16 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
 
+        var bundle = Bundle()
         menuItem.isChecked = true
         drawerLayout.closeDrawers()
 
         when (menuItem.itemId) {
             R.id.item_manage_profile -> {
-                startActivity(Intent(this, ProfileActivity::class.java))
+                bundle.putString(HambaFrameActivity.FRAGMENT_NAME_STRING, ProfileFragment::class.java.name)
+                bundle.putString(HambaFrameActivity.ACTIVITY_TITLE, resources.getString(R.string.edit_profile))
+                bundle.putBoolean(HambaFrameActivity.INFLATE_OPTIONS_MENU, true)
+                startActivity(Intent(applicationContext, HambaFrameActivity::class.java).putExtras(bundle))
             }
             R.id.item_discovery_rules -> {
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()

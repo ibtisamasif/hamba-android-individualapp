@@ -6,10 +6,10 @@ import com.hadiftech.hamba.core.Constants
 class NewPasswordRequest {
 
     @SerializedName("email")
-    var email: String? = Constants.EMPTY_STRING
+    var email: String? = null
 
     @SerializedName("number")
-    var number: String? = Constants.EMPTY_STRING
+    var number: String? = null
 
     @SerializedName("otp_code")
     var otpCode: String? = Constants.EMPTY_STRING

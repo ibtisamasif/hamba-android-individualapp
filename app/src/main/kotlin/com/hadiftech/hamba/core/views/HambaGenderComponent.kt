@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.layout_gender_selection_view.view.*
 class HambaGenderComponent : LinearLayout {
 
     lateinit var mView: View
+    lateinit var radioGroup: RadioGroup
 
     constructor(context: Context) : super(context) {
         initialize(context)
@@ -30,12 +31,12 @@ class HambaGenderComponent : LinearLayout {
     private fun initialize(context: Context) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         mView = inflater.inflate(R.layout.layout_gender_selection_view, this)
+        radioGroup = findViewById<RadioGroup>(R.id.genderRadioGroup)
 
         setRadioButtonSelectionListener()
     }
 
     private fun setRadioButtonSelectionListener() {
-        val radioGroup = findViewById<RadioGroup>(R.id.genderRadioGroup)
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             val checkedRadioButton = group.findViewById<View>(checkedId) as RadioButton
             if (checkedRadioButton.isChecked) {
@@ -44,7 +45,21 @@ class HambaGenderComponent : LinearLayout {
         }
     }
 
+    fun setError(error: String) {
+        textView_gender.error = error
+    }
+
     fun getGender(): String {
         return textView_gender.text.toString()
+    }
+
+    fun setGender(gender: String) {
+        if (gender == radioButton_male.tag as CharSequence) {
+            radioButton_male.isChecked = true
+            textView_gender.text = radioButton_male.tag as CharSequence?
+        } else {
+            radioButton_female.isChecked = true
+            textView_gender.text = radioButton_female.tag as CharSequence?
+        }
     }
 }

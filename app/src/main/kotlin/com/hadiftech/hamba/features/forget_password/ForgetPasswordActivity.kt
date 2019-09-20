@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_forget_password.*
 class ForgetPasswordActivity : HambaBaseActivity() {
 
     companion object {
-        @JvmStatic val KEY_EMAIL_ADDRESS = "EmailAddress"
+        @JvmStatic val KEY_EMAIL_ADDRESS_OR_NUMBER = "EmailAddressOrNumber"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,10 +26,15 @@ class ForgetPasswordActivity : HambaBaseActivity() {
 
     fun onContinueButtonClicked(continueButton: View) {
 
-        var forgetPasswordRequest = ForgetPasswordRequest()
-        forgetPasswordRequest.email = editText_emailAddress.getText()
-
         if (checkValidations()) {
+
+            var forgetPasswordRequest = ForgetPasswordRequest()
+            if (HambaUtils.isPhoneNumber(editText_emailAddress.getText())) {
+                forgetPasswordRequest.number = editText_emailAddress.getText()
+            } else {
+                forgetPasswordRequest.email = editText_emailAddress.getText()
+            }
+
             APiManager.forgetPassword(this, this, forgetPasswordRequest)
         }
     }
@@ -48,19 +53,27 @@ class ForgetPasswordActivity : HambaBaseActivity() {
 
     private fun moveToNewPasswordActivity(){
         val newPasswordIntent = Intent(this, NewPasswordActivity::class.java)
-        newPasswordIntent.putExtra(KEY_EMAIL_ADDRESS, editText_emailAddress.getText())
+        newPasswordIntent.putExtra(KEY_EMAIL_ADDRESS_OR_NUMBER, editText_emailAddress.getText())
         startActivity(newPasswordIntent)
     }
 
     private fun checkValidations() : Boolean {
+
         if (editText_emailAddress.getText().isEmpty()) {
-            editText_emailAddress.setError(getString(R.string.please_enter_email))
+            editText_emailAddress.setError(getString(R.string.please_enter_cell_number_or_email))
             return false
         }
 
-        if (!HambaUtils.isEmailValid(editText_emailAddress.getText())) {
-            editText_emailAddress.setError(getString(R.string.please_enter_valid_email))
-            return false
+        if (HambaUtils.isPhoneNumber(editText_emailAddress.getText())) {
+            if (editText_emailAddress.getText().length < 10) {
+                editText_emailAddress.setError(getString(R.string.please_enter_valid_cell_number))
+                return false
+            }
+        } else {
+            if (!HambaUtils.isEmailValid(editText_emailAddress.getText())) {
+                editText_emailAddress.setError(getString(R.string.please_enter_valid_email))
+                return false
+            }
         }
 
         return true

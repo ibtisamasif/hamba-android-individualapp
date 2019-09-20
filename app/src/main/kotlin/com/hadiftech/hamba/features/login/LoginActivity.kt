@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.core.HambaUtils
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
@@ -27,11 +28,18 @@ class LoginActivity : HambaBaseActivity() {
 
     fun onSignInButtonClicked(signInButton: View) {
 
-        var loginRequest = LoginRequest()
-        loginRequest.number = editText_emailOrNumber.getText()
-        loginRequest.password = editText_password.getText()
-
         if (checkValidations()) {
+
+            var loginRequest = LoginRequest()
+
+            if (HambaUtils.isPhoneNumber(editText_emailOrNumber.getText())) {
+                loginRequest.number = editText_emailOrNumber.getText()
+                loginRequest.password = editText_password.getText()
+            } else {
+                loginRequest.email = editText_emailOrNumber.getText()
+                loginRequest.password = editText_password.getText()
+            }
+
             APiManager.loginApi(this, this, loginRequest)
         }
     }
@@ -78,7 +86,7 @@ class LoginActivity : HambaBaseActivity() {
         startActivity(forgetPasswordIntent)
     }
 
-    fun moveToDashboardScreen() {
+    private fun moveToDashboardScreen() {
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
         startActivity(dashboardIntent)
         finish()
@@ -86,9 +94,21 @@ class LoginActivity : HambaBaseActivity() {
 
     private fun checkValidations() : Boolean {
 
-        if (editText_emailOrNumber.getText().length < 10) {
-            editText_emailOrNumber.setError(getString(R.string.please_enter_valid_cell_number))
+        if (editText_emailOrNumber.getText().isEmpty()) {
+            editText_emailOrNumber.setError(getString(R.string.please_enter_cell_number_or_email))
             return false
+        }
+
+        if (HambaUtils.isPhoneNumber(editText_emailOrNumber.getText())) {
+            if (editText_emailOrNumber.getText().length < 10) {
+                editText_emailOrNumber.setError(getString(R.string.please_enter_valid_cell_number))
+                return false
+            }
+        } else {
+            if (!HambaUtils.isEmailValid(editText_emailOrNumber.getText())) {
+                editText_emailOrNumber.setError(getString(R.string.please_enter_valid_email))
+                return false
+            }
         }
 
         if (editText_password.getText().isEmpty()) {

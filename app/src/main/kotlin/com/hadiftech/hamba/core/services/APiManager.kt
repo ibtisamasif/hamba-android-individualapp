@@ -1,12 +1,16 @@
 package com.hadiftech.hamba.core.services
 
 import android.content.Context
+import com.hadiftech.hamba.core.session.Session
 import com.hadiftech.hamba.features.forget_password.forget_password_service.ForgetPasswordRequest
 import com.hadiftech.hamba.features.forget_password.forget_password_service.ForgetPasswordResponse
 import com.hadiftech.hamba.features.forget_password.new_password_service.NewPasswordRequest
 import com.hadiftech.hamba.features.forget_password.new_password_service.NewPasswordResponse
 import com.hadiftech.hamba.features.login.login_service.LoginRequest
 import com.hadiftech.hamba.features.login.login_service.LoginResponse
+import com.hadiftech.hamba.features.profile.edit_profile_service.IndividualProfileEditRequest
+import com.hadiftech.hamba.features.profile.edit_profile_service.IndividualProfileEditResponse
+import com.hadiftech.hamba.features.profile.get_profile_service.GetProfileResponse
 import com.hadiftech.hamba.features.signup.code_verification_service.VerifyOtpRequest
 import com.hadiftech.hamba.features.signup.code_verification_service.VerifyOtpResponse
 import com.hadiftech.hamba.features.signup.resend_otp_service.ResendOtpRequest
@@ -57,5 +61,15 @@ object APiManager {
     fun resendOtpCode(context: Context, apiCallbacks: ApiCallbacks, resendOtpRequest: ResendOtpRequest) {
         val resendOtpApiCall = hambaServices.resendOtpCode(resendOtpRequest)
         ApiExecutor<ResendOtpResponse>().addCallToQueue(context, resendOtpApiCall, apiCallbacks)
+    }
+
+    fun getUserProfile(context: Context, apiCallbacks: ApiCallbacks) {
+        val getProfileApiCall = hambaServices.getUserProfile(Session.getAccessToken())
+        ApiExecutor<GetProfileResponse>().addCallToQueue(context, getProfileApiCall, apiCallbacks)
+    }
+
+    fun editIndividualProfileApi(context: Context, apiCallbacks: ApiCallbacks, individualProfileEditRequest: IndividualProfileEditRequest) {
+        val editIndividualProfileApiCall = hambaServices.editIndividualProfile(Session.getAccessToken(), individualProfileEditRequest)
+        ApiExecutor<IndividualProfileEditResponse>().addCallToQueue(context, editIndividualProfileApiCall, apiCallbacks)
     }
 }

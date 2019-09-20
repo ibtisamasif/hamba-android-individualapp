@@ -5,12 +5,12 @@
 
         <item
                 android:id="@+id/item_manage_profile"
-                android:icon="@drawable/ic_male_user"
+                android:icon="@drawable/ic_manage_profile"
                 android:title="@string/manage_profile" />
 
         <item
                 android:id="@+id/item_discovery_rules"
-                android:icon="@drawable/ic_file"
+                android:icon="@drawable/ic_discovery_rules"
                 android:title="@string/discovery_rules" />
 
         <item
@@ -25,7 +25,7 @@
 
         <item
                 android:id="@+id/item_manage_payments"
-                android:icon="@drawable/ic_shopping_bag"
+                android:icon="@drawable/ic_manage_payment"
                 android:title="@string/manage_payments" />
 
         <item
@@ -40,7 +40,7 @@
 
         <item
                 android:id="@+id/item_hamba_gold"
-                android:icon="@drawable/hamba_mango_logo"
+                android:icon="@drawable/ic_hamba_mango_logo"
                 android:title="@string/hamba_gold" />
 
     </group>
@@ -59,7 +59,7 @@
 
         <item
                 android:id="@+id/item_faqs"
-                android:icon="@drawable/ic_hours_support"
+                android:icon="@drawable/ic_faqs"
                 android:title="@string/faqs" />
 
         <item

@@ -5,6 +5,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <!-- Theme for activities with no ActionBar-->
@@ -12,24 +14,7 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="LoginFieldsStyle">
-        <item name="android:background">@drawable/login_fields_white_bg</item>
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textColorHint">@color/colorWhite</item>
-        <item name="android:textSize">@dimen/_16sdp</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:gravity">center</item>
-    </style>
-
-    <style name="SignUpFieldsStyle">
-        <item name="android:background">@drawable/login_fields_white_bg</item>
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textColorHint">@color/colorWhite</item>
-        <item name="android:textSize">@dimen/_14sdp</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:inputType">textCapWords</item>
-    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="LoginButtonStyle">
         <item name="android:background">@drawable/login_button_background</item>
@@ -70,27 +55,11 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
-    <style name="UserNameFieldStyle">
-        <item name="android:background">@drawable/green_medium_strock_bg</item>
-        <item name="android:textColor">@color/colorGreenLight</item>
-        <item name="android:textColorHint">@color/colorGreenLight</item>
-        <item name="android:textSize">@dimen/_16sdp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:inputType">textCapCharacters</item>
-        <item name="android:maxLength">12</item>
-    </style>
-
     <style name="ForgetPasswordButtonStyle">
         <item name="android:background">@drawable/forget_password_button_bg</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/_16sdp</item>
         <item name="android:textAllCaps">false</item>
-    </style>
-
-    <style name="ForgetPasswordCounterTextStyle" parent="TextAppearance.Design.Counter">
-        <item name="android:textSize">@dimen/_14sdp</item>
-        <item name="android:textColor">@color/colorGreenLight</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="WhatsYourNameTextStyle" parent="TextAppearance.Design.Counter">
@@ -108,14 +77,6 @@
     <style name="ForgetPasswordCodeInstructsTextStyle" parent="TextAppearance.Design.Counter">
         <item name="android:textSize">@dimen/_15sdp</item>
         <item name="android:textColor">@color/colorGreenLight</item>
-        <item name="android:gravity">center</item>
-    </style>
-
-    <style name="ForgetPasswordFieldStyle">
-        <item name="android:background">@drawable/green_light_strock_bg</item>
-        <item name="android:textColor">@color/colorGreenLight</item>
-        <item name="android:textColorHint">@color/colorGreenLight</item>
-        <item name="android:textSize">@dimen/_15sdp</item>
         <item name="android:gravity">center</item>
     </style>
 
@@ -171,7 +132,7 @@
 
     <style name="ProfileScreenLabelTextStyle">
         <item name="android:textColor">@color/colorGreenLight</item>
-        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
         <item name="android:gravity">center</item>
     </style>
 
@@ -181,14 +142,14 @@
         <item name="android:paddingStart">@dimen/_12sdp</item>
         <item name="android:paddingLeft">@dimen/_12sdp</item>
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
         <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="ProfileScreenDarkDropDownItemStyle">
         <item name="android:background">@color/colorWhite</item>
         <item name="android:textColor">@color/colorGreenLight</item>
-        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:singleLine">true</item>
@@ -200,14 +161,14 @@
         <item name="android:drawablePadding">@dimen/_40sdp</item>
         <item name="android:paddingStart">@dimen/_12sdp</item>
         <item name="android:paddingLeft">@dimen/_12sdp</item>
-        <item name="android:textColor">@color/colorGreenMedium</item>
-        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@color/colorGreenLight</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
         <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="ProfileScreenSwitchStyle">
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
     </style>
 
 </resources>
