@@ -15,6 +15,8 @@ import com.google.android.material.navigation.NavigationView
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaFrameActivity
+import com.hadiftech.hamba.core.session.Session
+import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.features.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -90,7 +92,11 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
             }
             R.id.item_sign_out -> {
-                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+                Session.clearSession()
+                val loginIntent = Intent(this, LoginActivity::class.java)
+                loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(loginIntent)
+                finish()
             }
             R.id.item_support -> {
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
