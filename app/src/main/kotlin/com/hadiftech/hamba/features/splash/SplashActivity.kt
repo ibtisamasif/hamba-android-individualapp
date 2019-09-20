@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.core.session.Session
+import com.hadiftech.hamba.features.dashboard.DashboardActivity
 import com.hadiftech.hamba.features.login.LoginActivity
 
 class SplashActivity : HambaBaseActivity() {
@@ -22,8 +24,18 @@ class SplashActivity : HambaBaseActivity() {
 
     private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
-            moveToLoginActivity()
+            if (Session.isSessionAvailable()) {
+                moveToDashboardActivity()
+            } else {
+                moveToLoginActivity()
+            }
         }
+    }
+
+    private fun moveToDashboardActivity(){
+        val dashboardIntent = Intent(this, DashboardActivity::class.java)
+        startActivity(dashboardIntent)
+        finish()
     }
 
     private fun moveToLoginActivity(){
