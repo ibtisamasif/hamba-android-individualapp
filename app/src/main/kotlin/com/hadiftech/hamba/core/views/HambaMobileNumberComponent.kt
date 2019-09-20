@@ -62,6 +62,11 @@ class HambaMobileNumberComponent : LinearLayout {
         container_mobileNumberComponent.background = ContextCompat.getDrawable(context, R.drawable.login_fields_white_bg)
     }
 
+    override fun setEnabled(value: Boolean) {
+        mPhoneNumberEditText.isEnabled = value
+        mCountryCodePicker.isClickable = value
+    }
+
     fun setError(error: String) {
         mPhoneNumberEditText.error = error
     }

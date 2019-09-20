@@ -156,12 +156,10 @@
     <string name="others_can_see_my_age">Others can see my age</string>
     <string name="save">Save</string>
     <string name="address_type">Address Type</string>
-    <string name="please_enter_valid_first_name">Please enter valid first name</string>
-    <string name="please_enter_valid_last_name">Please enter valid last name</string>
-    <string name="please_enter_valid_gender">Please enter valid gender</string>
-    <string name="please_enter_valid_date_of_birth">Please enter valid date of birth</string>
+    <string name="please_enter_date_of_birth">Please enter date of birth</string>
+    <string name="please_enter_registration_number">Please enter Registration Number</string>
     <string name="action_unauthorized">Action Unauthorized</string>
     <string name="action_forbidden">Action Forbidden</string>
     <string name="not_found">Not Found</string>
-    <string name="record_edited_successfully">Record Edited Successfully</string>
+    <string name="record_updated_successfully">Record Updated Successfully!!</string>
 </resources>

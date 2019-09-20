@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Constants
 import com.hadiftech.hamba.core.HambaBaseFragment
+import com.hadiftech.hamba.core.HambaUtils
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
@@ -56,7 +56,7 @@ class ProfileFragment : HambaBaseFragment() {
 
         if (apiResponse is IndividualProfileEditResponse) {
             if (apiResponse.success!!) {
-                Toast.makeText(activity!!, getString(R.string.record_edited_successfully), Toast.LENGTH_SHORT).show()
+                AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.record_updated_successfully))
             } else {
                 AlertDialogProvider.showAlertDialog(activity!!, apiResponse.message)
             }
@@ -75,6 +75,7 @@ class ProfileFragment : HambaBaseFragment() {
     private fun updateUI(details: GetProfileResponse.Details) {
 
         swPushNotifications.isChecked = details.enableNotification!!
+        editText_phone.isEnabled = false
 
         if (details.personType != null && details.personType!!.isNotEmpty()) {
             spinner_personType.setSelection(resources.getStringArray(R.array.person_types).indexOf(details.personType))
@@ -93,7 +94,7 @@ class ProfileFragment : HambaBaseFragment() {
         }
 
         if (details.birthDate != null && details.birthDate!!.isNotEmpty()) {
-
+            editText_dateOfBirth.setText(details.birthDate!!)
         }
 
         if (details.prefix != null && details.prefix!!.isNotEmpty()) {
@@ -166,7 +167,7 @@ class ProfileFragment : HambaBaseFragment() {
         DatePickerDialog(activity!!, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
             val calendar = Calendar.getInstance()
             calendar.set(year, monthOfYear, dayOfMonth)
-            editText_dateOfBirth.setText(SimpleDateFormat("MMM/dd/yyyy").format(calendar.time))
+            editText_dateOfBirth.setText(SimpleDateFormat(Constants.DOB_FORMAT).format(calendar.time))
         }, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH)).show()
     }
 
@@ -198,63 +199,72 @@ class ProfileFragment : HambaBaseFragment() {
         spinner_interest.populate(activity!!, R.array.interests)
     }
 
-
     private fun setSaveButtonListener() {
         btn_save.setOnClickListener {
-            //Required fields
-            val editUserIndividualProfileRequest = IndividualProfileEditRequest()
-            editUserIndividualProfileRequest.personType = spinner_personType.selectedItem.toString()
-            editUserIndividualProfileRequest.prefix = spinner_prefix.selectedItem.toString()
-            editUserIndividualProfileRequest.firstName = editText_firstName.getText()
-            editUserIndividualProfileRequest.lastName = editText_lastName.getText()
-            editUserIndividualProfileRequest.gender = editText_gender.getGender()
-            editUserIndividualProfileRequest.birthDate = editText_dateOfBirth.getText()
-            editUserIndividualProfileRequest.nationality = spinner_nationality.selectedItem.toString()
-            editUserIndividualProfileRequest.registrationNo = editText_identityValue.getText()
-            editUserIndividualProfileRequest.registrationType = spinner_identity.selectedItem.toString()
-            //Todo implement later
-            editUserIndividualProfileRequest.imgExtension = "some_url"
-            //ToDo interest would be a different widget or multi select dropdown
-            val selectedInterests = ArrayList<String>()
-            selectedInterests.add(spinner_interest.selectedItem.toString())
-            editUserIndividualProfileRequest.interests = selectedInterests
-
-            //Non-Required fields
-            editUserIndividualProfileRequest.middleName = editText_middleName.getText()
-            editUserIndividualProfileRequest.cityName = editText_city.getText()
-            editUserIndividualProfileRequest.zipCode = editText_zipCode.getText()
-            editUserIndividualProfileRequest.country = spinner_country.selectedItem.toString()
-            editUserIndividualProfileRequest.email = editText_email.getText()
-            editUserIndividualProfileRequest.number = editText_phone.getPhoneNumber()
-            editUserIndividualProfileRequest.addressType = spinner_addressType.selectedItem.toString()
-            editUserIndividualProfileRequest.address = editText_address.getText()
-            editUserIndividualProfileRequest.enableNotification = swPushNotifications.isChecked
-
             if (checkValidations()) {
-                APiManager.editIndividualProfileApi(activity!!, this, editUserIndividualProfileRequest)
+                APiManager.editIndividualProfileApi(activity!!, this, getIndividualProfileEditRequest())
             }
         }
     }
 
-    private fun checkValidations(): Boolean {
-        // added sample validations just to complete structure
+    private fun getIndividualProfileEditRequest() : IndividualProfileEditRequest {
 
-        if (editText_firstName.getText().isEmpty() || editText_firstName.getText().length < 3) {
-            editText_firstName.setError(getString(R.string.please_enter_valid_first_name))
+        val editUserIndividualProfileRequest = IndividualProfileEditRequest()
+        editUserIndividualProfileRequest.personType = spinner_personType.selectedItem.toString()
+        editUserIndividualProfileRequest.prefix = spinner_prefix.selectedItem.toString()
+        editUserIndividualProfileRequest.firstName = editText_firstName.getText()
+        editUserIndividualProfileRequest.lastName = editText_lastName.getText()
+        editUserIndividualProfileRequest.gender = editText_gender.getGender()
+        editUserIndividualProfileRequest.birthDate = editText_dateOfBirth.getText()
+        editUserIndividualProfileRequest.nationality = spinner_nationality.selectedItem.toString()
+        editUserIndividualProfileRequest.registrationNo = editText_identityValue.getText()
+        editUserIndividualProfileRequest.registrationType = spinner_identity.selectedItem.toString()
+        editUserIndividualProfileRequest.middleName = editText_middleName.getText()
+        editUserIndividualProfileRequest.cityName = editText_city.getText()
+        editUserIndividualProfileRequest.zipCode = editText_zipCode.getText()
+        editUserIndividualProfileRequest.country = spinner_country.selectedItem.toString()
+        editUserIndividualProfileRequest.email = editText_email.getText()
+        editUserIndividualProfileRequest.number = editText_phone.getPhoneNumber()
+        editUserIndividualProfileRequest.addressType = spinner_addressType.selectedItem.toString()
+        editUserIndividualProfileRequest.address = editText_address.getText()
+        editUserIndividualProfileRequest.enableNotification = swPushNotifications.isChecked
+
+        //ToDo interest would be a different widget or multi select dropdown
+        val selectedInterests = ArrayList<String>()
+        selectedInterests.add(spinner_interest.selectedItem.toString())
+        editUserIndividualProfileRequest.interests = selectedInterests
+        editUserIndividualProfileRequest.imgExtension = "some_url"
+
+        return editUserIndividualProfileRequest
+    }
+
+    private fun checkValidations(): Boolean {
+
+        if (editText_firstName.getText().isEmpty()) {
+            editText_firstName.setError(getString(R.string.please_enter_first_name))
             return false
         }
-        if (editText_lastName.getText().isEmpty() || editText_firstName.getText().length < 3) {
-            editText_lastName.setError(getString(R.string.please_enter_valid_last_name))
+
+        if (editText_lastName.getText().isEmpty()) {
+            editText_lastName.setError(getString(R.string.please_enter_last_name))
             return false
         }
-        if (editText_gender.getGender().isEmpty() || editText_firstName.getText().length < 3) {
-            editText_gender.setError(getString(R.string.please_enter_valid_gender))
+
+        if (editText_dateOfBirth.getText().isEmpty()) {
+            editText_dateOfBirth.setError(getString(R.string.please_enter_date_of_birth))
             return false
         }
-        if (editText_dateOfBirth.getText().isEmpty() || editText_firstName.getText().length < 3) {
-            editText_dateOfBirth.setError(getString(R.string.please_enter_valid_date_of_birth))
+
+        if (editText_identityValue.getText().isEmpty()) {
+            editText_identityValue.setError(getString(R.string.please_enter_registration_number))
             return false
         }
+
+        if (!HambaUtils.isEmailValid(editText_email.getText())) {
+            editText_email.setError(getString(R.string.please_enter_valid_email))
+            return false
+        }
+
         return true
     }
 }
