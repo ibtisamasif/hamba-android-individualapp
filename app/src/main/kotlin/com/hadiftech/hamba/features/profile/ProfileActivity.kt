@@ -1,5 +1,6 @@
 package com.hadiftech.hamba.features.profile
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
@@ -74,7 +75,7 @@ class ProfileActivity : HambaBaseActivity() {
         }
 
         if(details.number != null && details.number!!.isNotEmpty()) {
-            var phoneNumber = PhoneNumberUtil.createInstance(this).parse(details.number, Constants.EMPTY_STRING)
+            val phoneNumber = PhoneNumberUtil.createInstance(this).parse(details.number, Constants.EMPTY_STRING)
             editText_phone.setPhoneNumber(phoneNumber.nationalNumber.toString())
             editText_phone.setCountryCode(phoneNumber.countryCode)
         }
@@ -131,12 +132,13 @@ class ProfileActivity : HambaBaseActivity() {
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun displayDatePicker() {
         DatePickerDialog(this,
             DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 val calendar = Calendar.getInstance()
                 calendar.set(year, monthOfYear, dayOfMonth)
-                editText_dateOfBirth.setText(SimpleDateFormat("MMM/dd/yyyy").format(calendar.time))
+                editText_dateOfBirth.setText(SimpleDateFormat(Constants.DOB_FORMAT).format(calendar.time))
             },
             Calendar.getInstance().get(Calendar.YEAR),
             Calendar.getInstance().get(Calendar.MONTH),

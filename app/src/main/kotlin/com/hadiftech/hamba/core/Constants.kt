@@ -4,6 +4,8 @@ object Constants {
     const val EMPTY_STRING = ""
     const val SPACE_STRING = " "
     const val LOGGER_TAG = "Hamba App"
+    const val DOB_FORMAT = "MMM/dd/yyyy"
+    const val NUMBER_REGULAR_EXPRESSION = "^[\\+\\d]?(?:[\\d-.\\s()]*)\$"
 }
 
 object Fonts {

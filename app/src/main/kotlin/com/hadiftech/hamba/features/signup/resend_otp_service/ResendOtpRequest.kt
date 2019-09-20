@@ -6,10 +6,10 @@ import com.hadiftech.hamba.core.Constants
 class ResendOtpRequest {
 
     @SerializedName("email")
-    var email: String? = Constants.EMPTY_STRING
+    var email: String? = null
 
     @SerializedName("number")
-    var number: String? = Constants.EMPTY_STRING
+    var number: String? = null
 
     @SerializedName("mode")
     var userType: String? = Constants.EMPTY_STRING

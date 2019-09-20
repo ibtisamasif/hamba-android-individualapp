@@ -40,7 +40,6 @@
     <string name="enter">Enter</string>
     <string name="its_okay">It\'s okay!</string>
     <string name="reset_your_password">Reset your password</string>
-    <string name="enter_your_email_address">Enter your email address</string>
     <string name="continue_">Continue</string>
     <string name="code_instructions">we have sent you six digit code</string>
     <string name="on_your_email">on your email</string>
@@ -115,7 +114,8 @@
     <string name="sorry_something_went_wrong">Sorry something went wrong!</string>
     <string name="no_network_available">No Network Available</string>
     <string name="password_incorrect">Your cell number or password is incorrect.</string>
-    <string name="please_enter_valid_cell_number">Please Enter Valid Cell Number</string>
+    <string name="please_enter_cell_number_or_email">Please Enter Cell Number or Email</string>
+    <string name="please_enter_valid_cell_number">Please Enter valid Cell Number</string>
     <string name="please_enter_email">Please Enter Email Address</string>
     <string name="please_enter_valid_email">Please Enter Valid Email Address</string>
     <string name="please_enter_otp_code">Please Enter 6 Digit OTP Code</string>

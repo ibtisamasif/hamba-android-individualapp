@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.core.HambaUtils
 import com.hadiftech.hamba.core.enums.UserType
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
@@ -26,10 +27,17 @@ class NewPasswordActivity : HambaBaseActivity() {
     fun onResetPasswordClicked(continueButton: View) {
 
         if (checkValidations()) {
+
             var newPasswordRequest = NewPasswordRequest()
             newPasswordRequest.otpCode = editText_otpCode.getText()
             newPasswordRequest.newPassword = editText_newPassword.getText()
-            newPasswordRequest.email = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS)
+
+            var emailOrNumber = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS_OR_NUMBER)
+            if (HambaUtils.isPhoneNumber(emailOrNumber)) {
+                newPasswordRequest.number = emailOrNumber
+            } else {
+                newPasswordRequest.email = emailOrNumber
+            }
 
             APiManager.resetPassword(this, this, newPasswordRequest)
         }
@@ -63,9 +71,18 @@ class NewPasswordActivity : HambaBaseActivity() {
     }
 
     fun onSendOtpAgainClicked (view: View) {
+
         var resendOtpRequest = ResendOtpRequest()
-        resendOtpRequest.userType = UserType.BUSINESS_EMPLOYEE.name
-        resendOtpRequest.email = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS)
+
+        var emailOrNumber = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS_OR_NUMBER)
+        if (HambaUtils.isPhoneNumber(emailOrNumber)) {
+            resendOtpRequest.number = emailOrNumber
+            resendOtpRequest.userType = UserType.INDIVIDUAL.name
+        } else {
+            resendOtpRequest.email = emailOrNumber
+            resendOtpRequest.userType = UserType.BUSINESS_EMPLOYEE.name
+        }
+
         APiManager.resendOtpCode(this, this, resendOtpRequest)
     }
 
