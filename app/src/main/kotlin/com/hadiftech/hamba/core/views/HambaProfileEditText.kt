@@ -2,7 +2,9 @@ package com.hadiftech.hamba.core.views
 
 import android.content.Context
 import android.text.Editable
+import android.text.InputFilter
 import android.text.InputType
+import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
@@ -12,8 +14,6 @@ import androidx.core.content.ContextCompat
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.providers.TypefaceProvider
 import kotlinx.android.synthetic.main.layout_hamba_login_edittext.view.*
-import android.text.InputFilter
-import android.text.TextWatcher
 
 class HambaProfileEditText : RelativeLayout, TypefaceProvider {
 
@@ -64,7 +64,7 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
         editText_loginField.error = error
     }
 
-    fun getText() : String {
+    fun getText(): String {
         return editText_loginField.text.toString()
     }
 

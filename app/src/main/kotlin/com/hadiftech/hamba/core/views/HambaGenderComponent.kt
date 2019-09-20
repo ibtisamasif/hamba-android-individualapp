@@ -45,12 +45,16 @@ class HambaGenderComponent : LinearLayout {
         }
     }
 
+    fun setError(error: String) {
+        textView_gender.error = error
+    }
+
     fun getGender(): String {
         return textView_gender.text.toString()
     }
 
     fun setGender(gender: String) {
-        if (gender.equals(radioButton_male.tag as CharSequence)) {
+        if (gender == radioButton_male.tag as CharSequence) {
             radioButton_male.isChecked = true
             textView_gender.text = radioButton_male.tag as CharSequence?
         } else {
