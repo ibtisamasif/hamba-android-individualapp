@@ -21,6 +21,12 @@ object Session {
         preferenceEditor.apply()
     }
 
+    fun storeName(name: String?) {
+        val preferenceEditor = sessionPreferences.edit()
+        preferenceEditor.putString(PreferenceConstants.Key_Name, name)
+        preferenceEditor.apply()
+    }
+
     fun isSessionAvailable() : Boolean {
         return sessionPreferences.getString(PreferenceConstants.Key_AccessToken, Constants.EMPTY_STRING).isNotEmpty()
     }
@@ -37,11 +43,16 @@ object Session {
         return sessionPreferences.getString(PreferenceConstants.Key_TokenType, Constants.EMPTY_STRING)
     }
 
+    fun getName() : String {
+        return sessionPreferences.getString(PreferenceConstants.Key_Name, Constants.EMPTY_STRING)
+    }
+
     fun clearSession() {
         val preferenceEditor = sessionPreferences.edit()
         preferenceEditor.remove(PreferenceConstants.Key_AccessToken)
         preferenceEditor.remove(PreferenceConstants.Key_SecretKey)
         preferenceEditor.remove(PreferenceConstants.Key_TokenType)
+        preferenceEditor.remove(PreferenceConstants.Key_Name)
         preferenceEditor.apply()
     }
 }

@@ -11,24 +11,24 @@
             android:id="@+id/imageView_userPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginLeft="@dimen/_8sdp"
             android:contentDescription="@string/nav_header_desc"
-            android:layout_centerVertical="true"
             app:srcCompat="@drawable/ic_user_white" />
 
     <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:orientation="vertical"
-            android:layout_toRightOf="@+id/imageView_userPhoto"
             android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp" >
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_toRightOf="@+id/imageView_userPhoto"
+            android:orientation="vertical">
 
         <com.hadiftech.hamba.core.views.HambaTextView
-                style="@style/NavigationHeaderTitleTextStyle"
                 android:id="@+id/textView_userName"
+                style="@style/NavigationHeaderTitleTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nav_header_title" />

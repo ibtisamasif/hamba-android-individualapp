@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -16,12 +18,11 @@ import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaFrameActivity
 import com.hadiftech.hamba.core.session.Session
+import com.hadiftech.hamba.core.views.HambaTextView
 import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.features.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.content_main.*
-import androidx.appcompat.app.ActionBar
-import androidx.core.content.ContextCompat
 
 
 class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -61,6 +62,14 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
         NavigationUI.setupActionBarWithNavController(this, findNavController(R.id.nav_host_fragment), drawerLayout)
 
         navigationDrawerView.setNavigationItemSelectedListener(this)
+
+        setNavigationDrawerHeaderUserData()
+    }
+
+    private fun setNavigationDrawerHeaderUserData() {
+        val headerView = navigationDrawerView.getHeaderView(0)
+        val textView_userName = headerView.findViewById(R.id.textView_userName) as HambaTextView
+        textView_userName.text = Session.getName()
     }
 
     override fun onSupportNavigateUp(): Boolean {
