@@ -57,6 +57,7 @@ class ProfileFragment : HambaBaseFragment() {
         setCityTextListener()
         setZipCodeTextListener()
         setAddressTextListener()
+        setEmailAddressTextChangeListener()
 
         if (Session.isSessionAvailable()) {
             APiManager.getUserProfile(activity!!, this)
@@ -343,6 +344,21 @@ class ProfileFragment : HambaBaseFragment() {
                 }
                 if (editText_address!!.getText().isNotEmpty() && editText_address!!.getText().length > 49) {
                     editText_address!!.setError("50 characters only")
+                }
+            }
+
+            override fun afterTextChanged(editable: Editable) {}
+        })
+    }
+
+    private fun setEmailAddressTextChangeListener() {
+        editText_email!!.setTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if (HambaUtils.isEmailValid(editText_email.getText())) {
+                    editText_email.setError(null)
+                } else {
+                    editText_email.setError(getString(R.string.please_enter_valid_email))
                 }
             }
 
