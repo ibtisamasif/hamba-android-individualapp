@@ -23,6 +23,8 @@ import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.content_main.*
 import androidx.core.content.res.ResourcesCompat
 import android.view.View
+import androidx.appcompat.app.ActionBar
+import androidx.core.content.ContextCompat
 
 
 class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -37,8 +39,9 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar!!.setCustomView(R.layout.abs_layout)
+        supportActionBar!!.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.header_backgroud))
 
         drawerLayout = findViewById(R.id.drawer_layout)
 //        toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
