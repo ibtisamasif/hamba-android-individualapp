@@ -68,6 +68,12 @@ class GetProfileResponse : HambaBaseApiResponse() {
         @SerializedName("enableNotification")
         var enableNotification: Boolean? = false
 
+        @SerializedName("enableNumberVisibility")
+        var enableNumberVisibility: Boolean? = false
+
+        @SerializedName("enableAgeVisibility")
+        var enableAgeVisibility: Boolean? = false
+
         @SerializedName("email")
         var email: String? = Constants.EMPTY_STRING
 

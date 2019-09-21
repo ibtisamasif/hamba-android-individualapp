@@ -4,11 +4,14 @@ import android.app.DatePickerDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputType
+import android.text.TextWatcher
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.AdapterView
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Constants
 import com.hadiftech.hamba.core.HambaBaseFragment
@@ -18,6 +21,7 @@ import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
 import com.hadiftech.hamba.core.services.HttpErrorCodes
 import com.hadiftech.hamba.core.session.Session
+import com.hadiftech.hamba.core.views.HambaProfileEditText
 import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.features.profile.edit_profile_service.IndividualProfileEditRequest
 import com.hadiftech.hamba.features.profile.edit_profile_service.IndividualProfileEditResponse
@@ -46,10 +50,18 @@ class ProfileFragment : HambaBaseFragment() {
         setDatePickListener()
         setSaveButtonListener()
 
+        setFirstNameTextListener()
+        setMiddleNameTextListener()
+        setLastNameTextListener()
+        setIdentityValueTextListener()
+        setCityTextListener()
+        setZipCodeTextListener()
+        setAddressTextListener()
+
         if (Session.isSessionAvailable()) {
             APiManager.getUserProfile(activity!!, this)
         } else {
-            AlertDialogProvider.showAlertDialog(activity!!, "You are signed in as guest. Please login!", getString(R.string.login), DialogInterface.OnClickListener { dialog, _ ->
+            AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.you_are_signed_in_as_guest_please_login), getString(R.string.login), DialogInterface.OnClickListener { dialog, _ ->
                 dialog.dismiss()
                 moveToLoginActivity()
             })
@@ -88,6 +100,11 @@ class ProfileFragment : HambaBaseFragment() {
     private fun updateUI(details: GetProfileResponse.Details) {
 
         swPushNotifications.isChecked = details.enableNotification!!
+
+        swShowMyMobileNumber.isChecked = details.enableNumberVisibility!!
+
+        swOthersCanSeeMyAge.isChecked = details.enableAgeVisibility!!
+
         editText_phone.isEnabled = false
 
         if (details.personType != null && details.personType!!.isNotEmpty()) {
@@ -206,6 +223,7 @@ class ProfileFragment : HambaBaseFragment() {
 
     private fun populateIdentityDropDown() {
         spinner_identity.populate(activity!!, R.array.identities)
+        spinner_identity.onItemSelectedListener = OnSpinnerIdentityItemSelectedListener(editText_identityValue)
     }
 
     private fun populateCountryDropDown() {
@@ -218,6 +236,118 @@ class ProfileFragment : HambaBaseFragment() {
 
     private fun populateInterestDropDown() {
         spinner_interest.populate(activity!!, R.array.interests)
+    }
+
+    private fun setFirstNameTextListener() {
+        editText_firstName!!.setTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if (editText_firstName!!.getText().isNotEmpty()) {
+                    editText_firstName!!.setError(null)
+                }
+                if (editText_firstName!!.getText().isNotEmpty() && editText_firstName!!.getText().length > 9) {
+                    editText_firstName!!.setError("10 characters only")
+                }
+            }
+
+            override fun afterTextChanged(editable: Editable) {}
+        })
+    }
+
+    private fun setMiddleNameTextListener() {
+        editText_middleName!!.setTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if (editText_middleName!!.getText().isNotEmpty()) {
+                    editText_middleName!!.setError(null)
+                }
+                if (editText_middleName!!.getText().isNotEmpty() && editText_middleName!!.getText().length > 9) {
+                    editText_middleName!!.setError("10 characters only")
+                }
+            }
+
+            override fun afterTextChanged(editable: Editable) {}
+        })
+    }
+
+    private fun setLastNameTextListener() {
+        editText_lastName!!.setTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if (editText_lastName!!.getText().isNotEmpty()) {
+                    editText_lastName!!.setError(null)
+                }
+                if (editText_lastName!!.getText().isNotEmpty() && editText_lastName!!.getText().length > 9) {
+                    editText_lastName!!.setError("10 characters only")
+                }
+            }
+
+            override fun afterTextChanged(editable: Editable) {}
+        })
+    }
+
+    private fun setIdentityValueTextListener() {
+        editText_identityValue!!.setTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if (editText_identityValue!!.getText().isNotEmpty()) {
+                    editText_identityValue!!.setError(null)
+                }
+                if (editText_identityValue!!.getText().isNotEmpty() && editText_identityValue!!.getText().length > 19) {
+                    editText_identityValue!!.setError("20 characters only")
+                }
+            }
+
+            override fun afterTextChanged(editable: Editable) {}
+        })
+    }
+
+    private fun setCityTextListener() {
+        editText_city!!.setTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if (editText_city!!.getText().isNotEmpty()) {
+                    editText_city!!.setError(null)
+                }
+                if (editText_city!!.getText().isNotEmpty() && editText_city!!.getText().length > 9) {
+                    editText_city!!.setError("10 characters only")
+                }
+            }
+
+            override fun afterTextChanged(editable: Editable) {}
+        })
+    }
+
+    private fun setZipCodeTextListener() {
+        editText_zipCode!!.setTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if (editText_zipCode!!.getText().isNotEmpty()) {
+                    editText_zipCode!!.setError(null)
+                }
+                if (editText_zipCode!!.getText().isNotEmpty() && editText_zipCode!!.getText().length > 9) {
+                    editText_zipCode!!.setError("10 characters only")
+                }
+            }
+
+            override fun afterTextChanged(editable: Editable) {}
+        })
+    }
+
+    private fun setAddressTextListener() {
+        editText_address!!.setTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if (editText_address!!.getText().isNotEmpty()) {
+                    editText_address!!.setError(null)
+                }
+                if (editText_address!!.getText().isNotEmpty() && editText_address!!.getText().length > 49) {
+                    editText_address!!.setError("50 characters only")
+                }
+            }
+
+            override fun afterTextChanged(editable: Editable) {}
+        })
     }
 
     private fun setSaveButtonListener() {
@@ -249,6 +379,8 @@ class ProfileFragment : HambaBaseFragment() {
         editUserIndividualProfileRequest.addressType = spinner_addressType.selectedItem.toString()
         editUserIndividualProfileRequest.address = editText_address.getText()
         editUserIndividualProfileRequest.enableNotification = swPushNotifications.isChecked
+        editUserIndividualProfileRequest.enableNumberVisibility = swShowMyMobileNumber.isChecked
+        editUserIndividualProfileRequest.enableAgeVisibility = swOthersCanSeeMyAge.isChecked
 
         //ToDo interest would be a different widget or multi select dropdown
         val selectedInterests = ArrayList<String>()
@@ -261,23 +393,28 @@ class ProfileFragment : HambaBaseFragment() {
 
     private fun checkValidations(): Boolean {
 
-        if (editText_firstName.getText().isEmpty()) {
-            editText_firstName.setError(getString(R.string.please_enter_first_name))
+        if (editText_firstName.getText().isEmpty() || editText_firstName.getText().length < 4) {
+            editText_firstName.setError(getString(R.string.field_required_minimum_4_characters))
             return false
         }
 
-        if (editText_lastName.getText().isEmpty()) {
-            editText_lastName.setError(getString(R.string.please_enter_last_name))
+        if (editText_lastName.getText().isEmpty() || editText_lastName.getText().length < 4) {
+            editText_lastName.setError(getString(R.string.field_required_minimum_4_characters))
             return false
         }
 
-        if (editText_dateOfBirth.getText().isEmpty()) {
-            editText_dateOfBirth.setError(getString(R.string.please_enter_date_of_birth))
+        if (editText_dateOfBirth.getText().isEmpty() || editText_dateOfBirth.getText().length < 4) {
+            editText_dateOfBirth.setError(getString(R.string.field_required_minimum_4_characters))
             return false
         }
 
-        if (editText_identityValue.getText().isEmpty()) {
-            editText_identityValue.setError(getString(R.string.please_enter_registration_number))
+        if (editText_identityValue.getText().isEmpty() || editText_identityValue.getText().length < 4) {
+            editText_identityValue.setError(getString(R.string.field_required_minimum_4_characters))
+            return false
+        }
+
+        if (editText_city.getText().isEmpty() || editText_city.getText().length < 4) {
+            editText_city.setError(getString(R.string.field_required_minimum_4_characters))
             return false
         }
 
@@ -290,9 +427,24 @@ class ProfileFragment : HambaBaseFragment() {
     }
 
     private fun moveToLoginActivity() {
+        Session.clearSession()
         val loginIntent = Intent(activity!!, LoginActivity::class.java)
         loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(loginIntent)
         activity!!.finish()
     }
+}
+
+class OnSpinnerIdentityItemSelectedListener(private var editText_identityValue: HambaProfileEditText) : AdapterView.OnItemSelectedListener {
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        when (position) {
+            0 -> editText_identityValue.setInputType(InputType.TYPE_CLASS_NUMBER)
+            1 -> editText_identityValue.setInputType(InputType.TYPE_CLASS_TEXT)
+        }
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+    }
+
 }

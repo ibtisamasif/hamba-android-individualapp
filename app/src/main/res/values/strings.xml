@@ -126,7 +126,7 @@
     <string name="please_confirm_password">Please Confirm Password</string>
     <string name="confirm_password_should_match_new_password">Confirm Password Should Match New Password</string>
     <string name="please_enter_pre_shared_key">Please Enter PreShared Key</string>
-    <string name="please_enter_first_name">Please Enter First Name</string>
+    <string name="please_enter_first_name">Please Enter First Name. Minimum 4 charaters</string>
     <string name="please_enter_last_name">Please Enter Last Name</string>
     <string name="please_enter_business_name">Please Enter Business Name</string>
 
@@ -166,4 +166,6 @@
     <string name="not_found">Not Found</string>
     <string name="record_updated_successfully">Record Updated Successfully!!</string>
     <string name="please_select_valid_date">Please select valid date!!</string>
+    <string name="field_required_minimum_4_characters">Field required minimum 4 characters</string>
+    <string name="you_are_signed_in_as_guest_please_login">You are signed in as guest. Please login!</string>
 </resources>
