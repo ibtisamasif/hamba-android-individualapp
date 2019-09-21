@@ -1,11 +1,14 @@
 package com.hadiftech.hamba.features.profile
 
 import android.app.DatePickerDialog
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Constants
 import com.hadiftech.hamba.core.HambaBaseFragment
@@ -14,6 +17,8 @@ import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
 import com.hadiftech.hamba.core.services.HttpErrorCodes
+import com.hadiftech.hamba.core.session.Session
+import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.features.profile.edit_profile_service.IndividualProfileEditRequest
 import com.hadiftech.hamba.features.profile.edit_profile_service.IndividualProfileEditResponse
 import com.hadiftech.hamba.features.profile.get_profile_service.GetProfileResponse
@@ -41,7 +46,14 @@ class ProfileFragment : HambaBaseFragment() {
         setDatePickListener()
         setSaveButtonListener()
 
-        APiManager.getUserProfile(activity!!, this)
+        if (Session.isSessionAvailable()) {
+            APiManager.getUserProfile(activity!!, this)
+        } else {
+            AlertDialogProvider.showAlertDialog(activity!!, "You are signed in as guest. Please login!", getString(R.string.login), DialogInterface.OnClickListener { dialog, _ ->
+                dialog.dismiss()
+                moveToLoginActivity()
+            })
+        }
     }
 
     override fun onApiSuccess(apiResponse: HambaBaseApiResponse) {
@@ -216,7 +228,7 @@ class ProfileFragment : HambaBaseFragment() {
         }
     }
 
-    private fun getIndividualProfileEditRequest() : IndividualProfileEditRequest {
+    private fun getIndividualProfileEditRequest(): IndividualProfileEditRequest {
 
         val editUserIndividualProfileRequest = IndividualProfileEditRequest()
         editUserIndividualProfileRequest.personType = spinner_personType.selectedItem.toString()
@@ -275,5 +287,12 @@ class ProfileFragment : HambaBaseFragment() {
         }
 
         return true
+    }
+
+    private fun moveToLoginActivity() {
+        val loginIntent = Intent(activity!!, LoginActivity::class.java)
+        loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(loginIntent)
+        activity!!.finish()
     }
 }
