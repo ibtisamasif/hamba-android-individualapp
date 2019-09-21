@@ -3,7 +3,7 @@
     <string name="copyrights_notice">Copyright © 2019 Hamba. All Rights Reserved</string>
 
     <!--User Module Content-->
-    <string name="email_hint">Email / Cell Number</string>
+    <string name="email_hint">Email / +971xxxx</string>
     <string name="password_hint">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="forgot_password">Forgot Password?</string>

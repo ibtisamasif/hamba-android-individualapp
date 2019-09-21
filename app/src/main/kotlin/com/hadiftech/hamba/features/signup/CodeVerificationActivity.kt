@@ -42,13 +42,13 @@ class CodeVerificationActivity : HambaBaseActivity() {
         if (checkValidations()) {
             when (userType) {
                 UserType.INDIVIDUAL -> {
-                    var verifyOtpRequest = VerifyOtpRequest()
+                    val verifyOtpRequest = VerifyOtpRequest()
                     verifyOtpRequest.userType = userType.name
                     verifyOtpRequest.otpCode = editText_NumberCode.text.toString()
                     APiManager.verifyOtpCode(this, this, verifyOtpRequest)
                 }
                 UserType.BUSINESS_EMPLOYEE, UserType.BUSINESS_OWNER -> {
-                    var verifyBusinessOtpRequest = VerifyBusinessOtpRequest()
+                    val verifyBusinessOtpRequest = VerifyBusinessOtpRequest()
                     verifyBusinessOtpRequest.userType = userType.name
                     verifyBusinessOtpRequest.otpCode = editText_NumberCode.text.toString()
                     verifyBusinessOtpRequest.otpCodeEmail = editText_EmailCode.text.toString()
@@ -59,7 +59,7 @@ class CodeVerificationActivity : HambaBaseActivity() {
     }
 
     fun onProblemReceivingCodeClicked (view: View) {
-        var resendOtpRequest = ResendOtpRequest()
+        val resendOtpRequest = ResendOtpRequest()
         resendOtpRequest.userType = userType.name
         resendOtpRequest.email = intent.getStringExtra(KEY_USER_EMAIL)
         resendOtpRequest.number = intent.getStringExtra(KEY_USER_NUMBER)

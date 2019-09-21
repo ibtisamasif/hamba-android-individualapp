@@ -17,13 +17,17 @@ import com.hadiftech.hamba.features.login.login_service.LoginRequest
 import com.hadiftech.hamba.features.login.login_service.LoginResponse
 import com.hadiftech.hamba.features.signup.HelloUserActivity
 import com.hadiftech.hamba.features.signup.JoinUsActivity
+import kotlinx.android.synthetic.main.activity_business_sign_up.*
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.editText_password
 
 class LoginActivity : HambaBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        editText_password.showPasswordVisibilityToggle(true)
     }
 
     fun onSignInButtonClicked(signInButton: View) {

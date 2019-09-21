@@ -22,17 +22,20 @@ class NewPasswordActivity : HambaBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_password)
+
+        editText_newPassword.showPasswordVisibilityToggle(true)
+        editText_confirmPassword.showPasswordVisibilityToggle(true)
     }
 
     fun onResetPasswordClicked(continueButton: View) {
 
         if (checkValidations()) {
 
-            var newPasswordRequest = NewPasswordRequest()
+            val newPasswordRequest = NewPasswordRequest()
             newPasswordRequest.otpCode = editText_otpCode.getText()
             newPasswordRequest.newPassword = editText_newPassword.getText()
 
-            var emailOrNumber = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS_OR_NUMBER)
+            val emailOrNumber = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS_OR_NUMBER)
             if (HambaUtils.isPhoneNumber(emailOrNumber)) {
                 newPasswordRequest.number = emailOrNumber
             } else {
@@ -46,8 +49,8 @@ class NewPasswordActivity : HambaBaseActivity() {
     override fun onApiSuccess(apiResponse: HambaBaseApiResponse) {
         super.onApiSuccess(apiResponse)
 
-        if (apiResponse is NewPasswordResponse){
-            if(apiResponse.success!!){
+        if (apiResponse is NewPasswordResponse) {
+            if (apiResponse.success!!) {
                 moveToSuccessMessageScreen()
             } else {
                 AlertDialogProvider.showAlertDialog(this, apiResponse.message)
@@ -55,9 +58,9 @@ class NewPasswordActivity : HambaBaseActivity() {
         }
 
         if (apiResponse is ResendOtpResponse) {
-            if(apiResponse.success!!){
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message, getString(R.string.verify), DialogInterface.OnClickListener {
-                        dialog, _ -> dialog.dismiss()
+            if (apiResponse.success!!) {
+                AlertDialogProvider.showAlertDialog(this, apiResponse.message, getString(R.string.verify), DialogInterface.OnClickListener { dialog, _ ->
+                    dialog.dismiss()
                 })
             } else {
                 AlertDialogProvider.showAlertDialog(this, apiResponse.message)
@@ -65,16 +68,16 @@ class NewPasswordActivity : HambaBaseActivity() {
         }
     }
 
-    private fun moveToSuccessMessageScreen(){
+    private fun moveToSuccessMessageScreen() {
         val passwordResetIntent = Intent(this, PasswordResetStatusActivity::class.java)
         startActivity(passwordResetIntent)
     }
 
-    fun onSendOtpAgainClicked (view: View) {
+    fun onSendOtpAgainClicked(view: View) {
 
-        var resendOtpRequest = ResendOtpRequest()
+        val resendOtpRequest = ResendOtpRequest()
 
-        var emailOrNumber = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS_OR_NUMBER)
+        val emailOrNumber = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS_OR_NUMBER)
         if (HambaUtils.isPhoneNumber(emailOrNumber)) {
             resendOtpRequest.number = emailOrNumber
             resendOtpRequest.userType = UserType.INDIVIDUAL.name
@@ -86,7 +89,7 @@ class NewPasswordActivity : HambaBaseActivity() {
         APiManager.resendOtpCode(this, this, resendOtpRequest)
     }
 
-    private fun checkValidations() : Boolean {
+    private fun checkValidations(): Boolean {
         if (editText_otpCode.getText().length < 6) {
             editText_otpCode.setError(getString(R.string.please_enter_otp_code))
             return false
