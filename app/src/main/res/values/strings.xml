@@ -168,7 +168,4 @@
     <string name="please_select_valid_date">Please select valid date!!</string>
     <string name="field_required_minimum_4_characters">Field required minimum 4 characters</string>
     <string name="you_are_signed_in_as_guest_please_login">You are signed in as guest. Please login!</string>
-    <string name="_10_characters_only">10 characters only</string>
-    <string name="_20_characters_only">20 characters only</string>
-    <string name="_50_characters_only">50 characters only</string>
 </resources>
