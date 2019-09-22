@@ -50,13 +50,6 @@ class ProfileFragment : HambaBaseFragment() {
         setDatePickListener()
         setSaveButtonListener()
 
-        setFirstNameTextListener()
-        setMiddleNameTextListener()
-        setLastNameTextListener()
-        setIdentityValueTextListener()
-        setCityTextListener()
-        setZipCodeTextListener()
-        setAddressTextListener()
         setEmailAddressTextChangeListener()
 
         if (Session.isSessionAvailable()) {
@@ -237,118 +230,6 @@ class ProfileFragment : HambaBaseFragment() {
 
     private fun populateInterestDropDown() {
         spinner_interest.populate(activity!!, R.array.interests)
-    }
-
-    private fun setFirstNameTextListener() {
-        editText_firstName!!.setTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if (editText_firstName!!.getText().isNotEmpty()) {
-                    editText_firstName!!.setError(null)
-                }
-                if (editText_firstName!!.getText().isNotEmpty() && editText_firstName!!.getText().length > 9) {
-                    editText_firstName!!.setError(getString(R.string._10_characters_only))
-                }
-            }
-
-            override fun afterTextChanged(editable: Editable) {}
-        })
-    }
-
-    private fun setMiddleNameTextListener() {
-        editText_middleName!!.setTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if (editText_middleName!!.getText().isNotEmpty()) {
-                    editText_middleName!!.setError(null)
-                }
-                if (editText_middleName!!.getText().isNotEmpty() && editText_middleName!!.getText().length > 9) {
-                    editText_middleName!!.setError(getString(R.string._10_characters_only))
-                }
-            }
-
-            override fun afterTextChanged(editable: Editable) {}
-        })
-    }
-
-    private fun setLastNameTextListener() {
-        editText_lastName!!.setTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if (editText_lastName!!.getText().isNotEmpty()) {
-                    editText_lastName!!.setError(null)
-                }
-                if (editText_lastName!!.getText().isNotEmpty() && editText_lastName!!.getText().length > 9) {
-                    editText_lastName!!.setError(getString(R.string._10_characters_only))
-                }
-            }
-
-            override fun afterTextChanged(editable: Editable) {}
-        })
-    }
-
-    private fun setIdentityValueTextListener() {
-        editText_identityValue!!.setTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if (editText_identityValue!!.getText().isNotEmpty()) {
-                    editText_identityValue!!.setError(null)
-                }
-                if (editText_identityValue!!.getText().isNotEmpty() && editText_identityValue!!.getText().length > 19) {
-                    editText_identityValue!!.setError(getString(R.string._20_characters_only))
-                }
-            }
-
-            override fun afterTextChanged(editable: Editable) {}
-        })
-    }
-
-    private fun setCityTextListener() {
-        editText_city!!.setTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if (editText_city!!.getText().isNotEmpty()) {
-                    editText_city!!.setError(null)
-                }
-                if (editText_city!!.getText().isNotEmpty() && editText_city!!.getText().length > 9) {
-                    editText_city!!.setError(getString(R.string._10_characters_only))
-                }
-            }
-
-            override fun afterTextChanged(editable: Editable) {}
-        })
-    }
-
-    private fun setZipCodeTextListener() {
-        editText_zipCode!!.setTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if (editText_zipCode!!.getText().isNotEmpty()) {
-                    editText_zipCode!!.setError(null)
-                }
-                if (editText_zipCode!!.getText().isNotEmpty() && editText_zipCode!!.getText().length > 9) {
-                    editText_zipCode!!.setError(getString(R.string._10_characters_only))
-                }
-            }
-
-            override fun afterTextChanged(editable: Editable) {}
-        })
-    }
-
-    private fun setAddressTextListener() {
-        editText_address!!.setTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if (editText_address!!.getText().isNotEmpty()) {
-                    editText_address!!.setError(null)
-                }
-                if (editText_address!!.getText().isNotEmpty() && editText_address!!.getText().length > 49) {
-                    editText_address!!.setError(getString(R.string._50_characters_only))
-                }
-            }
-
-            override fun afterTextChanged(editable: Editable) {}
-        })
     }
 
     private fun setEmailAddressTextChangeListener() {
