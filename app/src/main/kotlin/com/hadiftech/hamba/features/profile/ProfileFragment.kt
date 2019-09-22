@@ -79,15 +79,15 @@ class ProfileFragment : HambaBaseFragment() {
         editText_phone.isEnabled = false
 
         if (details.personType != null && details.personType!!.isNotEmpty()) {
-            spinner_personType.setSelection(resources.getStringArray(R.array.person_types).indexOf(details.personType))
+            spinner_personType.setSelected(resources.getStringArray(R.array.person_types).indexOf(details.personType))
         }
 
         if (details.nationality != null && details.nationality!!.isNotEmpty()) {
-            spinner_nationality.setSelection(resources.getStringArray(R.array.nationalities).indexOf(details.nationality))
+            spinner_nationality.setSelected(resources.getStringArray(R.array.nationalities).indexOf(details.nationality))
         }
 
         if (details.registrationType != null && details.registrationType!!.isNotEmpty()) {
-            spinner_identity.setSelection(resources.getStringArray(R.array.identities).indexOf(details.registrationType))
+            spinner_identity.setSelected(resources.getStringArray(R.array.identities).indexOf(details.registrationType))
         }
 
         if (details.registrationNo != null && details.registrationNo!!.isNotEmpty()) {
@@ -99,7 +99,7 @@ class ProfileFragment : HambaBaseFragment() {
         }
 
         if (details.prefix != null && details.prefix!!.isNotEmpty()) {
-            spinner_prefix.setSelection(resources.getStringArray(R.array.prefix_list).indexOf(details.prefix))
+            spinner_prefix.setSelected(resources.getStringArray(R.array.prefix_list).indexOf(details.prefix))
         }
 
         if (details.gender != null && details.gender!!.isNotEmpty()) {
@@ -113,7 +113,7 @@ class ProfileFragment : HambaBaseFragment() {
         }
 
         if (details.addressType != null && details.addressType!!.isNotEmpty()) {
-            spinner_addressType.setSelection(resources.getStringArray(R.array.address_type).indexOf(details.addressType))
+            spinner_addressType.setSelected(resources.getStringArray(R.array.address_type).indexOf(details.addressType))
         }
 
         if (details.address != null && details.address!!.isNotEmpty()) {
@@ -125,7 +125,7 @@ class ProfileFragment : HambaBaseFragment() {
         }
 
         if (details.country != null && details.country!!.isNotEmpty()) {
-            spinner_country.setSelection(resources.getStringArray(R.array.countries).indexOf(details.country))
+            spinner_country.setSelected(resources.getStringArray(R.array.countries).indexOf(details.country))
         }
 
         if (details.zipCode != null && details.zipCode!!.isNotEmpty()) {
@@ -176,36 +176,40 @@ class ProfileFragment : HambaBaseFragment() {
         if (DateUtils.isToday(calendar.timeInMillis) || calendar.time.after(Date())) {
             AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.please_select_valid_date))
         } else {
-            editText_dateOfBirth.setText(SimpleDateFormat(Constants.DOB_FORMAT).format(calendar.time))
+            if (HambaUtils.isAgeLessThen18(calendar)) {
+                AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.sorry_you_are_under_age))
+            } else {
+                editText_dateOfBirth.setText(SimpleDateFormat(Constants.DOB_FORMAT).format(calendar.time))
+            }
         }
     }
 
     private fun populatePersonTypeDropDown() {
-        spinner_personType.populate(activity!!, R.array.person_types)
+        spinner_personType.setItems(resources.getStringArray(R.array.person_types))
     }
 
     private fun populatePrefixDropDown() {
-        spinner_prefix.populate(activity!!, R.array.prefix_list)
+        spinner_prefix.setItems(resources.getStringArray(R.array.prefix_list))
     }
 
     private fun populateNationalityDropDown() {
-        spinner_nationality.populate(activity!!, R.array.nationalities)
+        spinner_nationality.setItems(resources.getStringArray(R.array.nationalities))
     }
 
     private fun populateIdentityDropDown() {
-        spinner_identity.populate(activity!!, R.array.identities)
+        spinner_identity.setItems(resources.getStringArray(R.array.identities))
     }
 
     private fun populateCountryDropDown() {
-        spinner_country.populate(activity!!, R.array.countries)
+        spinner_country.setItems(resources.getStringArray(R.array.countries))
     }
 
     private fun populateAddressTypeDropDown() {
-        spinner_addressType.populate(activity!!, R.array.address_type)
+        spinner_addressType.setItems(resources.getStringArray(R.array.address_type))
     }
 
     private fun populateInterestDropDown() {
-        spinner_interest.populate(activity!!, R.array.interests)
+        spinner_interest.setItems(resources.getStringArray(R.array.interests))
     }
 
     private fun setSaveButtonListener() {
@@ -219,28 +223,28 @@ class ProfileFragment : HambaBaseFragment() {
     private fun getIndividualProfileEditRequest() : IndividualProfileEditRequest {
 
         val editUserIndividualProfileRequest = IndividualProfileEditRequest()
-        editUserIndividualProfileRequest.personType = spinner_personType.selectedItem.toString()
-        editUserIndividualProfileRequest.prefix = spinner_prefix.selectedItem.toString()
+        editUserIndividualProfileRequest.personType = spinner_personType.text.toString()
+        editUserIndividualProfileRequest.prefix = spinner_prefix.text.toString()
         editUserIndividualProfileRequest.firstName = editText_firstName.getText()
         editUserIndividualProfileRequest.lastName = editText_lastName.getText()
         editUserIndividualProfileRequest.gender = editText_gender.getGender()
         editUserIndividualProfileRequest.birthDate = editText_dateOfBirth.getText()
-        editUserIndividualProfileRequest.nationality = spinner_nationality.selectedItem.toString()
+        editUserIndividualProfileRequest.nationality = spinner_nationality.text.toString()
         editUserIndividualProfileRequest.registrationNo = editText_identityValue.getText()
-        editUserIndividualProfileRequest.registrationType = spinner_identity.selectedItem.toString()
+        editUserIndividualProfileRequest.registrationType = spinner_identity.text.toString()
         editUserIndividualProfileRequest.middleName = editText_middleName.getText()
         editUserIndividualProfileRequest.cityName = editText_city.getText()
         editUserIndividualProfileRequest.zipCode = editText_zipCode.getText()
-        editUserIndividualProfileRequest.country = spinner_country.selectedItem.toString()
+        editUserIndividualProfileRequest.country = spinner_country.text.toString()
         editUserIndividualProfileRequest.email = editText_email.getText()
         editUserIndividualProfileRequest.number = editText_phone.getPhoneNumber()
-        editUserIndividualProfileRequest.addressType = spinner_addressType.selectedItem.toString()
+        editUserIndividualProfileRequest.addressType = spinner_addressType.text.toString()
         editUserIndividualProfileRequest.address = editText_address.getText()
         editUserIndividualProfileRequest.enableNotification = swPushNotifications.isChecked
 
         //ToDo interest would be a different widget or multi select dropdown
         val selectedInterests = ArrayList<String>()
-        selectedInterests.add(spinner_interest.selectedItem.toString())
+        selectedInterests.add(spinner_interest.text.toString())
         editUserIndividualProfileRequest.interests = selectedInterests
         editUserIndividualProfileRequest.imgExtension = "some_url"
 
