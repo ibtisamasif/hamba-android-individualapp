@@ -25,7 +25,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        <com.hadiftech.hamba.core.views.HambaSpinner
+        <jrizani.jrspinner.JRSpinner
                 android:id="@+id/spinner_personType"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
@@ -34,7 +34,8 @@
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:hint="@string/service_provider"
+                android:hint="@string/select_person_type"
+                app:jrs_title="@string/select_person_type"
                 app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +66,7 @@
                 app:layout_constraintStart_toStartOf="@+id/editText_firstName"
                 app:layout_constraintTop_toTopOf="@+id/tvHeadingPrefix" />
 
-        <com.hadiftech.hamba.core.views.HambaSpinner
+        <jrizani.jrspinner.JRSpinner
                 android:id="@+id/spinner_prefix"
                 style="@style/ProfileScreenLightDropDownStyle"
                 android:layout_width="0dp"
@@ -74,6 +75,8 @@
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
+                android:hint="@string/select_prefix"
+                app:jrs_title="@string/select_prefix"
                 app:spinnerTheme="White"
                 app:layout_constraintEnd_toStartOf="@+id/editText_firstName"
                 app:layout_constraintStart_toStartOf="parent"
@@ -218,7 +221,7 @@
                 app:layout_constraintStart_toStartOf="@+id/editText_gender"
                 app:layout_constraintTop_toBottomOf="@+id/editText_dateOfBirth" />
 
-        <com.hadiftech.hamba.core.views.HambaSpinner
+        <jrizani.jrspinner.JRSpinner
                 android:id="@+id/spinner_nationality"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
@@ -228,6 +231,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_nationality"
+                app:jrs_title="@string/select_nationality"
                 app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -246,7 +250,7 @@
                 app:layout_constraintStart_toStartOf="@+id/editText_gender"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_nationality" />
 
-        <com.hadiftech.hamba.core.views.HambaSpinner
+        <jrizani.jrspinner.JRSpinner
                 android:id="@+id/spinner_identity"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
@@ -255,7 +259,8 @@
                 android:layout_marginLeft="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
-                android:hint="@string/national_id"
+                android:hint="@string/select_identity"
+                app:jrs_title="@string/select_identity"
                 app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -345,7 +350,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText_phone" />
 
-        <com.hadiftech.hamba.core.views.HambaSpinner
+        <jrizani.jrspinner.JRSpinner
                 android:id="@+id/spinner_country"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
@@ -355,6 +360,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_country"
+                app:jrs_title="@string/select_country"
                 app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -428,7 +434,7 @@
                 app:layout_constraintStart_toStartOf="@+id/spinner_addressType"
                 app:layout_constraintTop_toBottomOf="@+id/editText_zipCode" />
 
-        <com.hadiftech.hamba.core.views.HambaSpinner
+        <jrizani.jrspinner.JRSpinner
                 android:id="@+id/spinner_addressType"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
@@ -438,6 +444,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_address_type"
+                app:jrs_title="@string/select_address_type"
                 app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -473,7 +480,7 @@
                 app:layout_constraintStart_toStartOf="@+id/editText_gender"
                 app:layout_constraintTop_toBottomOf="@+id/editText_address" />
 
-        <com.hadiftech.hamba.core.views.HambaSpinner
+        <jrizani.jrspinner.JRSpinner
                 android:id="@+id/spinner_interest"
                 style="@style/ProfileScreenDarkDropDownStyle"
                 android:layout_width="match_parent"
@@ -483,6 +490,8 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:hint="@string/select_interest"
+                app:jrs_title="@string/select_interest"
+                app:jrs_multiple="true"
                 app:spinnerTheme="Green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
