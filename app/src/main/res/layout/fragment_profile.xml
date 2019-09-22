@@ -203,8 +203,7 @@
                 app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editText_gender"
-                app:layout_constraintTop_toBottomOf="@+id/tvHeadingDateOfBirth"
-                app:showRightDrawable="true" />
+                app:layout_constraintTop_toBottomOf="@+id/tvHeadingDateOfBirth" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvHeadingNationality"

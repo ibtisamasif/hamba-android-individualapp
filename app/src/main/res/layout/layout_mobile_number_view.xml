@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_5sdp"
             android:hint="@string/enter_mobile_number"
+            android:maxLength="20"
             app:fontType="Light" />
 
 </LinearLayout>
