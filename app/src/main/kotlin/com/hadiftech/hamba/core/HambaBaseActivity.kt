@@ -17,7 +17,7 @@ abstract class HambaBaseActivity : AppCompatActivity(), ApiCallbacks {
     }
 
     override fun onApiFailure(errorCode: Int) {
-        AlertDialogProvider.showFailureDialog(this)
+        AlertDialogProvider.showFailureDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite)
     }
 
     override fun onApiSuccess(apiResponse: HambaBaseApiResponse) {}

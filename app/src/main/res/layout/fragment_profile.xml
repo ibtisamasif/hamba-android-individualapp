@@ -303,6 +303,7 @@
                 android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:inputType="textEmailAddress"
+                android:maxLength="25"
                 app:editTextTheme="Green"
                 app:fontType="Regular"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -417,7 +418,7 @@
                 android:inputType="number"
                 app:editTextTheme="Green"
                 app:fontType="Regular"
-                android:maxLength="20"
+                android:maxLength="10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editText_city"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeadingZipCode" />

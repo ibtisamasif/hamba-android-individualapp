@@ -46,7 +46,7 @@ class ForgetPasswordActivity : HambaBaseActivity() {
             if (apiResponse.success!!) {
                 moveToNewPasswordActivity()
             } else {
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
     }

@@ -10,7 +10,8 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
-import com.hadiftech.hamba.core.session.Session
+import com.hadiftech.hamba.core.enums.UserType
+import com.hadiftech.hamba.core.session.User
 import com.hadiftech.hamba.features.dashboard.DashboardActivity
 import kotlinx.android.synthetic.main.activity_hello_user.*
 
@@ -126,7 +127,9 @@ class HelloUserActivity : HambaBaseActivity() {
     }
 
     fun onEnterButtonClicked(enterButton: View) {
-        Session.storeName(editText_userName.getText())
+        User.addUserName(editText_userName.getText())
+        User.addUserType(UserType.GUEST.name)
+
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
         dashboardIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(dashboardIntent)

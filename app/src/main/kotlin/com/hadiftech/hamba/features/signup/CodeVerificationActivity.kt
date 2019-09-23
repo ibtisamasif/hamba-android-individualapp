@@ -1,14 +1,15 @@
 package com.hadiftech.hamba.features.signup
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.core.enums.UserType
+import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
@@ -71,21 +72,27 @@ class CodeVerificationActivity : HambaBaseActivity() {
 
         if (apiResponse is VerifyOtpResponse) {
             if (apiResponse.success!!){
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message, getString(R.string.login), DialogInterface.OnClickListener {
-                        _, _ -> moveToLoginActivity()
-                })
+                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message,
+                    getString(R.string.login), object : DialogButtonClickListener {
+                        override fun onClick(alertDialog: AlertDialog) {
+                            moveToLoginActivity()
+                        }
+                    })
             } else {
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message)
             }
         }
 
         if (apiResponse is ResendOtpResponse) {
             if (apiResponse.success!!){
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message, getString(R.string.verify), DialogInterface.OnClickListener {
-                        dialog, _ -> dialog.dismiss()
-                })
+                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message,
+                    getString(R.string.verify), object : DialogButtonClickListener {
+                        override fun onClick(alertDialog: AlertDialog) {
+                            alertDialog.dismiss()
+                        }
+                    })
             } else {
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message)
             }
         }
     }

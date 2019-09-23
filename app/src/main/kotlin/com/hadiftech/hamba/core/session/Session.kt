@@ -15,44 +15,34 @@ object Session {
 
     fun storeSession(accessToken: String?, secretKey: String?, tokenType: String?) {
         val preferenceEditor = sessionPreferences.edit()
-        preferenceEditor.putString(PreferenceConstants.Key_SecretKey, secretKey)
-        preferenceEditor.putString(PreferenceConstants.Key_TokenType, tokenType)
-        preferenceEditor.putString(PreferenceConstants.Key_AccessToken, tokenType + Constants.SPACE_STRING + accessToken)
-        preferenceEditor.apply()
-    }
-
-    fun storeName(name: String?) {
-        val preferenceEditor = sessionPreferences.edit()
-        preferenceEditor.putString(PreferenceConstants.Key_Name, name)
+        preferenceEditor.putString(SessionConstants.Key_SecretKey, secretKey)
+        preferenceEditor.putString(SessionConstants.Key_TokenType, tokenType)
+        preferenceEditor.putString(SessionConstants.Key_AccessToken, tokenType + Constants.SPACE_STRING + accessToken)
         preferenceEditor.apply()
     }
 
     fun isSessionAvailable() : Boolean {
-        return sessionPreferences.getString(PreferenceConstants.Key_AccessToken, Constants.EMPTY_STRING).isNotEmpty()
+        return sessionPreferences.getString(SessionConstants.Key_AccessToken, Constants.EMPTY_STRING).isNotEmpty()
     }
 
     fun getAccessToken() : String {
-        return sessionPreferences.getString(PreferenceConstants.Key_AccessToken, Constants.EMPTY_STRING)
+        return sessionPreferences.getString(SessionConstants.Key_AccessToken, Constants.EMPTY_STRING)
     }
 
     fun getSecretKey() : String {
-        return sessionPreferences.getString(PreferenceConstants.Key_SecretKey, Constants.EMPTY_STRING)
+        return sessionPreferences.getString(SessionConstants.Key_SecretKey, Constants.EMPTY_STRING)
     }
 
     fun getTokenType() : String {
-        return sessionPreferences.getString(PreferenceConstants.Key_TokenType, Constants.EMPTY_STRING)
-    }
-
-    fun getName() : String {
-        return sessionPreferences.getString(PreferenceConstants.Key_Name, Constants.EMPTY_STRING)
+        return sessionPreferences.getString(SessionConstants.Key_TokenType, Constants.EMPTY_STRING)
     }
 
     fun clearSession() {
         val preferenceEditor = sessionPreferences.edit()
-        preferenceEditor.remove(PreferenceConstants.Key_AccessToken)
-        preferenceEditor.remove(PreferenceConstants.Key_SecretKey)
-        preferenceEditor.remove(PreferenceConstants.Key_TokenType)
-        preferenceEditor.remove(PreferenceConstants.Key_Name)
+        preferenceEditor.remove(SessionConstants.Key_AccessToken)
+        preferenceEditor.remove(SessionConstants.Key_SecretKey)
+        preferenceEditor.remove(SessionConstants.Key_TokenType)
         preferenceEditor.apply()
+        User.wipeUserData()
     }
 }

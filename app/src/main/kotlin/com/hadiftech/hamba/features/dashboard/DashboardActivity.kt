@@ -18,17 +18,16 @@ import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaFrameActivity
 import com.hadiftech.hamba.core.session.Session
+import com.hadiftech.hamba.core.session.User
 import com.hadiftech.hamba.core.views.HambaTextView
 import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.features.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.content_main.*
 
-
 class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawerLayout: DrawerLayout
-//    private lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,35 +40,22 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
         supportActionBar!!.setCustomView(R.layout.abs_layout)
         supportActionBar!!.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.header_background))
 
-        drawerLayout = findViewById(R.id.drawer_layout)
-//        toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-//        drawerLayout.addDrawerListener(toggle)
-//        toggle.syncState()
-//        toggle.isDrawerIndicatorEnabled = false
-//        val drawable = ResourcesCompat.getDrawable(resources, R.drawable.ic_hamburg, theme)
-//        toggle.setHomeAsUpIndicator(drawable)
-//        toggle.toolbarNavigationClickListener = View.OnClickListener {
-//            if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
-//                drawerLayout.closeDrawer(GravityCompat.START)
-//            } else {
-//                drawerLayout.openDrawer(GravityCompat.START)
-//            }
-//        }
-
         bottom_nav_view.setupWithNavController(findNavController(R.id.nav_host_fragment))
         navigationDrawerView.setupWithNavController(findNavController(R.id.nav_host_fragment))
 
+        drawerLayout = findViewById(R.id.drawer_layout)
         NavigationUI.setupActionBarWithNavController(this, findNavController(R.id.nav_host_fragment), drawerLayout)
-
         navigationDrawerView.setNavigationItemSelectedListener(this)
 
-        setNavigationDrawerHeaderUserData()
+        setNavigationDrawerHeaderData()
     }
 
-    private fun setNavigationDrawerHeaderUserData() {
+    private fun setNavigationDrawerHeaderData() {
         val headerView = navigationDrawerView.getHeaderView(0)
-        val textView_userName = headerView.findViewById(R.id.textView_userName) as HambaTextView
-        textView_userName.text = Session.getName()
+        val textViewUserName = headerView.findViewById(R.id.textView_userName) as HambaTextView
+        if (User.getUserName().isNotEmpty()) {
+            textViewUserName.text = User.getUserName()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -138,11 +124,4 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
         }
         return true
     }
-
-//    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-//        if (toggle.onOptionsItemSelected(item)) {
-//            return true
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
 }

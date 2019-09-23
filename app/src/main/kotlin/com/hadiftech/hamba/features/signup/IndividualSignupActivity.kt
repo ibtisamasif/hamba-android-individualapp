@@ -39,7 +39,7 @@ class IndividualSignupActivity : HambaBaseActivity() {
             if (apiResponse.success!!){
                 moveToCodeVerificationActivity()
             } else {
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message)
             }
         }
     }
