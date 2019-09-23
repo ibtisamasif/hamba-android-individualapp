@@ -19,7 +19,7 @@
             app:errorTextAppearance="@style/ErrorTextAppearance" >
 
         <com.hadiftech.hamba.core.views.HambaEditText
-                android:id="@+id/editText_loginField"
+                android:id="@+id/editText_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"

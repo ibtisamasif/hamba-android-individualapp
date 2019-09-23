@@ -18,6 +18,7 @@ import com.hadiftech.hamba.features.login.login_service.LoginResponse
 import com.hadiftech.hamba.features.signup.HelloUserActivity
 import com.hadiftech.hamba.features.signup.IndividualSignupActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.editText_password
 
 class LoginActivity : HambaBaseActivity() {
 
@@ -40,6 +41,7 @@ class LoginActivity : HambaBaseActivity() {
                 loginRequest.password = editText_password.getText()
             }
 
+            Session.clearSession()
             APiManager.loginApi(this, this, loginRequest)
         }
     }
@@ -54,7 +56,7 @@ class LoginActivity : HambaBaseActivity() {
 
     override fun onApiFailure(errorCode: Int) {
         if (errorCode == HttpErrorCodes.Unauthorized.code) {
-            AlertDialogProvider.showAlertDialog(this, getString(R.string.password_incorrect))
+            AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, getString(R.string.password_incorrect))
         } else {
             super.onApiFailure(errorCode)
         }
@@ -67,7 +69,7 @@ class LoginActivity : HambaBaseActivity() {
                 moveToDashboardScreen()
             }
         } else {
-            AlertDialogProvider.showAlertDialog(this, loginResponse.message)
+            AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, loginResponse.message)
         }
     }
 

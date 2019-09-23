@@ -10,6 +10,8 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.core.enums.UserType
+import com.hadiftech.hamba.core.session.User
 import com.hadiftech.hamba.features.dashboard.DashboardActivity
 import kotlinx.android.synthetic.main.activity_hello_user.*
 
@@ -51,7 +53,7 @@ class HelloUserActivity : HambaBaseActivity() {
         }
     }
 
-    private fun loadAnimations(){
+    private fun loadAnimations() {
         robotAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_from_left)
         helloBubbleAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_from_top)
         userNameAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_from_bottom)
@@ -59,46 +61,55 @@ class HelloUserActivity : HambaBaseActivity() {
 
         robotAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {}
-            override fun onAnimationEnd(animation: Animation) { startHelloBubbleAnimation() }
+            override fun onAnimationEnd(animation: Animation) {
+                startHelloBubbleAnimation()
+            }
+
             override fun onAnimationRepeat(animation: Animation) {}
         })
 
         helloBubbleAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {}
-            override fun onAnimationEnd(animation: Animation) { startWhatsYourNameAnimation() }
+            override fun onAnimationEnd(animation: Animation) {
+                startWhatsYourNameAnimation()
+            }
+
             override fun onAnimationRepeat(animation: Animation) {}
         })
 
         whatsYourNameAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {}
-            override fun onAnimationEnd(animation: Animation) { startUserNameAnimation() }
+            override fun onAnimationEnd(animation: Animation) {
+                startUserNameAnimation()
+            }
+
             override fun onAnimationRepeat(animation: Animation) {}
         })
     }
 
-    private fun startRobotAnimations(){
+    private fun startRobotAnimations() {
         imageView_robot.visibility = View.VISIBLE
         imageView_robot.startAnimation(robotAnimation)
     }
 
-    private fun startHelloBubbleAnimation(){
+    private fun startHelloBubbleAnimation() {
         imageView_helloBubble.visibility = View.VISIBLE
         imageView_helloBubble.startAnimation(helloBubbleAnimation)
     }
 
-    private fun startWhatsYourNameAnimation(){
+    private fun startWhatsYourNameAnimation() {
         textView_what.visibility = View.VISIBLE
         textView_IsYourName.visibility = View.VISIBLE
         textView_what.startAnimation(whatsYourNameAnimation)
         textView_IsYourName.startAnimation(whatsYourNameAnimation)
     }
 
-    private fun startUserNameAnimation(){
+    private fun startUserNameAnimation() {
         editText_userName.visibility = View.VISIBLE
         editText_userName.startAnimation(userNameAnimation)
     }
 
-    private fun setUserNameTextChangedListener(){
+    private fun setUserNameTextChangedListener() {
 
         editText_userName.setTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(content: Editable) {}
@@ -106,13 +117,19 @@ class HelloUserActivity : HambaBaseActivity() {
             override fun beforeTextChanged(content: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(content: CharSequence, start: Int, before: Int, count: Int) {
-                if (content.isNotEmpty()) { button_enter.visibility = View.VISIBLE }
-                else { button_enter.visibility = View.INVISIBLE }
+                if (content.isNotEmpty()) {
+                    button_enter.visibility = View.VISIBLE
+                } else {
+                    button_enter.visibility = View.INVISIBLE
+                }
             }
         })
     }
 
     fun onEnterButtonClicked(enterButton: View) {
+        User.addUserName(editText_userName.getText())
+        User.addUserType(UserType.GUEST.name)
+
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
         dashboardIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(dashboardIntent)

@@ -43,13 +43,13 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
         isPasswordToggleVisible = typedArray.getBoolean(R.styleable.HambaLoginEditTextAttributes_showPasswordToggle, false)
         showPasswordVisibilityToggle(isPasswordToggleVisible)
 
-        editText_loginField.inputType = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_inputType, InputType.TYPE_CLASS_TEXT)
-        editText_loginField.gravity = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_gravity, Gravity.CENTER_VERTICAL)
-        editText_loginField.hint = typedArray.getString(R.styleable.HambaLoginEditTextAttributes_android_hint)
-        editText_loginField.typeface = getTypefaceFromXml(context, attrs)
+        editText_field.inputType = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_inputType, InputType.TYPE_CLASS_TEXT)
+        editText_field.gravity = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_gravity, Gravity.CENTER_VERTICAL)
+        editText_field.hint = typedArray.getString(R.styleable.HambaLoginEditTextAttributes_android_hint)
+        editText_field.typeface = getTypefaceFromXml(context, attrs)
 
         val maxLength = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_maxLength, 40)
-        editText_loginField.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
+        editText_field.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
 
         val themeType = typedArray.getInteger(R.styleable.HambaLoginEditTextAttributes_editTextTheme, 0)
         when (themeType) {
@@ -77,27 +77,27 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
             showPasswordVisibilityToggle(false)
         }
 
-        editText_loginField.error = error
+        editText_field.error = error
     }
 
     fun getText(): String {
-        return editText_loginField.text.toString()
+        return editText_field.text.toString()
     }
 
     fun setText(text: String) {
-        editText_loginField.setText(text)
+        editText_field.setText(text)
     }
 
     fun setHint(hint: String) {
-        editText_loginField.hint = hint
+        editText_field.hint = hint
     }
 
     fun setInputType(inputType: Int) {
-        editText_loginField.inputType = inputType
+        editText_field.inputType = inputType
     }
 
     fun setEditTextClickable(value: Boolean) {
-        editText_loginField.isEnabled = value
+        editText_field.isEnabled = value
     }
 
     private fun setRightDrawable(resId: Int) {
@@ -118,22 +118,22 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
 
     private fun setThemeGreen(context: Context) {
         textView_Counter.setTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
-        editText_loginField.setTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
-        editText_loginField.setHintTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
+        editText_field.setTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
+        editText_field.setHintTextColor(ContextCompat.getColor(context, R.color.colorGreenLight))
         loginField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_green_bg)
         inputLayout_loginField.setPasswordVisibilityToggleTintList(ContextCompat.getColorStateList(context, R.color.colorGreenLight))
     }
 
     private fun setThemeWhite(context: Context) {
         textView_Counter.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
-        editText_loginField.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
-        editText_loginField.setHintTextColor(ContextCompat.getColor(context, R.color.colorWhite))
+        editText_field.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
+        editText_field.setHintTextColor(ContextCompat.getColor(context, R.color.colorWhite))
         loginField_Container.background = ContextCompat.getDrawable(context, R.drawable.login_fields_white_bg)
         inputLayout_loginField.setPasswordVisibilityToggleTintList(ContextCompat.getColorStateList(context, R.color.colorWhite))
     }
 
     fun setTextChangedListener(textChangeListener: TextWatcher) {
-        editText_loginField.addTextChangedListener(textChangeListener)
+        editText_field.addTextChangedListener(textChangeListener)
     }
 
     private fun setTextChangedListener() {

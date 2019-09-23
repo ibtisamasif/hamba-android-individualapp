@@ -1,13 +1,14 @@
 package com.hadiftech.hamba.features.forget_password
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaUtils
 import com.hadiftech.hamba.core.enums.UserType
+import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
@@ -28,11 +29,11 @@ class NewPasswordActivity : HambaBaseActivity() {
 
         if (checkValidations()) {
 
-            var newPasswordRequest = NewPasswordRequest()
+            val newPasswordRequest = NewPasswordRequest()
             newPasswordRequest.otpCode = editText_otpCode.getText()
             newPasswordRequest.newPassword = editText_newPassword.getText()
 
-            var emailOrNumber = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS_OR_NUMBER)
+            val emailOrNumber = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS_OR_NUMBER)
             if (HambaUtils.isPhoneNumber(emailOrNumber)) {
                 newPasswordRequest.number = emailOrNumber
             } else {
@@ -46,35 +47,38 @@ class NewPasswordActivity : HambaBaseActivity() {
     override fun onApiSuccess(apiResponse: HambaBaseApiResponse) {
         super.onApiSuccess(apiResponse)
 
-        if (apiResponse is NewPasswordResponse){
-            if(apiResponse.success!!){
+        if (apiResponse is NewPasswordResponse) {
+            if (apiResponse.success!!) {
                 moveToSuccessMessageScreen()
             } else {
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
 
         if (apiResponse is ResendOtpResponse) {
-            if(apiResponse.success!!){
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message, getString(R.string.verify), DialogInterface.OnClickListener {
-                        dialog, _ -> dialog.dismiss()
+            if (apiResponse.success!!) {
+                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message,
+                    getString(R.string.verify), object : DialogButtonClickListener {
+                    override fun onClick(alertDialog: AlertDialog) {
+                        alertDialog.dismiss()
+                    }
                 })
             } else {
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
     }
 
-    private fun moveToSuccessMessageScreen(){
+    private fun moveToSuccessMessageScreen() {
         val passwordResetIntent = Intent(this, PasswordResetStatusActivity::class.java)
         startActivity(passwordResetIntent)
     }
 
-    fun onSendOtpAgainClicked (view: View) {
+    fun onSendOtpAgainClicked(view: View) {
 
-        var resendOtpRequest = ResendOtpRequest()
+        val resendOtpRequest = ResendOtpRequest()
 
-        var emailOrNumber = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS_OR_NUMBER)
+        val emailOrNumber = intent.getStringExtra(ForgetPasswordActivity.KEY_EMAIL_ADDRESS_OR_NUMBER)
         if (HambaUtils.isPhoneNumber(emailOrNumber)) {
             resendOtpRequest.number = emailOrNumber
             resendOtpRequest.userType = UserType.INDIVIDUAL.name
@@ -86,7 +90,7 @@ class NewPasswordActivity : HambaBaseActivity() {
         APiManager.resendOtpCode(this, this, resendOtpRequest)
     }
 
-    private fun checkValidations() : Boolean {
+    private fun checkValidations(): Boolean {
         if (editText_otpCode.getText().length < 6) {
             editText_otpCode.setError(getString(R.string.please_enter_otp_code))
             return false

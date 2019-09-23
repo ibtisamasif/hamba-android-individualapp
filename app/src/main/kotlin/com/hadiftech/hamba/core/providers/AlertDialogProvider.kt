@@ -1,36 +1,75 @@
 package com.hadiftech.hamba.core.providers
 
 import android.content.Context
-import android.content.DialogInterface
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.view.LayoutInflater
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.hadiftech.hamba.R
+import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
+import com.hadiftech.hamba.core.views.HambaButton
+import com.hadiftech.hamba.core.views.HambaTextView
 
 object AlertDialogProvider {
 
-    fun showFailureDialog(context: Context){
-        val dialogBuilder = AlertDialog.Builder(context)
-        dialogBuilder.setCancelable(false)
-        dialogBuilder.setTitle(context.getString(R.string.error))
-        dialogBuilder.setMessage(context.getString(R.string.sorry_something_went_wrong))
-        dialogBuilder.setPositiveButton(android.R.string.yes) { dialog, which -> }
-        dialogBuilder.show()
+    enum class DialogTheme {
+        ThemeGreen, ThemeWhite
     }
 
-    fun showAlertDialog(context: Context, message: String?) {
-        val dialogBuilder = AlertDialog.Builder(context)
-        dialogBuilder.setCancelable(false)
-        dialogBuilder.setTitle(context.getString(R.string.alert))
-        dialogBuilder.setMessage(message)
-        dialogBuilder.setPositiveButton(android.R.string.yes) { dialog, which -> }
-        dialogBuilder.show()
+    private var positiveButton: HambaButton? = null
+    private var textViewTitle: HambaTextView? = null
+    private var textViewMessage: HambaTextView? = null
+
+    fun showFailureDialog(context: Context, theme: DialogTheme){
+        val dialogView = getView(context, theme)
+        initializeViews(dialogView)
+        textViewTitle!!.text = context.getString(R.string.error)
+        textViewMessage!!.text = context.getString(R.string.sorry_something_went_wrong)
+        val alertDialog = showAlertDialog(context, dialogView)
+        positiveButton!!.setOnClickListener { alertDialog.dismiss() }
     }
 
-    fun showAlertDialog(context: Context, message: String?, yesBtnText: String?, yesBtnClickListener: DialogInterface.OnClickListener) {
-        val dialogBuilder = AlertDialog.Builder(context)
-        dialogBuilder.setCancelable(false)
-        dialogBuilder.setTitle(context.getString(R.string.alert))
-        dialogBuilder.setMessage(message)
-        dialogBuilder.setPositiveButton(yesBtnText, yesBtnClickListener)
-        dialogBuilder.show()
+    fun showAlertDialog(context: Context, theme: DialogTheme, message: String?) {
+        val dialogView = getView(context, theme)
+        initializeViews(dialogView)
+        textViewMessage!!.text = message
+        val alertDialog = showAlertDialog(context, dialogView)
+        positiveButton!!.setOnClickListener { alertDialog.dismiss() }
+    }
+
+    fun showAlertDialog(context: Context, theme: DialogTheme, message: String?, positiveBtnText: String?, dialogButtonClickListener: DialogButtonClickListener) {
+        val dialogView = getView(context, theme)
+        initializeViews(dialogView)
+        textViewMessage!!.text = message
+        positiveButton!!.text = positiveBtnText
+        val alertDialog = showAlertDialog(context, dialogView)
+        positiveButton!!.setOnClickListener { dialogButtonClickListener.onClick(alertDialog) }
+    }
+
+    private fun getView(context: Context, theme: DialogTheme) : View {
+        var layoutView: View? = null
+        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+        when (theme) {
+            DialogTheme.ThemeGreen -> layoutView = inflater.inflate(R.layout.layout_alert_dialog_green, null)
+            DialogTheme.ThemeWhite -> layoutView = inflater.inflate(R.layout.layout_alert_dialog_white, null)
+        }
+
+        return layoutView
+    }
+
+    private fun initializeViews(dialogView: View) {
+        positiveButton = dialogView.findViewById<HambaButton>(R.id.positiveBtn)
+        textViewTitle = dialogView.findViewById<HambaTextView>(R.id.textView_title)
+        textViewMessage = dialogView.findViewById<HambaTextView>(R.id.textView_message)
+    }
+
+    private fun showAlertDialog(context: Context, dialogView: View) : AlertDialog {
+        val alertDialog = AlertDialog.Builder(context).setView(dialogView).setCancelable(false).create()
+        alertDialog.window.attributes.windowAnimations = R.style.DialogAnimation
+        alertDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        alertDialog.show()
+        return alertDialog
     }
 }

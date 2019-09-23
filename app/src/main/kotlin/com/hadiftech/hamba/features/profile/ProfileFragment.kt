@@ -1,19 +1,30 @@
 package com.hadiftech.hamba.features.profile
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputType
+import android.text.TextWatcher
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import androidx.appcompat.app.AlertDialog
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Constants
 import com.hadiftech.hamba.core.HambaBaseFragment
 import com.hadiftech.hamba.core.HambaUtils
+import com.hadiftech.hamba.core.enums.IdentityType
+import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
 import com.hadiftech.hamba.core.services.HttpErrorCodes
+import com.hadiftech.hamba.core.session.Session
+import com.hadiftech.hamba.core.views.HambaProfileEditText
+import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.features.profile.edit_profile_service.IndividualProfileEditRequest
 import com.hadiftech.hamba.features.profile.edit_profile_service.IndividualProfileEditResponse
 import com.hadiftech.hamba.features.profile.get_profile_service.GetProfileResponse
@@ -38,10 +49,26 @@ class ProfileFragment : HambaBaseFragment() {
         populateCountryDropDown()
         populateAddressTypeDropDown()
         populateInterestDropDown()
+
         setDatePickListener()
         setSaveButtonListener()
+        setEmailAddressTextChangeListener()
 
-        APiManager.getUserProfile(activity!!, this)
+        if (Session.isSessionAvailable()) {
+            APiManager.getUserProfile(activity!!, this)
+        } else {
+            showGuestUserAlert()
+        }
+    }
+
+    private fun showGuestUserAlert(){
+        AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen,
+            getString(R.string.you_are_signed_in_as_guest_please_login), getString(R.string.login), object : DialogButtonClickListener {
+                override fun onClick(alertDialog: AlertDialog) {
+                    alertDialog.dismiss()
+                    moveToLoginActivity()
+                }
+            })
     }
 
     override fun onApiSuccess(apiResponse: HambaBaseApiResponse) {
@@ -51,32 +78,34 @@ class ProfileFragment : HambaBaseFragment() {
             if (apiResponse.details != null) {
                 updateUI(apiResponse.details!!)
             } else {
-                AlertDialogProvider.showAlertDialog(activity!!, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
 
         if (apiResponse is IndividualProfileEditResponse) {
             if (apiResponse.success!!) {
-                AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.record_updated_successfully))
+                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.record_updated_successfully))
             } else {
-                AlertDialogProvider.showAlertDialog(activity!!, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
     }
 
     override fun onApiFailure(errorCode: Int) {
         when (errorCode) {
-            HttpErrorCodes.Unauthorized.code -> AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.action_unauthorized))
-            HttpErrorCodes.Forbidden.code -> AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.action_forbidden))
-            HttpErrorCodes.NotFound.code -> AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.not_found))
+            HttpErrorCodes.Unauthorized.code -> AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.action_unauthorized))
+            HttpErrorCodes.Forbidden.code -> AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.action_forbidden))
+            HttpErrorCodes.NotFound.code -> AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.not_found))
             else -> super.onApiFailure(errorCode)
         }
     }
 
     private fun updateUI(details: GetProfileResponse.Details) {
 
-        swPushNotifications.isChecked = details.enableNotification!!
         editText_phone.isEnabled = false
+        swPushNotifications.isChecked = details.enableNotification!!
+        swShowMyMobileNumber.isChecked = details.enableNumberVisibility!!
+        swOthersCanSeeMyAge.isChecked = details.enableAgeVisibility!!
 
         if (details.personType != null && details.personType!!.isNotEmpty()) {
             spinner_personType.setSelected(resources.getStringArray(R.array.person_types).indexOf(details.personType))
@@ -174,10 +203,10 @@ class ProfileFragment : HambaBaseFragment() {
 
     private fun onDateSelected(calendar: Calendar) {
         if (DateUtils.isToday(calendar.timeInMillis) || calendar.time.after(Date())) {
-            AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.please_select_valid_date))
+            AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.please_select_valid_date))
         } else {
             if (HambaUtils.isAgeLessThen18(calendar)) {
-                AlertDialogProvider.showAlertDialog(activity!!, getString(R.string.sorry_you_are_under_age))
+                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.sorry_you_are_under_age))
             } else {
                 editText_dateOfBirth.setText(SimpleDateFormat(Constants.DOB_FORMAT).format(calendar.time))
             }
@@ -198,6 +227,7 @@ class ProfileFragment : HambaBaseFragment() {
 
     private fun populateIdentityDropDown() {
         spinner_identity.setItems(resources.getStringArray(R.array.identities))
+        //spinner_identity.onItemSelectedListener = OnSpinnerIdentityItemSelectedListener(editText_identityValue)
     }
 
     private fun populateCountryDropDown() {
@@ -212,6 +242,19 @@ class ProfileFragment : HambaBaseFragment() {
         spinner_interest.setItems(resources.getStringArray(R.array.interests))
     }
 
+    private fun setEmailAddressTextChangeListener() {
+        editText_email!!.setTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                //TODO: Do Email OTP Code Verification
+            }
+
+            override fun afterTextChanged(editable: Editable) {}
+        })
+    }
+
     private fun setSaveButtonListener() {
         btn_save.setOnClickListener {
             if (checkValidations()) {
@@ -220,7 +263,7 @@ class ProfileFragment : HambaBaseFragment() {
         }
     }
 
-    private fun getIndividualProfileEditRequest() : IndividualProfileEditRequest {
+    private fun getIndividualProfileEditRequest(): IndividualProfileEditRequest {
 
         val editUserIndividualProfileRequest = IndividualProfileEditRequest()
         editUserIndividualProfileRequest.personType = spinner_personType.text.toString()
@@ -241,6 +284,8 @@ class ProfileFragment : HambaBaseFragment() {
         editUserIndividualProfileRequest.addressType = spinner_addressType.text.toString()
         editUserIndividualProfileRequest.address = editText_address.getText()
         editUserIndividualProfileRequest.enableNotification = swPushNotifications.isChecked
+        editUserIndividualProfileRequest.enableNumberVisibility = swShowMyMobileNumber.isChecked
+        editUserIndividualProfileRequest.enableAgeVisibility = swOthersCanSeeMyAge.isChecked
 
         //ToDo interest would be a different widget or multi select dropdown
         val selectedInterests = ArrayList<String>()
@@ -263,13 +308,27 @@ class ProfileFragment : HambaBaseFragment() {
             return false
         }
 
-        if (editText_dateOfBirth.getText().isEmpty()) {
-            editText_dateOfBirth.setError(getString(R.string.please_enter_date_of_birth))
+        if (editText_dateOfBirth.getText().isEmpty() || editText_dateOfBirth.getText().length < 4) {
+            editText_dateOfBirth.setError(getString(R.string.please_select_date_of_birth))
             return false
         }
 
         if (editText_identityValue.getText().isEmpty()) {
-            editText_identityValue.setError(getString(R.string.please_enter_registration_number))
+            if (spinner_identity.text.toString() == IdentityType.Passport.name) {
+                editText_identityValue.setError(getString(R.string.please_enter_passport_number))
+            } else {
+                editText_identityValue.setError(getString(R.string.please_enter_national_id_number))
+            }
+            return false
+        }
+
+        if (editText_city.getText().isEmpty()) {
+            editText_city.setError(getString(R.string.please_enter_city_name))
+            return false
+        }
+
+        if (editText_email.getText().isEmpty()) {
+            editText_email.setError(getString(R.string.please_enter_email))
             return false
         }
 
@@ -280,4 +339,23 @@ class ProfileFragment : HambaBaseFragment() {
 
         return true
     }
+
+    private fun moveToLoginActivity() {
+        val loginIntent = Intent(activity!!, LoginActivity::class.java)
+        loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(loginIntent)
+        activity!!.finish()
+    }
+}
+
+class OnSpinnerIdentityItemSelectedListener(private var editText_identityValue: HambaProfileEditText) : AdapterView.OnItemSelectedListener {
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        when (position) {
+            0 -> editText_identityValue.setInputType(InputType.TYPE_CLASS_NUMBER)
+            1 -> editText_identityValue.setInputType(InputType.TYPE_CLASS_TEXT)
+        }
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {}
 }

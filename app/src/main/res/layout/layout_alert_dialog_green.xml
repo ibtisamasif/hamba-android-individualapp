@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/_15sdp"
+        android:paddingRight="@dimen/_15sdp"
+        android:paddingStart="@dimen/_15sdp"
+        android:paddingEnd="@dimen/_15sdp"
+        android:background="@drawable/alert_dialog_green_background" >
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/alert"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_16sdp"
+            app:fontType="Regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_12sdp"
+            app:fontType="Light"
+            app:layout_constraintStart_toStartOf="@+id/textView_title"
+            app:layout_constraintTop_toBottomOf="@+id/textView_title" />
+
+    <com.hadiftech.hamba.core.views.HambaButton
+            android:id="@+id/positiveBtn"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:background="@drawable/positive_white_btn_background"
+            android:text="@string/done"
+            android:textColor="@color/colorGreenLight"
+            android:textSize="@dimen/_14sdp"
+            android:textAllCaps="false"
+            app:fontType="Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_message" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

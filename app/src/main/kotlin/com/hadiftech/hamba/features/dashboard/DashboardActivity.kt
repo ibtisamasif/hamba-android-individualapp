@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -16,6 +18,8 @@ import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaFrameActivity
 import com.hadiftech.hamba.core.session.Session
+import com.hadiftech.hamba.core.session.User
+import com.hadiftech.hamba.core.views.HambaTextView
 import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.features.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_dashboard.*
@@ -32,16 +36,26 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar!!.setCustomView(R.layout.abs_layout)
+        supportActionBar!!.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.header_background))
 
         bottom_nav_view.setupWithNavController(findNavController(R.id.nav_host_fragment))
         navigationDrawerView.setupWithNavController(findNavController(R.id.nav_host_fragment))
 
         drawerLayout = findViewById(R.id.drawer_layout)
         NavigationUI.setupActionBarWithNavController(this, findNavController(R.id.nav_host_fragment), drawerLayout)
-
         navigationDrawerView.setNavigationItemSelectedListener(this)
+
+        setNavigationDrawerHeaderData()
+    }
+
+    private fun setNavigationDrawerHeaderData() {
+        val headerView = navigationDrawerView.getHeaderView(0)
+        val textViewUserName = headerView.findViewById(R.id.textView_userName) as HambaTextView
+        if (User.getUserName().isNotEmpty()) {
+            textViewUserName.text = User.getUserName()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -59,7 +73,7 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
 
-        var bundle = Bundle()
+        val bundle = Bundle()
         menuItem.isChecked = true
         drawerLayout.closeDrawers()
 

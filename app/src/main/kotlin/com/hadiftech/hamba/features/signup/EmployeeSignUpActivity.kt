@@ -45,7 +45,7 @@ class EmployeeSignUpActivity : HambaBaseActivity() {
             if (apiResponse.success!!) {
                 moveToCodeVerificationScreen()
             } else {
-                AlertDialogProvider.showAlertDialog(this, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message)
             }
         }
     }
