@@ -16,7 +16,7 @@ import com.hadiftech.hamba.features.forget_password.ForgetPasswordActivity
 import com.hadiftech.hamba.features.login.login_service.LoginRequest
 import com.hadiftech.hamba.features.login.login_service.LoginResponse
 import com.hadiftech.hamba.features.signup.HelloUserActivity
-import com.hadiftech.hamba.features.signup.JoinUsActivity
+import com.hadiftech.hamba.features.signup.IndividualSignupActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.editText_password
 
@@ -74,8 +74,8 @@ class LoginActivity : HambaBaseActivity() {
     }
 
     fun onCreateAccountClicked(createAccountTextView: View){
-        val joinUsIntent = Intent(this, JoinUsActivity::class.java)
-        startActivity(joinUsIntent)
+        val individualSignUpIntent = Intent(this, IndividualSignupActivity::class.java)
+        startActivity(individualSignUpIntent)
     }
 
     fun onContinueAsGuestClicked(guestView: View) {

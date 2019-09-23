@@ -6,7 +6,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.hadiftech.hamba"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -47,6 +47,7 @@ dependencies {
 
     // Module Dependencies
     implementation project(':countrycodepicker')
+    implementation project(':jrspinner')
 
     // UI Dependencies
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="jrspinner_color_line">#E0E0E0</color>
+    <color name="jrspinner_color_default">#99000000</color>
+    <color name="jrspinner_black_transparent">#80000000</color>
+    <color name="colorGreenDark">#2A6361</color>
+    <color name="colorGreenMedium">#478B87</color>
+    <color name="colorGreenLight">#55B1AC</color>
+</resources>

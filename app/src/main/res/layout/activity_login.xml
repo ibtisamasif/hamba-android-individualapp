@@ -28,6 +28,7 @@
             android:gravity="center"
             android:layout_marginTop="@dimen/_40sdp"
             android:layout_marginHorizontal="@dimen/_25sdp"
+            android:maxLength="35"
             app:fontType="Light"
             app:layout_constraintTop_toBottomOf="@+id/imageView_hambaLogo" />
 
@@ -40,7 +41,9 @@
             android:gravity="center"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginHorizontal="@dimen/_25sdp"
+            android:maxLength="25"
             app:fontType="Light"
+            app:showPasswordToggle="true"
             app:layout_constraintTop_toBottomOf="@+id/editText_emailOrNumber" />
 
     <com.hadiftech.hamba.core.views.HambaButton

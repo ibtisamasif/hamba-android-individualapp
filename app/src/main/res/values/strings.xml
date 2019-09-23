@@ -3,7 +3,7 @@
     <string name="copyrights_notice">Copyright © 2019 Hamba. All Rights Reserved</string>
 
     <!--User Module Content-->
-    <string name="email_hint">Email / Cell Number</string>
+    <string name="email_hint">Email / +971xxxx</string>
     <string name="password_hint">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="forgot_password">Forgot Password?</string>
@@ -130,8 +130,9 @@
     <!--User Profile Content-->
     <string name="edit_profile">Edit Profile</string>
     <string name="person_type">Person Type</string>
-    <string name="service_provider">Service Provider</string>
+    <string name="select_person_type">Select Person Type</string>
     <string name="prefix">Prefix</string>
+    <string name="select_prefix">Select Prefix</string>
     <string name="middle_name">Middle Name</string>
     <string name="date_of_birth">Date of Birth</string>
     <string name="i_am">I am</string>
@@ -139,7 +140,7 @@
     <string name="nationality">Nationality</string>
     <string name="select_nationality">Select Nationality</string>
     <string name="identity">Identity</string>
-    <string name="national_id">National ID</string>
+    <string name="select_identity">Select Identity</string>
     <string name="email">Email</string>
     <string name="phone">Phone</string>
     <string name="type_phone_number">Type phone number</string>
@@ -150,7 +151,7 @@
     <string name="select_address_type">Select Address Type</string>
     <string name="enter_address">Enter Address</string>
     <string name="interests">Interests</string>
-    <string name="select_interest">Select Interest</string>
+    <string name="select_interest">Select Interests</string>
     <string name="push_notifications">Push Notifications</string>
     <string name="show_my_mobile_number">Show my mobile number</string>
     <string name="others_can_see_my_age">Others can see my age</string>
@@ -166,4 +167,5 @@
     <string name="record_updated_successfully">Record Updated Successfully!!</string>
     <string name="please_select_valid_date">Please select valid date!!</string>
     <string name="you_are_signed_in_as_guest_please_login">You are signed in as guest. Please login!</string>
+    <string name="sorry_you_are_under_age">Sorry, You are under age!!</string>
 </resources>

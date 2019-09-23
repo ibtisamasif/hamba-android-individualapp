@@ -17,6 +17,8 @@ import kotlinx.android.synthetic.main.layout_hamba_profile_edittext.view.*
 
 class HambaProfileEditText : RelativeLayout, TypefaceProvider {
 
+    private var isPasswordToggleVisible: Boolean = false
+
     constructor(context: Context) : super(context) {}
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
@@ -32,13 +34,15 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
         inflate(context, R.layout.layout_hamba_profile_edittext, this)
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.HambaLoginEditTextAttributes, 0, 0)
 
-        val rightDrawableVisibility = typedArray.getBoolean(R.styleable.HambaLoginEditTextAttributes_showRightDrawable, false)
         val counterVisibility = typedArray.getBoolean(R.styleable.HambaLoginEditTextAttributes_showCounter, false)
-        showRightViewContainer(rightDrawableVisibility, counterVisibility)
-        showRightDrawable(rightDrawableVisibility)
         showCounter(counterVisibility)
 
-        imageView_rightDrawable.setImageResource(typedArray.getResourceId(R.styleable.HambaLoginEditTextAttributes_android_drawableRight, R.drawable.help_icon))
+        val rightImageResource = typedArray.getResourceId(R.styleable.HambaLoginEditTextAttributes_android_drawableRight, 0)
+        setRightDrawable(rightImageResource)
+
+        isPasswordToggleVisible = typedArray.getBoolean(R.styleable.HambaLoginEditTextAttributes_showPasswordToggle, false)
+        showPasswordVisibilityToggle(isPasswordToggleVisible)
+
         editText_field.inputType = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_inputType, InputType.TYPE_CLASS_TEXT)
         editText_field.gravity = typedArray.getInt(R.styleable.HambaLoginEditTextAttributes_android_gravity, Gravity.CENTER_VERTICAL)
         editText_field.hint = typedArray.getString(R.styleable.HambaLoginEditTextAttributes_android_hint)
@@ -53,14 +57,26 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
             1 -> setThemeGreen(context)
         }
 
+        setTextChangedListener()
         typedArray.recycle()
     }
 
     fun showPasswordVisibilityToggle(visibility: Boolean) {
+        val dimension = context.resources.getDimensionPixelSize(R.dimen._10sdp)
+        if (visibility) {
+            loginField_Container.setPadding(dimension,0,0,0)
+        } else {
+            loginField_Container.setPadding(dimension,0, dimension,0)
+        }
+
         inputLayout_loginField.isPasswordVisibilityToggleEnabled = visibility
     }
 
-    fun setError(error: String?) {
+    fun setError(error: String) {
+        if (isPasswordToggleVisible) {
+            showPasswordVisibilityToggle(false)
+        }
+
         editText_field.error = error
     }
 
@@ -80,37 +96,23 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
         editText_field.inputType = inputType
     }
 
-    fun setRightDrawable(resourceId: Int) {
-        imageView_rightDrawable.setImageResource(resourceId)
-    }
-
     fun setEditTextClickable(value: Boolean) {
         editText_field.isEnabled = value
     }
 
-    private fun showRightViewContainer(drawableVisibility: Boolean, counterVisibility: Boolean) {
-        if (drawableVisibility || counterVisibility) {
-            relativeLayout_rightViewContainer.visibility = View.VISIBLE
-        } else {
-            relativeLayout_rightViewContainer.visibility = View.GONE
-        }
-    }
-
-    private fun showRightDrawable(visibility: Boolean) {
-        if (visibility) {
+    private fun setRightDrawable(resId: Int) {
+        if (resId != 0) {
             imageView_rightDrawable.visibility = View.VISIBLE
-        } else {
-            imageView_rightDrawable.visibility = View.GONE
+            relativeLayout_rightViewContainer.visibility = View.VISIBLE
+            imageView_rightDrawable.setImageResource(resId)
         }
     }
 
     private fun showCounter(visibility: Boolean) {
         if (visibility) {
-            textView_Counter.text = context.resources.getString(R.string.counter_text, 0)
             textView_Counter.visibility = View.VISIBLE
-            setTextChangedListener()
-        } else {
-            textView_Counter.visibility = View.GONE
+            relativeLayout_rightViewContainer.visibility = View.VISIBLE
+            textView_Counter.text = context.resources.getString(R.string.counter_text, 0)
         }
     }
 
@@ -142,6 +144,10 @@ class HambaProfileEditText : RelativeLayout, TypefaceProvider {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 textView_Counter.text = context.resources.getString(R.string.counter_text, s.length)
+
+                if (isPasswordToggleVisible) {
+                    showPasswordVisibilityToggle(true)
+                }
             }
         })
     }

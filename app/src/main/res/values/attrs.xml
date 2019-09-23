@@ -16,7 +16,7 @@
         <attr name="android:maxLength" />
         <attr name="android:drawableRight" />
         <attr name="showCounter" format="boolean" />
-        <attr name="showRightDrawable" format="boolean" />
+        <attr name="showPasswordToggle" format="boolean" />
         <attr name="editTextTheme" format="enum">
             <enum name="White" value="0" />
             <enum name="Green" value="1" />

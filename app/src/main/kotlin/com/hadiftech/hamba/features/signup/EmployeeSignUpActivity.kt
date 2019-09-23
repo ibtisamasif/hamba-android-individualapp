@@ -19,8 +19,6 @@ class EmployeeSignUpActivity : HambaBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_business_sign_up)
-
-        editText_password.showPasswordVisibilityToggle(true)
     }
 
     fun onSignUpButtonClicked(signUpButton: View) {
