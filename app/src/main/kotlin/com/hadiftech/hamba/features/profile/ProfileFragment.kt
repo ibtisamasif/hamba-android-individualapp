@@ -227,7 +227,19 @@ class ProfileFragment : HambaBaseFragment() {
 
     private fun populateIdentityDropDown() {
         spinner_identity.setItems(resources.getStringArray(R.array.identities))
-        //spinner_identity.onItemSelectedListener = OnSpinnerIdentityItemSelectedListener(editText_identityValue)
+        spinner_identity.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                when (spinner_identity.text.toString()) {
+                    IdentityType.NationalId.value -> editText_identityValue.setInputType(InputType.TYPE_CLASS_NUMBER)
+                    IdentityType.Passport.value -> editText_identityValue.setInputType(InputType.TYPE_CLASS_TEXT)
+                }
+            }
+        })
     }
 
     private fun populateCountryDropDown() {
@@ -346,16 +358,4 @@ class ProfileFragment : HambaBaseFragment() {
         startActivity(loginIntent)
         activity!!.finish()
     }
-}
-
-class OnSpinnerIdentityItemSelectedListener(private var editText_identityValue: HambaProfileEditText) : AdapterView.OnItemSelectedListener {
-
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        when (position) {
-            0 -> editText_identityValue.setInputType(InputType.TYPE_CLASS_NUMBER)
-            1 -> editText_identityValue.setInputType(InputType.TYPE_CLASS_TEXT)
-        }
-    }
-
-    override fun onNothingSelected(parent: AdapterView<*>?) {}
 }
