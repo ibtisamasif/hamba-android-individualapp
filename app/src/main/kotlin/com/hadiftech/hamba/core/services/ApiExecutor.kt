@@ -3,6 +3,7 @@ package com.hadiftech.hamba.core.services
 import android.content.Context
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaUtils
+import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,7 +38,7 @@ class ApiExecutor<T> : Callback<T> {
             apiCallbacks.doBeforeApiCall()
             apiCall.enqueue(this)
         } else {
-            AlertDialogProvider.showAlertDialog(context, AlertDialogProvider.DialogTheme.ThemeWhite, context.getString(R.string.no_network_available))
+            AlertDialogProvider.showAlertDialog(context, DialogTheme.ThemeWhite, context.getString(R.string.no_network_available))
         }
     }
 }

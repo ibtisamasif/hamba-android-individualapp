@@ -16,6 +16,7 @@ import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Constants
 import com.hadiftech.hamba.core.HambaBaseFragment
 import com.hadiftech.hamba.core.HambaUtils
+import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.core.enums.IdentityType
 import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
@@ -62,8 +63,8 @@ class ProfileFragment : HambaBaseFragment() {
     }
 
     private fun showGuestUserAlert(){
-        AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen,
-            getString(R.string.you_are_signed_in_as_guest_please_login), getString(R.string.login), object : DialogButtonClickListener {
+        AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.you_are_signed_in_as_guest_please_login),
+            getString(R.string.login), object : DialogButtonClickListener {
                 override fun onClick(alertDialog: AlertDialog) {
                     alertDialog.dismiss()
                     moveToLoginActivity()
@@ -78,24 +79,24 @@ class ProfileFragment : HambaBaseFragment() {
             if (apiResponse.details != null) {
                 updateUI(apiResponse.details!!)
             } else {
-                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
 
         if (apiResponse is IndividualProfileEditResponse) {
             if (apiResponse.success!!) {
-                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.record_updated_successfully))
+                AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.record_updated_successfully))
             } else {
-                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
     }
 
     override fun onApiFailure(errorCode: Int) {
         when (errorCode) {
-            HttpErrorCodes.Unauthorized.code -> AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.action_unauthorized))
-            HttpErrorCodes.Forbidden.code -> AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.action_forbidden))
-            HttpErrorCodes.NotFound.code -> AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.not_found))
+            HttpErrorCodes.Unauthorized.code -> AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.action_unauthorized))
+            HttpErrorCodes.Forbidden.code -> AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.action_forbidden))
+            HttpErrorCodes.NotFound.code -> AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.not_found))
             else -> super.onApiFailure(errorCode)
         }
     }
@@ -203,10 +204,10 @@ class ProfileFragment : HambaBaseFragment() {
 
     private fun onDateSelected(calendar: Calendar) {
         if (DateUtils.isToday(calendar.timeInMillis) || calendar.time.after(Date())) {
-            AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.please_select_valid_date))
+            AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.please_select_valid_date))
         } else {
             if (HambaUtils.isAgeLessThen18(calendar)) {
-                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.sorry_you_are_under_age))
+                AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.sorry_you_are_under_age))
             } else {
                 editText_dateOfBirth.setText(SimpleDateFormat(Constants.DOB_FORMAT).format(calendar.time))
             }

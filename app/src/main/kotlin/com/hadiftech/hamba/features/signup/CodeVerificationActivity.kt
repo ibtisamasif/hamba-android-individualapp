@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
+import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.core.enums.UserType
 import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
@@ -72,27 +73,27 @@ class CodeVerificationActivity : HambaBaseActivity() {
 
         if (apiResponse is VerifyOtpResponse) {
             if (apiResponse.success!!){
-                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message,
-                    getString(R.string.login), object : DialogButtonClickListener {
+                AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeWhite, apiResponse.message, getString(R.string.login),
+                    object : DialogButtonClickListener {
                         override fun onClick(alertDialog: AlertDialog) {
                             moveToLoginActivity()
                         }
                     })
             } else {
-                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeWhite, apiResponse.message)
             }
         }
 
         if (apiResponse is ResendOtpResponse) {
             if (apiResponse.success!!){
-                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message,
-                    getString(R.string.verify), object : DialogButtonClickListener {
+                AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeWhite, apiResponse.message, getString(R.string.verify),
+                    object : DialogButtonClickListener {
                         override fun onClick(alertDialog: AlertDialog) {
                             alertDialog.dismiss()
                         }
                     })
             } else {
-                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeWhite, apiResponse.message)
             }
         }
     }

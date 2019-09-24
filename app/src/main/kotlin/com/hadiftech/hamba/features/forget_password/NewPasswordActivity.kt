@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaUtils
+import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.core.enums.UserType
 import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
@@ -51,20 +52,20 @@ class NewPasswordActivity : HambaBaseActivity() {
             if (apiResponse.success!!) {
                 moveToSuccessMessageScreen()
             } else {
-                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
 
         if (apiResponse is ResendOtpResponse) {
             if (apiResponse.success!!) {
-                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message,
+                AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeGreen, apiResponse.message,
                     getString(R.string.verify), object : DialogButtonClickListener {
                     override fun onClick(alertDialog: AlertDialog) {
                         alertDialog.dismiss()
                     }
                 })
             } else {
-                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
     }
