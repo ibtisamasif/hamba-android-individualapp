@@ -20,6 +20,12 @@ object User {
         preferenceEditor.apply()
     }
 
+    fun addUserPicture(userPictureId: Int) {
+        val preferenceEditor = userPreferences.edit()
+        preferenceEditor.putInt(UserConstants.Key_User_Picture, userPictureId)
+        preferenceEditor.apply()
+    }
+
     fun addUserType(userType: String?) {
         val preferenceEditor = userPreferences.edit()
         preferenceEditor.putString(UserConstants.Key_User_Type, userType)
@@ -34,6 +40,10 @@ object User {
         return userPreferences.getString(UserConstants.Key_User_Type, Constants.EMPTY_STRING)
     }
 
+    fun getUserPicture() : Int {
+        return userPreferences.getInt(UserConstants.Key_User_Picture, 0)
+    }
+
     fun isGuestUser() : Boolean {
         return userPreferences.getString(UserConstants.Key_User_Type, Constants.EMPTY_STRING) == UserType.GUEST.name
     }
@@ -42,6 +52,7 @@ object User {
         val preferenceEditor = userPreferences.edit()
         preferenceEditor.remove(UserConstants.Key_User_Name)
         preferenceEditor.remove(UserConstants.Key_User_Type)
+        preferenceEditor.remove(UserConstants.Key_User_Picture)
         preferenceEditor.apply()
     }
 }

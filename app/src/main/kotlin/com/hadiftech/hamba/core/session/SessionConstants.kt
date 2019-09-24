@@ -9,4 +9,5 @@ object SessionConstants {
 object UserConstants {
     const val Key_User_Type = "UserType"
     const val Key_User_Name = "UserName"
+    const val Key_User_Picture = "UserPicture"
 }
