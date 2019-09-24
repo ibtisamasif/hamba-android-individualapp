@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="match_parent"
+        android:background="@color/colorGreenMedium"
+        android:orientation="vertical">
+
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:gravity="center"
+            android:text="Choose your gender"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_8sdp"
+            app:fontType="Light" />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@color/colorGreenDark" />
+
+    <RadioGroup
+            android:id="@+id/avatar_genderRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:checkedButton="@+id/avatar_radioButtonFemale"
+            android:orientation="horizontal">
+
+        <RadioButton
+                android:id="@+id/avatar_radioButtonMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_gender_male"
+                android:button="@null"
+                android:tag="Male" />
+
+        <RadioButton
+                android:id="@+id/avatar_radioButtonFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_7sdp"
+                android:background="@drawable/selector_gender_female"
+                android:button="@null"
+                android:tag="Female" />
+
+    </RadioGroup>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+        <LinearLayout
+                android:id="@+id/linearLayout_avatarsList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" />
+
+    </ScrollView>
+
+</LinearLayout>

@@ -10,20 +10,23 @@ import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AlertDialog
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Constants
 import com.hadiftech.hamba.core.HambaBaseFragment
 import com.hadiftech.hamba.core.HambaUtils
+import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.core.enums.IdentityType
 import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
+import com.hadiftech.hamba.core.listeners.OnAvatarClickListener
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
 import com.hadiftech.hamba.core.services.HttpErrorCodes
 import com.hadiftech.hamba.core.session.Session
-import com.hadiftech.hamba.core.views.HambaProfileEditText
+import com.hadiftech.hamba.core.session.User
 import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.features.profile.edit_profile_service.IndividualProfileEditRequest
 import com.hadiftech.hamba.features.profile.edit_profile_service.IndividualProfileEditResponse
@@ -33,7 +36,7 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ProfileFragment : HambaBaseFragment() {
+class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false)
@@ -42,6 +45,7 @@ class ProfileFragment : HambaBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        populateUserPicture()
         populatePersonTypeDropDown()
         populatePrefixDropDown()
         populateNationalityDropDown()
@@ -54,6 +58,11 @@ class ProfileFragment : HambaBaseFragment() {
         setSaveButtonListener()
         setEmailAddressTextChangeListener()
 
+        button_TouchHandler.setOnClickListener { closeAvatarSelectionComponent() }
+        imageView_profilePic.setOnClickListener { displayAvatarSelectionComponent() }
+        avatarSelectionComponent.setOnAvatarClickListener(this)
+        avatarSelectionComponent.displayFemaleAvatars()
+
         if (Session.isSessionAvailable()) {
             APiManager.getUserProfile(activity!!, this)
         } else {
@@ -62,8 +71,8 @@ class ProfileFragment : HambaBaseFragment() {
     }
 
     private fun showGuestUserAlert(){
-        AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen,
-            getString(R.string.you_are_signed_in_as_guest_please_login), getString(R.string.login), object : DialogButtonClickListener {
+        AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.you_are_signed_in_as_guest_please_login),
+            getString(R.string.login), object : DialogButtonClickListener {
                 override fun onClick(alertDialog: AlertDialog) {
                     alertDialog.dismiss()
                     moveToLoginActivity()
@@ -78,26 +87,51 @@ class ProfileFragment : HambaBaseFragment() {
             if (apiResponse.details != null) {
                 updateUI(apiResponse.details!!)
             } else {
-                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
 
         if (apiResponse is IndividualProfileEditResponse) {
             if (apiResponse.success!!) {
-                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.record_updated_successfully))
+                AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.record_updated_successfully))
             } else {
-                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
     }
 
     override fun onApiFailure(errorCode: Int) {
         when (errorCode) {
-            HttpErrorCodes.Unauthorized.code -> AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.action_unauthorized))
-            HttpErrorCodes.Forbidden.code -> AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.action_forbidden))
-            HttpErrorCodes.NotFound.code -> AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.not_found))
+            HttpErrorCodes.Unauthorized.code -> AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.action_unauthorized))
+            HttpErrorCodes.Forbidden.code -> AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.action_forbidden))
+            HttpErrorCodes.NotFound.code -> AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.not_found))
             else -> super.onApiFailure(errorCode)
         }
+    }
+
+    override fun onAvatarClicked(resId: Int) {
+        User.addUserPicture(resId)
+        imageView_profilePic.setImageResource(resId)
+    }
+
+    private fun displayAvatarSelectionComponent() {
+        var slideInAnimation = AnimationUtils.loadAnimation(activity, R.anim.avatar_slide_in_from_left)
+        button_TouchHandler.visibility = View.VISIBLE
+        avatarSelectionComponent.visibility = View.VISIBLE
+        avatarSelectionComponent.startAnimation(slideInAnimation)
+    }
+
+    private fun closeAvatarSelectionComponent() {
+        var slideOutAnimation = AnimationUtils.loadAnimation(activity, R.anim.avatar_slide_out_to_left)
+        avatarSelectionComponent.startAnimation(slideOutAnimation)
+        slideOutAnimation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation) {}
+            override fun onAnimationEnd(animation: Animation) {
+                button_TouchHandler.visibility = View.GONE
+                avatarSelectionComponent.visibility = View.GONE
+            }
+            override fun onAnimationRepeat(animation: Animation) {}
+        })
     }
 
     private fun updateUI(details: GetProfileResponse.Details) {
@@ -203,13 +237,19 @@ class ProfileFragment : HambaBaseFragment() {
 
     private fun onDateSelected(calendar: Calendar) {
         if (DateUtils.isToday(calendar.timeInMillis) || calendar.time.after(Date())) {
-            AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.please_select_valid_date))
+            AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.please_select_valid_date))
         } else {
             if (HambaUtils.isAgeLessThen18(calendar)) {
-                AlertDialogProvider.showAlertDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeGreen, getString(R.string.sorry_you_are_under_age))
+                AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.sorry_you_are_under_age))
             } else {
                 editText_dateOfBirth.setText(SimpleDateFormat(Constants.DOB_FORMAT).format(calendar.time))
             }
+        }
+    }
+
+    private fun populateUserPicture() {
+        if (User.getUserPicture() != 0) {
+            imageView_profilePic.setImageResource(User.getUserPicture())
         }
     }
 

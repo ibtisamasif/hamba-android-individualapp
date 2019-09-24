@@ -6,6 +6,7 @@ import android.view.View
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaUtils
+import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.features.signup.sign_up_service.EmployeeSignUpRequest
 import com.hadiftech.hamba.core.enums.UserType
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
@@ -45,7 +46,7 @@ class EmployeeSignUpActivity : HambaBaseActivity() {
             if (apiResponse.success!!) {
                 moveToCodeVerificationScreen()
             } else {
-                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeWhite, apiResponse.message)
             }
         }
     }

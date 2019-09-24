@@ -6,6 +6,7 @@ import android.view.View
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaUtils
+import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
@@ -56,7 +57,7 @@ class LoginActivity : HambaBaseActivity() {
 
     override fun onApiFailure(errorCode: Int) {
         if (errorCode == HttpErrorCodes.Unauthorized.code) {
-            AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, getString(R.string.password_incorrect))
+            AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeWhite, getString(R.string.password_incorrect))
         } else {
             super.onApiFailure(errorCode)
         }
@@ -69,7 +70,7 @@ class LoginActivity : HambaBaseActivity() {
                 moveToDashboardScreen()
             }
         } else {
-            AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeWhite, loginResponse.message)
+            AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeWhite, loginResponse.message)
         }
     }
 

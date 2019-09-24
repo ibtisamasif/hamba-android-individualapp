@@ -7,15 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.hadiftech.hamba.R
+import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
 import com.hadiftech.hamba.core.views.HambaButton
 import com.hadiftech.hamba.core.views.HambaTextView
 
 object AlertDialogProvider {
-
-    enum class DialogTheme {
-        ThemeGreen, ThemeWhite
-    }
 
     private var positiveButton: HambaButton? = null
     private var textViewTitle: HambaTextView? = null
@@ -26,7 +23,7 @@ object AlertDialogProvider {
         initializeViews(dialogView)
         textViewTitle!!.text = context.getString(R.string.error)
         textViewMessage!!.text = context.getString(R.string.sorry_something_went_wrong)
-        val alertDialog = showAlertDialog(context, dialogView)
+        val alertDialog = createAlertDialog(context, dialogView)
         positiveButton!!.setOnClickListener { alertDialog.dismiss() }
     }
 
@@ -34,7 +31,7 @@ object AlertDialogProvider {
         val dialogView = getView(context, theme)
         initializeViews(dialogView)
         textViewMessage!!.text = message
-        val alertDialog = showAlertDialog(context, dialogView)
+        val alertDialog = createAlertDialog(context, dialogView)
         positiveButton!!.setOnClickListener { alertDialog.dismiss() }
     }
 
@@ -43,7 +40,7 @@ object AlertDialogProvider {
         initializeViews(dialogView)
         textViewMessage!!.text = message
         positiveButton!!.text = positiveBtnText
-        val alertDialog = showAlertDialog(context, dialogView)
+        val alertDialog = createAlertDialog(context, dialogView)
         positiveButton!!.setOnClickListener { dialogButtonClickListener.onClick(alertDialog) }
     }
 
@@ -65,11 +62,13 @@ object AlertDialogProvider {
         textViewMessage = dialogView.findViewById<HambaTextView>(R.id.textView_message)
     }
 
-    private fun showAlertDialog(context: Context, dialogView: View) : AlertDialog {
-        val alertDialog = AlertDialog.Builder(context).setView(dialogView).setCancelable(false).create()
+    private fun createAlertDialog(context: Context, dialogView: View) : AlertDialog {
+        val alertDialog = AlertDialog.Builder(context).setView(dialogView).create()
         alertDialog.window.attributes.windowAnimations = R.style.DialogAnimation
-        alertDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        alertDialog.setCancelable(false)
         alertDialog.show()
+
+        alertDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         return alertDialog
     }
 }

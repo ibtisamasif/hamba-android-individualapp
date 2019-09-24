@@ -1,6 +1,7 @@
 package com.hadiftech.hamba.core
 
 import androidx.fragment.app.Fragment
+import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.providers.ProgressDialogProvider
 import com.hadiftech.hamba.core.services.ApiCallbacks
@@ -17,7 +18,7 @@ abstract class HambaBaseFragment : Fragment(), ApiCallbacks {
     }
 
     override fun onApiFailure(errorCode: Int) {
-        AlertDialogProvider.showFailureDialog(activity!!, AlertDialogProvider.DialogTheme.ThemeWhite)
+        AlertDialogProvider.showFailureDialog(activity!!, DialogTheme.ThemeWhite)
     }
 
     override fun onApiSuccess(apiResponse: HambaBaseApiResponse) {}

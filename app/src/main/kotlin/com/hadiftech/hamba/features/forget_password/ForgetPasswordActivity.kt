@@ -6,6 +6,7 @@ import android.view.View
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaUtils
+import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
@@ -46,7 +47,7 @@ class ForgetPasswordActivity : HambaBaseActivity() {
             if (apiResponse.success!!) {
                 moveToNewPasswordActivity()
             } else {
-                AlertDialogProvider.showAlertDialog(this, AlertDialogProvider.DialogTheme.ThemeGreen, apiResponse.message)
+                AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeGreen, apiResponse.message)
             }
         }
     }

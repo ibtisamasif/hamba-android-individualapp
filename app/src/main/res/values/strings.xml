@@ -166,6 +166,6 @@
     <string name="not_found">Not Found</string>
     <string name="record_updated_successfully">Record Updated Successfully!!</string>
     <string name="please_select_valid_date">Please select valid date!!</string>
-    <string name="you_are_signed_in_as_guest_please_login">You are signed in as guest. Please login!</string>
+    <string name="you_are_signed_in_as_guest_please_login">You are signed in as a guest. Please login!</string>
     <string name="sorry_you_are_under_age">Sorry, You are under age!!</string>
 </resources>
