@@ -318,22 +318,22 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
     private fun getIndividualProfileEditRequest(): IndividualProfileEditRequest {
 
         val editUserIndividualProfileRequest = IndividualProfileEditRequest()
-        editUserIndividualProfileRequest.personType = spinner_personType.text.toString()
-        editUserIndividualProfileRequest.prefix = spinner_prefix.text.toString()
+        editUserIndividualProfileRequest.personType = spinner_personType.selected
+        editUserIndividualProfileRequest.prefix = spinner_prefix.selected
         editUserIndividualProfileRequest.firstName = editText_firstName.getText()
         editUserIndividualProfileRequest.lastName = editText_lastName.getText()
         editUserIndividualProfileRequest.gender = editText_gender.getGender()
         editUserIndividualProfileRequest.birthDate = editText_dateOfBirth.getText()
-        editUserIndividualProfileRequest.nationality = spinner_nationality.text.toString()
+        editUserIndividualProfileRequest.nationality = spinner_nationality.selected
         editUserIndividualProfileRequest.registrationNo = editText_identityValue.getText()
-        editUserIndividualProfileRequest.registrationType = spinner_identity.text.toString()
+        editUserIndividualProfileRequest.registrationType = spinner_identity.selected
         editUserIndividualProfileRequest.middleName = editText_middleName.getText()
         editUserIndividualProfileRequest.cityName = editText_city.getText()
         editUserIndividualProfileRequest.zipCode = editText_zipCode.getText()
-        editUserIndividualProfileRequest.country = spinner_country.text.toString()
+        editUserIndividualProfileRequest.country = spinner_country.selected
         editUserIndividualProfileRequest.email = editText_email.getText()
         editUserIndividualProfileRequest.number = editText_phone.getPhoneNumber()
-        editUserIndividualProfileRequest.addressType = spinner_addressType.text.toString()
+        editUserIndividualProfileRequest.addressType = spinner_addressType.selected
         editUserIndividualProfileRequest.address = editText_address.getText()
         editUserIndividualProfileRequest.enableNotification = swPushNotifications.isChecked
         editUserIndividualProfileRequest.enableNumberVisibility = swShowMyMobileNumber.isChecked

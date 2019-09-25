@@ -173,6 +173,19 @@ public class JRSpinner extends androidx.appcompat.widget.AppCompatEditText {
     }
 
     /**
+     * get the selected item when use non multiple spinner
+     *
+     * @return item at selected position
+     */
+    public String getSelected() {
+        if (selected >= 0) {
+            return items[selected];
+        } else {
+            return "";
+        }
+    }
+
+    /**
      * call when click on spinner view and show the dialog
      */
     @Override
