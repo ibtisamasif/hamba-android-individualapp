@@ -30,7 +30,9 @@ class LoginActivity : HambaBaseActivity() {
 
     fun onSignInButtonClicked(signInButton: View) {
 
-        if (checkValidations()) {
+        moveToDashboardScreen()
+
+        /*if (checkValidations()) {
 
             var loginRequest = LoginRequest()
 
@@ -44,7 +46,7 @@ class LoginActivity : HambaBaseActivity() {
 
             Session.clearSession()
             APiManager.loginApi(this, this, loginRequest)
-        }
+        }*/
     }
 
     override fun onApiSuccess(apiResponse: HambaBaseApiResponse) {
