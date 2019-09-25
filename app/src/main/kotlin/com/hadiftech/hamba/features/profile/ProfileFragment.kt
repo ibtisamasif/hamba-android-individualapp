@@ -63,11 +63,11 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
         avatarSelectionComponent.setOnAvatarClickListener(this)
         avatarSelectionComponent.displayFemaleAvatars()
 
-        //if (Session.isSessionAvailable()) {
+        if (Session.isSessionAvailable()) {
             APiManager.getUserProfile(activity!!, this)
-        //} else {
-        //    showGuestUserAlert()
-        //}
+        } else {
+            showGuestUserAlert()
+        }
     }
 
     private fun showGuestUserAlert(){
