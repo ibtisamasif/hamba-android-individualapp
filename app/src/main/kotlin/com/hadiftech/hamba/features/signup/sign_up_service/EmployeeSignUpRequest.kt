@@ -5,9 +5,6 @@ import com.hadiftech.hamba.core.Constants
 
 class EmployeeSignUpRequest : SignUpRequest() {
 
-    @SerializedName("email")
-    var email: String? = Constants.EMPTY_STRING
-
     @SerializedName("firstName")
     var firstName: String? = Constants.EMPTY_STRING
 
