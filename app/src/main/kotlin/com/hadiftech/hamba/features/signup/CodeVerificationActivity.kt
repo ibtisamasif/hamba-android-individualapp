@@ -14,7 +14,6 @@ import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
 import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
-import com.hadiftech.hamba.features.signup.code_verification_service.VerifyBusinessOtpRequest
 import com.hadiftech.hamba.features.signup.code_verification_service.VerifyOtpRequest
 import com.hadiftech.hamba.features.signup.code_verification_service.VerifyOtpResponse
 import com.hadiftech.hamba.features.signup.resend_otp_service.ResendOtpRequest
@@ -44,13 +43,19 @@ class CodeVerificationActivity : HambaBaseActivity() {
         if (checkValidations()) {
             when (userType) {
                 UserType.INDIVIDUAL -> {
+
                     val verifyOtpRequest = VerifyOtpRequest()
                     verifyOtpRequest.userType = userType.name
-                    verifyOtpRequest.otpCode = editText_NumberCode.text.toString()
+
+                    if (editText_NumberCode.visibility == View.VISIBLE) {
+                        verifyOtpRequest.otpCode = editText_NumberCode.text.toString()
+                    } else {
+                        verifyOtpRequest.otpCode = editText_EmailCode.text.toString()
+                    }
                     APiManager.verifyOtpCode(this, this, verifyOtpRequest)
                 }
                 UserType.BUSINESS_EMPLOYEE, UserType.BUSINESS_OWNER -> {
-                    val verifyBusinessOtpRequest = VerifyBusinessOtpRequest()
+                    val verifyBusinessOtpRequest = VerifyOtpRequest()
                     verifyBusinessOtpRequest.userType = userType.name
                     verifyBusinessOtpRequest.otpCode = editText_NumberCode.text.toString()
                     verifyBusinessOtpRequest.otpCodeEmail = editText_EmailCode.text.toString()
@@ -107,7 +112,13 @@ class CodeVerificationActivity : HambaBaseActivity() {
 
     private fun setupScreenDisplay() {
         when (userType) {
-            UserType.INDIVIDUAL -> displayNumberVerification()
+            UserType.INDIVIDUAL -> {
+                if (intent.getStringExtra(KEY_USER_EMAIL).isEmpty()) {
+                    displayNumberVerification()
+                } else {
+                    displayEmailVerification()
+                }
+            }
             UserType.BUSINESS_EMPLOYEE -> displayEmailVerification()
             UserType.BUSINESS_OWNER -> displayEmailAndNumberVerification()
         }

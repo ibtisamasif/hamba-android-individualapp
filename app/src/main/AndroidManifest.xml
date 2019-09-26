@@ -75,10 +75,6 @@
         <activity
                 android:name=".core.HambaFrameActivity"
                 android:screenOrientation="portrait" />
-        <activity
-                android:name=".features.profile.ProfileActivity"
-                android:screenOrientation="portrait"
-                android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>
