@@ -91,7 +91,7 @@
     <string name="talk_to_eve">Talk To Eve</string>
     <string name="partners">Partners</string>
     <string name="complaints">Complaints</string>
-    <string name="_30_complete">30% Complete</string>
+    <string name="_30_complete">%1$s Complete</string>
     <string name="home_screen_banner">home screen banner</string>
     <string name="top_deals_offers">Top Deals/Offers</string>
     <string name="manage_profile">Manage Profile</string>

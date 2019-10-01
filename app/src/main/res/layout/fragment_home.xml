@@ -23,7 +23,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
-                android:id="@+id/tvComplete"
+                android:id="@+id/textView_profilePercentage"
                 style="@style/CompleteTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

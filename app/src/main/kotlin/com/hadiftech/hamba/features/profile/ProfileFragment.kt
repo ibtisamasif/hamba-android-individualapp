@@ -45,7 +45,7 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        populateUserPicture()
+        populateDefaultAvatar()
         populatePersonTypeDropDown()
         populatePrefixDropDown()
         populateNationalityDropDown()
@@ -64,7 +64,7 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
         avatarSelectionComponent.displayFemaleAvatars()
 
         if (Session.isSessionAvailable()) {
-            APiManager.getUserProfile(activity!!, this)
+            updateUI(User.getUserProfile()!!)
         } else {
             showGuestUserAlert()
         }
@@ -83,16 +83,9 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
     override fun onApiSuccess(apiResponse: HambaBaseApiResponse) {
         super.onApiSuccess(apiResponse)
 
-        if (apiResponse is GetProfileResponse) {
-            if (apiResponse.details != null) {
-                updateUI(apiResponse.details!!)
-            } else {
-                AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, apiResponse.message)
-            }
-        }
-
         if (apiResponse is IndividualProfileEditResponse) {
             if (apiResponse.success!!) {
+                User.setCurrentProfileOutdated(true)
                 AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, getString(R.string.record_updated_successfully))
             } else {
                 AlertDialogProvider.showAlertDialog(activity!!, DialogTheme.ThemeGreen, apiResponse.message)
@@ -110,8 +103,8 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
     }
 
     override fun onAvatarClicked(resId: Int) {
-        User.addUserPicture(resId)
         imageView_profilePic.setImageResource(resId)
+        imageView_profilePic.tag = resources.getResourceEntryName(resId)
     }
 
     private fun displayAvatarSelectionComponent() {
@@ -136,7 +129,6 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
 
     private fun updateUI(details: GetProfileResponse.Details) {
 
-        editText_phone.isEnabled = false
         swPushNotifications.isChecked = details.enableNotification!!
         swShowMyMobileNumber.isChecked = details.enableNumberVisibility!!
         swOthersCanSeeMyAge.isChecked = details.enableAgeVisibility!!
@@ -212,7 +204,12 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
         }
 
         if (details.avatar != null && details.avatar!!.isNotEmpty()) {
-
+            var resId = resources.getIdentifier(details.avatar, "drawable", activity!!.packageName)
+            if (resId == 0) {
+                imageView_profilePic.setImageResource(R.drawable.female_avatar_1)
+            } else {
+                imageView_profilePic.setImageResource(resId)
+            }
         }
 
         if (!details.interests.isNullOrEmpty()) {
@@ -247,12 +244,6 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
         }
     }
 
-    private fun populateUserPicture() {
-        if (User.getUserPicture() != 0) {
-            imageView_profilePic.setImageResource(User.getUserPicture())
-        }
-    }
-
     private fun populatePersonTypeDropDown() {
         spinner_personType.setItems(resources.getStringArray(R.array.person_types))
     }
@@ -280,6 +271,11 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
                 }
             }
         })
+    }
+
+    private fun populateDefaultAvatar(){
+        imageView_profilePic.setImageResource(R.drawable.female_avatar_1)
+        imageView_profilePic.tag = resources.getResourceEntryName(R.drawable.female_avatar_1)
     }
 
     private fun populateCountryDropDown() {
@@ -318,6 +314,7 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
     private fun getIndividualProfileEditRequest(): IndividualProfileEditRequest {
 
         val editUserIndividualProfileRequest = IndividualProfileEditRequest()
+        editUserIndividualProfileRequest.avatar = imageView_profilePic.tag.toString()
         editUserIndividualProfileRequest.personType = spinner_personType.selected
         editUserIndividualProfileRequest.prefix = spinner_prefix.selected
         editUserIndividualProfileRequest.firstName = editText_firstName.getText()
@@ -331,19 +328,31 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
         editUserIndividualProfileRequest.cityName = editText_city.getText()
         editUserIndividualProfileRequest.zipCode = editText_zipCode.getText()
         editUserIndividualProfileRequest.country = spinner_country.selected
-        editUserIndividualProfileRequest.email = editText_email.getText()
-        editUserIndividualProfileRequest.number = editText_phone.getPhoneNumber()
         editUserIndividualProfileRequest.addressType = spinner_addressType.selected
         editUserIndividualProfileRequest.address = editText_address.getText()
         editUserIndividualProfileRequest.enableNotification = swPushNotifications.isChecked
         editUserIndividualProfileRequest.enableNumberVisibility = swShowMyMobileNumber.isChecked
         editUserIndividualProfileRequest.enableAgeVisibility = swOthersCanSeeMyAge.isChecked
 
+        var existingEmail = User.getUserProfile()!!.email
+        if (existingEmail != null && existingEmail.isNotEmpty()) {
+            editUserIndividualProfileRequest.email = existingEmail
+        } else {
+            editUserIndividualProfileRequest.email = editText_email.getText()
+        }
+
+        var existingNumber = User.getUserProfile()!!.number
+        if (existingNumber != null && existingNumber.isNotEmpty()) {
+            editUserIndividualProfileRequest.number = existingNumber
+        } else {
+            editUserIndividualProfileRequest.number = editText_phone.getPhoneNumber()
+        }
+
         //ToDo interest would be a different widget or multi select dropdown
         val selectedInterests = ArrayList<String>()
         selectedInterests.add(spinner_interest.text.toString())
         editUserIndividualProfileRequest.interests = selectedInterests
-        editUserIndividualProfileRequest.imgExtension = "some_url"
+        editUserIndividualProfileRequest.imgExtension = "http://profile_image_url"
 
         return editUserIndividualProfileRequest
     }
@@ -386,6 +395,11 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
 
         if (!HambaUtils.isEmailValid(editText_email.getText())) {
             editText_email.setError(getString(R.string.please_enter_valid_email))
+            return false
+        }
+
+        if (editText_phone.getPhoneNumber().length < 10) {
+            editText_phone.setError(getString(R.string.please_enter_valid_cell_number))
             return false
         }
 
