@@ -84,6 +84,7 @@ class IndividualSignupActivity : HambaBaseActivity() {
     }
 
     fun onSignUpWithGmailClicked(view: View) {
+        mGoogleSignInClient.signOut() //Sign out any already Google signed in user so that user can select account on every attempt
         startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
     }
 
