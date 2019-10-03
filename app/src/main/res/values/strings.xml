@@ -74,7 +74,10 @@
     <string name="title_chat">Chat</string>
     <string name="title_search">Search</string>
     <string name="title_favourite">Favourite</string>
-    <string name="current_location">Current Location</string>
+    <string name="current_location">Updating Current Location...</string>
+    <string name="location_permission_rejected">Location Permission Rejected</string>
+    <string name="location_not_found">Location Not Found</string>
+    <string name="gps_not_enabled">GPS Not Enabled</string>
     <string name="community">Community</string>
     <string name="discoveries">Discoveries</string>
     <string name="stores">Stores</string>
@@ -105,6 +108,8 @@
     <string name="rate_us">Rate Us</string>
     <string name="manage_payments">Manage Payments</string>
     <string name="faqs">FAQ\'s</string>
+    <string name="enable_gps_description">GPS is disabled in your device. Would you like to enable it?</string>
+    <string name="yes">Yes</string>
 
     <!--API Module Content-->
     <string name="error">Error</string>

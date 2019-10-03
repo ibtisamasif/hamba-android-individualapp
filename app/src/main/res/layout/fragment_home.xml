@@ -10,7 +10,7 @@
             android:layout_height="wrap_content">
 
         <com.hadiftech.hamba.core.views.HambaTextView
-                android:id="@+id/tvCurrentLocation"
+                android:id="@+id/textView_currentLocation"
                 style="@style/CurrentLocationTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 android:background="@drawable/dashboard_banner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvCurrentLocation"/>
+                app:layout_constraintTop_toBottomOf="@+id/textView_currentLocation"/>
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvTopDeals"
