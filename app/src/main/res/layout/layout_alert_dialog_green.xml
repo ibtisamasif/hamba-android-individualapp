@@ -3,11 +3,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/_15sdp"
-        android:paddingRight="@dimen/_15sdp"
+        android:background="@drawable/alert_dialog_green_background"
         android:paddingStart="@dimen/_15sdp"
+        android:paddingLeft="@dimen/_15sdp"
         android:paddingEnd="@dimen/_15sdp"
-        android:background="@drawable/alert_dialog_green_background" >
+        android:paddingRight="@dimen/_15sdp">
 
     <com.hadiftech.hamba.core.views.HambaTextView
             android:id="@+id/textView_title"
@@ -20,6 +20,20 @@
             app:fontType="Regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/negativeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_10sdp"
+            android:text="x"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_18sdp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView_title" />
 
     <com.hadiftech.hamba.core.views.HambaTextView
             android:id="@+id/textView_message"
@@ -40,9 +54,9 @@
             android:layout_marginBottom="@dimen/_15sdp"
             android:background="@drawable/positive_white_btn_background"
             android:text="@string/done"
+            android:textAllCaps="false"
             android:textColor="@color/colorGreenLight"
             android:textSize="@dimen/_14sdp"
-            android:textAllCaps="false"
             app:fontType="Regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
