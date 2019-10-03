@@ -14,10 +14,10 @@ import kotlinx.android.synthetic.main.layout_avatar_selection.view.*
 class AvatarSelectionComponent : LinearLayout {
 
     private val maleAvatarsArray: IntArray = intArrayOf(R.drawable.male_avatar_1, R.drawable.male_avatar_2, R.drawable.male_avatar_3, R.drawable.male_avatar_4,
-        R.drawable.male_avatar_5, R.drawable.male_avatar_6)
+        R.drawable.male_avatar_5, R.drawable.male_avatar_6, R.drawable.male_avatar_7, R.drawable.male_avatar_8, R.drawable.male_avatar_9)
 
     private val femaleAvatarsArray: IntArray = intArrayOf(R.drawable.female_avatar_1, R.drawable.female_avatar_2, R.drawable.female_avatar_3, R.drawable.female_avatar_4,
-        R.drawable.female_avatar_5, R.drawable.female_avatar_6)
+        R.drawable.female_avatar_5, R.drawable.female_avatar_6, R.drawable.female_avatar_7, R.drawable.female_avatar_8, R.drawable.female_avatar_9)
 
     lateinit var mView: View
     private var onAvatarClickListener: OnAvatarClickListener? = null
