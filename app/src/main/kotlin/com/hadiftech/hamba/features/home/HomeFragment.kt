@@ -15,7 +15,10 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.view.animation.TranslateAnimation
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.HambaBaseFragment
@@ -30,8 +33,18 @@ import java.util.*
 import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
+import java.io.IOException
 
 class HomeFragment : HambaBaseFragment() {
+
+    private val bannerImagesArray: IntArray = intArrayOf(R.drawable.top_deals_image_1, R.drawable.top_deals_image_2, R.drawable.top_deals_image_3,
+        R.drawable.top_deals_image_1, R.drawable.top_deals_image_2)
+
+    object AnimationConstants {
+        const val BannerDisplayDuration = 3000
+        const val BannerFadeDuration = 1000
+        const val PromoCardsTransitionDuration = 10000L
+    }
 
     private var airLocation: AirLocation? = null
     private val LOCATION_PERMISSION_GRANTED: Int = 1111
@@ -44,8 +57,9 @@ class HomeFragment : HambaBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        addPromoCardsToDisplay()
         bannerAnimation()
-        llTopDealsHorizontalScroll.animation = topDealsAnimation()
+        linearLayout_promoCardsContainer.animation = topDealsAnimation()
         checkCurrentLocationPermissions(true)
     }
 
@@ -133,18 +147,21 @@ class HomeFragment : HambaBaseFragment() {
     private fun displayLocation(location: Location?) {
 
         if (location != null) {
-            val geoCoder = Geocoder(activity, Locale.getDefault())
-            val addressList = geoCoder.getFromLocation(location!!.latitude, location!!.longitude, 1)
+            try {
+                val geoCoder = Geocoder(activity, Locale.getDefault())
+                val addressList = geoCoder.getFromLocation(location!!.latitude, location!!.longitude, 1)
 
-            if (addressList.isNotEmpty()) {
-                var address = addressList[0]
-                textView_currentLocation.text = address.subLocality + ", " + address.subAdminArea + ", " + address.countryCode
-            } else {
-                textView_currentLocation.text = getString(R.string.location_not_found)
-            }
-        } else {
-            textView_currentLocation.text = getString(R.string.location_not_found)
+                if (addressList.isNotEmpty()) {
+                    var addressLine = addressList[0].getAddressLine(0)
+                    if (addressLine != null && addressLine.isNotEmpty()) {
+                        textView_currentLocation.text = addressLine
+                        return
+                    }
+                }
+            } catch (e: IOException) {}
         }
+
+        textView_currentLocation.text = getString(R.string.location_not_found)
     }
 
     override fun onResume() {
@@ -162,17 +179,47 @@ class HomeFragment : HambaBaseFragment() {
 
         if (apiResponse is GetProfileResponse) {
             if (apiResponse.details != null) {
+                User.setCurrentProfileOutdated(false)
                 User.saveUserProfile(apiResponse.details!!)
                 textView_profilePercentage.text = String.format(getString(R.string._30_complete), User.getProfileUpdatePercentage())
             }
         }
     }
 
+    private fun addPromoCardsToDisplay() {
+        linearLayout_promoCardsContainer.removeAllViews()
+        bannerImagesArray.forEach {
+            addPromoCard(it)
+        }
+    }
+
+    private fun addPromoCard(resId: Int) {
+        var promoCardImageView = ImageView(context)
+        promoCardImageView.scaleType = ImageView.ScaleType.FIT_XY
+        promoCardImageView.setImageResource(resId)
+
+        var cardParams = LinearLayout.LayoutParams(
+            context!!.resources.getDimensionPixelSize(R.dimen._80sdp),
+            context!!.resources.getDimensionPixelSize(R.dimen._38sdp)
+        )
+        cardParams.marginStart = context!!.resources.getDimensionPixelSize(R.dimen._5sdp)
+
+        var cardView = CardView(context!!)
+        cardView.layoutParams = cardParams
+        cardView.cardElevation = resources.getDimension(R.dimen._5sdp)
+        cardView.radius = resources.getDimension(R.dimen._8sdp)
+        cardView.addView(promoCardImageView)
+
+        linearLayout_promoCardsContainer.addView(cardView)
+    }
+
     private fun bannerAnimation(){
         val animation = AnimationDrawable()
-        animation.addFrame(ContextCompat.getDrawable(context!!, R.drawable.top_deals_image_1)!!, 2000)
-        animation.addFrame(ContextCompat.getDrawable(context!!, R.drawable.top_deals_image_2)!!, 2500)
-        animation.addFrame(ContextCompat.getDrawable(context!!, R.drawable.top_deals_image_3)!!, 3000)
+        animation.addFrame(ContextCompat.getDrawable(context!!, R.drawable.top_deals_image_1)!!, AnimationConstants.BannerDisplayDuration)
+        animation.addFrame(ContextCompat.getDrawable(context!!, R.drawable.top_deals_image_2)!!, AnimationConstants.BannerDisplayDuration)
+        animation.addFrame(ContextCompat.getDrawable(context!!, R.drawable.top_deals_image_3)!!, AnimationConstants.BannerDisplayDuration)
+        animation.setEnterFadeDuration(AnimationConstants.BannerFadeDuration)
+        animation.setExitFadeDuration(AnimationConstants.BannerFadeDuration)
         animation.isOneShot = false
 
         imageView_banner.setBackgroundDrawable(animation)
@@ -184,8 +231,8 @@ class HomeFragment : HambaBaseFragment() {
         val translateAnimation: Animation = TranslateAnimation(TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE,
             1000f, TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 0f)
 
-        translateAnimation.duration = 10000
-        translateAnimation.repeatCount = -1
+        translateAnimation.duration = AnimationConstants.PromoCardsTransitionDuration
+        translateAnimation.repeatCount = Animation.INFINITE
         translateAnimation.repeatMode = Animation.REVERSE
         translateAnimation.interpolator = LinearInterpolator()
 

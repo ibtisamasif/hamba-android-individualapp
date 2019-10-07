@@ -53,7 +53,7 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
     private fun setNavigationDrawerHeaderData() {
         val headerView = navigationDrawerView.getHeaderView(0)
         val textViewUserName = headerView.findViewById(R.id.textView_userName) as HambaTextView
-        if (User.getUserName().isNotEmpty()) {
+        if (User.getUserName()!!.isNotEmpty()) {
             textViewUserName.text = User.getUserName()
         }
     }

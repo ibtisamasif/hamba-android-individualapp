@@ -67,7 +67,7 @@ class LoginActivity : HambaBaseActivity() {
         if (loginResponse.status!!) {
             Session.storeSession(loginResponse.accessToken, loginResponse.secretKey, loginResponse.tokenType)
             if (Session.isSessionAvailable()) {
-                moveToDashboardScreen()
+                moveToHelloScreen()
             }
         } else {
             AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeWhite, loginResponse.message)
@@ -89,9 +89,9 @@ class LoginActivity : HambaBaseActivity() {
         startActivity(forgetPasswordIntent)
     }
 
-    private fun moveToDashboardScreen() {
-        val dashboardIntent = Intent(this, DashboardActivity::class.java)
-        startActivity(dashboardIntent)
+    private fun moveToHelloScreen() {
+        val helloUserIntent = Intent(this, HelloUserActivity::class.java)
+        startActivity(helloUserIntent)
         finish()
     }
 
