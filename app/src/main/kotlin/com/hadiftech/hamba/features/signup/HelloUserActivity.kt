@@ -128,7 +128,6 @@ class HelloUserActivity : HambaBaseActivity() {
 
     fun onEnterButtonClicked(enterButton: View) {
         User.addUserName(editText_userName.getText())
-        User.addUserType(UserType.GUEST.name)
 
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
         dashboardIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK

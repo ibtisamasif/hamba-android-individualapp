@@ -17,30 +17,19 @@ object User {
     }
 
     fun addUserName(userName: String?) {
-        val preferenceEditor = userPreferences.edit()
-        preferenceEditor.putString(UserConstants.Key_User_Name, userName)
-        preferenceEditor.apply()
+        var userDetails = getUserProfile()
+        userDetails!!.firstName = userName
+        saveUserProfile(userDetails)
     }
 
     fun saveUserProfile(userProfile: GetProfileResponse.Details) {
         val preferenceEditor = userPreferences.edit()
         preferenceEditor.putString(UserConstants.Key_User_Profile, Gson().toJson(userProfile))
         preferenceEditor.apply()
-        setCurrentProfileOutdated(false)
     }
 
-    fun addUserType(userType: String?) {
-        val preferenceEditor = userPreferences.edit()
-        preferenceEditor.putString(UserConstants.Key_User_Type, userType)
-        preferenceEditor.apply()
-    }
-
-    fun getUserName() : String {
-        return userPreferences.getString(UserConstants.Key_User_Name, Constants.EMPTY_STRING)
-    }
-
-    fun getUserType() : String {
-        return userPreferences.getString(UserConstants.Key_User_Type, Constants.EMPTY_STRING)
+    fun getUserName() : String? {
+        return getUserProfile()!!.firstName
     }
 
     fun getUserProfile() : GetProfileResponse.Details? {
@@ -91,14 +80,8 @@ object User {
         return userPreferences.getBoolean(UserConstants.Key_Profile_Status, true)
     }
 
-    fun isGuestUser() : Boolean {
-        return userPreferences.getString(UserConstants.Key_User_Type, Constants.EMPTY_STRING) == UserType.GUEST.name
-    }
-
     fun wipeUserData() {
         val preferenceEditor = userPreferences.edit()
-        preferenceEditor.remove(UserConstants.Key_User_Name)
-        preferenceEditor.remove(UserConstants.Key_User_Type)
         preferenceEditor.remove(UserConstants.Key_User_Profile)
         preferenceEditor.remove(UserConstants.Key_Profile_Status)
         preferenceEditor.apply()

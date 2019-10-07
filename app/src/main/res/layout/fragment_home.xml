@@ -3,181 +3,99 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/_45sdp" >
+        android:paddingBottom="@dimen/_45sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <com.hadiftech.hamba.core.views.HambaTextView
-                android:id="@+id/textView_currentLocation"
-                style="@style/CurrentLocationTextStyle"
-                android:layout_width="wrap_content"
+        <RelativeLayout
+                android:id="@+id/container_locationBar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginLeft="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:text="@string/current_location"
-                app:fontType="Regular"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        <com.hadiftech.hamba.core.views.HambaTextView
-                android:id="@+id/textView_profilePercentage"
-                style="@style/CompleteTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
-                android:layout_marginRight="@dimen/_8sdp"
-                android:text="@string/_30_complete"
-                app:fontType="Regular"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingLeft="@dimen/_8sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingRight="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_2sdp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <com.hadiftech.hamba.core.views.HambaTextView
+                    android:id="@+id/textView_currentLocation"
+                    style="@style/CurrentLocationTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_toLeftOf="@+id/textView_profilePercentage"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="left|center_vertical"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/current_location"
+                    app:fontType="Regular" />
+
+            <com.hadiftech.hamba.core.views.HambaTextView
+                    android:id="@+id/textView_profilePercentage"
+                    style="@style/CompleteTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/_30_complete"
+                    app:fontType="Regular" />
+
+        </RelativeLayout>
 
         <ImageView
                 android:id="@+id/imageView_banner"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_140sdp"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:contentDescription="@string/home_screen_banner"
+                android:layout_height="@dimen/_130sdp"
                 android:background="@drawable/dashboard_banner"
+                android:contentDescription="@string/home_screen_banner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_currentLocation"/>
+                app:layout_constraintTop_toBottomOf="@+id/container_locationBar" />
 
         <com.hadiftech.hamba.core.views.HambaTextView
                 android:id="@+id/tvTopDeals"
                 style="@style/TopDealsTextStyle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_3sdp"
-                android:elevation="5dp"
-                app:fontType="Regular"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingBottom="@dimen/_2sdp"
                 android:text="@string/top_deals_offers"
+                android:background="@color/colorGreenLight"
+                android:gravity="left"
+                app:fontType="Regular"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/horizontalScrollView" />
+                app:layout_constraintTop_toBottomOf="@id/imageView_banner" />
 
         <HorizontalScrollView
                 android:id="@+id/horizontalScrollView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="wrap_content"
                 android:background="@color/colorGreenLight"
                 android:fillViewport="true"
                 android:measureAllChildren="false"
-                android:padding="@dimen/_5sdp"
                 android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_banner">
+                app:layout_constraintTop_toBottomOf="@+id/tvTopDeals">
 
             <LinearLayout
-                    android:id="@+id/llTopDealsHorizontalScroll"
+                    android:id="@+id/linearLayout_promoCardsContainer"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:layout_height="@dimen/_45sdp"
+                    android:orientation="horizontal" />
 
-                <LinearLayout
-                        android:id="@+id/card1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_2sdp"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                    <ImageView
-                            android:layout_width="125dp"
-                            android:layout_height="wrap_content"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/top_deals_image_1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                        android:id="@+id/card2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_2sdp"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                    <ImageView
-                            android:layout_width="125dp"
-                            android:layout_height="wrap_content"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/top_deals_image_2" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                        android:id="@+id/card3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_2sdp"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                    <ImageView
-                            android:layout_width="125dp"
-                            android:layout_height="wrap_content"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/top_deals_image_3" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                        android:id="@+id/card4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_2sdp"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                    <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/top_deals_image_1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                        android:id="@+id/card5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_2sdp"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                    <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/top_deals_image_2" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                        android:id="@+id/card6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_2sdp"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                    <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/top_deals_image_3" />
-
-                </LinearLayout>
-
-            </LinearLayout>
         </HorizontalScrollView>
 
         <androidx.gridlayout.widget.GridLayout
@@ -185,11 +103,11 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_4sdp"
                 app:alignmentMode="alignBounds"
+                app:columnCount="4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
                 app:rowCount="4"
-                app:columnCount="4"
                 app:rowOrderPreserved="false"
                 app:useDefaultMargins="true">
 

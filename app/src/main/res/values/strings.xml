@@ -74,7 +74,7 @@
     <string name="title_chat">Chat</string>
     <string name="title_search">Search</string>
     <string name="title_favourite">Favourite</string>
-    <string name="current_location">Updating Current Location...</string>
+    <string name="current_location">Detecting Current Location...</string>
     <string name="location_permission_rejected">Location Permission Rejected</string>
     <string name="location_not_found">Location Not Found</string>
     <string name="gps_not_enabled">GPS Not Enabled</string>
