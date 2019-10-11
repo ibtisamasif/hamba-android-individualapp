@@ -115,7 +115,6 @@
         <item name="android:textSize">@dimen/_14sdp</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:gravity">start</item>
     </style>
 
     <style name="NavigationItemsTextStyle">

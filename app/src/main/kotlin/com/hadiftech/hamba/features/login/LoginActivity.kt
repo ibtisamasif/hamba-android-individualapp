@@ -12,10 +12,12 @@ import com.hadiftech.hamba.core.services.APiManager
 import com.hadiftech.hamba.core.services.HambaBaseApiResponse
 import com.hadiftech.hamba.core.services.HttpErrorCodes
 import com.hadiftech.hamba.core.session.Session
+import com.hadiftech.hamba.core.session.User
 import com.hadiftech.hamba.features.dashboard.DashboardActivity
 import com.hadiftech.hamba.features.forget_password.ForgetPasswordActivity
 import com.hadiftech.hamba.features.login.login_service.LoginRequest
 import com.hadiftech.hamba.features.login.login_service.LoginResponse
+import com.hadiftech.hamba.features.profile.get_profile_service.GetProfileResponse
 import com.hadiftech.hamba.features.signup.HelloUserActivity
 import com.hadiftech.hamba.features.signup.IndividualSignupActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -53,6 +55,18 @@ class LoginActivity : HambaBaseActivity() {
         if (apiResponse is LoginResponse) {
             handleLoginResponse(apiResponse)
         }
+
+        if (apiResponse is GetProfileResponse) {
+
+            User.setCurrentProfileOutdated(false)
+            User.saveUserProfile(apiResponse.details!!)
+            
+            if (User.getUserProfile()!!.firstName != null && User.getUserProfile()!!.firstName!!.isNotEmpty()) {
+                moveToDashboardScreen()
+            } else {
+                moveToHelloScreen()
+            }
+        }
     }
 
     override fun onApiFailure(errorCode: Int) {
@@ -66,11 +80,17 @@ class LoginActivity : HambaBaseActivity() {
     private fun handleLoginResponse(loginResponse: LoginResponse){
         if (loginResponse.status!!) {
             Session.storeSession(loginResponse.accessToken, loginResponse.secretKey, loginResponse.tokenType)
-            if (Session.isSessionAvailable()) {
-                moveToHelloScreen()
-            }
+            callGetProfileApi()
         } else {
             AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeWhite, loginResponse.message)
+        }
+    }
+
+    private fun callGetProfileApi(){
+        if (Session.isSessionAvailable() && User.isCurrentProfileOutdated()) {
+            APiManager.getUserProfile(this, this)
+        } else {
+            AlertDialogProvider.showAlertDialog(this, DialogTheme.ThemeWhite, getString(R.string.session_not_available))
         }
     }
 
@@ -92,6 +112,12 @@ class LoginActivity : HambaBaseActivity() {
     private fun moveToHelloScreen() {
         val helloUserIntent = Intent(this, HelloUserActivity::class.java)
         startActivity(helloUserIntent)
+        finish()
+    }
+
+    private fun moveToDashboardScreen() {
+        val dashboardIntent = Intent(this, DashboardActivity::class.java)
+        startActivity(dashboardIntent)
         finish()
     }
 
