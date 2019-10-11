@@ -207,8 +207,10 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
             var resId = resources.getIdentifier(details.avatar, "drawable", activity!!.packageName)
             if (resId == 0) {
                 imageView_profilePic.setImageResource(R.drawable.female_avatar_1)
+                imageView_profilePic.tag = resources.getResourceEntryName(R.drawable.female_avatar_1)
             } else {
                 imageView_profilePic.setImageResource(resId)
+                imageView_profilePic.tag = resources.getResourceEntryName(resId)
             }
         }
 

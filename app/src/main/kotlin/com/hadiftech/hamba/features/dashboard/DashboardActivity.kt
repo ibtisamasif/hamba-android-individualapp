@@ -3,8 +3,10 @@ package com.hadiftech.hamba.features.dashboard
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
@@ -15,6 +17,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.hadiftech.hamba.R
+import com.hadiftech.hamba.core.Constants
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaFrameActivity
 import com.hadiftech.hamba.core.session.Session
@@ -28,6 +31,7 @@ import kotlinx.android.synthetic.main.content_main.*
 class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var textViewHeaderTitle: HambaTextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +43,7 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
         supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar!!.setCustomView(R.layout.abs_layout)
         supportActionBar!!.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.header_background))
+        textViewHeaderTitle = supportActionBar!!.customView.findViewById<HambaTextView>(R.id.textViewTitle)
 
         bottom_nav_view.setupWithNavController(findNavController(R.id.nav_host_fragment))
         navigationDrawerView.setupWithNavController(findNavController(R.id.nav_host_fragment))
@@ -50,11 +55,22 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
         setNavigationDrawerHeaderData()
     }
 
-    private fun setNavigationDrawerHeaderData() {
+    fun setNavigationDrawerHeaderData() {
+
         val headerView = navigationDrawerView.getHeaderView(0)
         val textViewUserName = headerView.findViewById(R.id.textView_userName) as HambaTextView
+        val imageViewUserPhoto = headerView.findViewById(R.id.imageView_userPhoto) as ImageView
+
         if (User.getUserName()!!.isNotEmpty()) {
             textViewUserName.text = User.getUserName()
+            textViewHeaderTitle.text = getString(R.string.welcome) + Constants.SPACE_STRING + User.getUserName()
+        }
+
+        var resId = resources.getIdentifier(User.getUserProfile()!!.avatar, "drawable", this.packageName)
+        if (resId > 0) {
+            imageViewUserPhoto.setImageResource(resId)
+        } else {
+            imageViewUserPhoto.setImageResource(R.drawable.female_avatar_1)
         }
     }
 

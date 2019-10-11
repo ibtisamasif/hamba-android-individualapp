@@ -3,42 +3,29 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/linearLayout_navHeaderContainer"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        android:background="@drawable/side_nav_bar"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+        android:layout_height="@dimen/_80sdp"
+        android:background="@drawable/side_nav_bar" >
 
     <ImageView
             android:id="@+id/imageView_userPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginLeft="@dimen/_8sdp"
             android:contentDescription="@string/nav_header_desc"
-            app:srcCompat="@drawable/ic_user_white" />
+            android:background="@drawable/ring_white_light"
+            android:padding="@dimen/_7sdp" />
 
-    <LinearLayout
+    <com.hadiftech.hamba.core.views.HambaTextView
+            android:id="@+id/textView_userName"
+            style="@style/NavigationHeaderTitleTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginLeft="@dimen/_8sdp"
-            android:layout_toRightOf="@+id/imageView_userPhoto"
-            android:orientation="vertical">
-
-        <com.hadiftech.hamba.core.views.HambaTextView
-                android:id="@+id/textView_userName"
-                style="@style/NavigationHeaderTitleTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nav_header_title" />
-
-        <com.hadiftech.hamba.core.views.HambaTextView
-                android:id="@+id/textView_subTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nav_header_subtitle" />
-
-    </LinearLayout>
+            android:layout_centerVertical="true"
+            android:text="@string/nav_header_title"
+            android:layout_toRightOf="@+id/imageView_userPhoto" />
 
 </RelativeLayout>

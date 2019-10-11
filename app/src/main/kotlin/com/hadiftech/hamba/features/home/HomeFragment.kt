@@ -33,15 +33,16 @@ import java.util.*
 import com.hadiftech.hamba.core.enums.DialogTheme
 import com.hadiftech.hamba.core.listeners.DialogButtonClickListener
 import com.hadiftech.hamba.core.providers.AlertDialogProvider
+import com.hadiftech.hamba.features.dashboard.DashboardActivity
 import java.io.IOException
 
 class HomeFragment : HambaBaseFragment() {
 
     private val bannerImagesArray: IntArray = intArrayOf(R.drawable.top_deals_image_1, R.drawable.top_deals_image_2, R.drawable.top_deals_image_3,
-        R.drawable.top_deals_image_1, R.drawable.top_deals_image_2)
+        R.drawable.top_deals_image_4, R.drawable.top_deals_image_5, R.drawable.top_deals_image_6)
 
     object AnimationConstants {
-        const val BannerDisplayDuration = 3000
+        const val BannerDisplayDuration = 4000
         const val BannerFadeDuration = 1000
         const val PromoCardsTransitionDuration = 10000L
     }
@@ -182,6 +183,9 @@ class HomeFragment : HambaBaseFragment() {
                 User.setCurrentProfileOutdated(false)
                 User.saveUserProfile(apiResponse.details!!)
                 textView_profilePercentage.text = String.format(getString(R.string._30_complete), User.getProfileUpdatePercentage())
+
+                val dashboardActivity = activity as DashboardActivity
+                dashboardActivity.setNavigationDrawerHeaderData()
             }
         }
     }
@@ -215,9 +219,9 @@ class HomeFragment : HambaBaseFragment() {
 
     private fun bannerAnimation(){
         val animation = AnimationDrawable()
-        animation.addFrame(ContextCompat.getDrawable(context!!, R.drawable.top_deals_image_1)!!, AnimationConstants.BannerDisplayDuration)
-        animation.addFrame(ContextCompat.getDrawable(context!!, R.drawable.top_deals_image_2)!!, AnimationConstants.BannerDisplayDuration)
-        animation.addFrame(ContextCompat.getDrawable(context!!, R.drawable.top_deals_image_3)!!, AnimationConstants.BannerDisplayDuration)
+        bannerImagesArray.forEach {
+            animation.addFrame(ContextCompat.getDrawable(context!!, it)!!, AnimationConstants.BannerDisplayDuration)
+        }
         animation.setEnterFadeDuration(AnimationConstants.BannerFadeDuration)
         animation.setExitFadeDuration(AnimationConstants.BannerFadeDuration)
         animation.isOneShot = false
@@ -229,7 +233,7 @@ class HomeFragment : HambaBaseFragment() {
     private fun topDealsAnimation() : Animation{
 
         val translateAnimation: Animation = TranslateAnimation(TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE,
-            1000f, TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 0f)
+            -1000f, TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 0f)
 
         translateAnimation.duration = AnimationConstants.PromoCardsTransitionDuration
         translateAnimation.repeatCount = Animation.INFINITE
