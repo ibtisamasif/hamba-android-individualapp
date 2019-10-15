@@ -19,7 +19,6 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -199,15 +198,6 @@ public class MultipleDialog extends DialogFragment {
             tvDone.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    StringBuilder text = new StringBuilder();
-                    for (int i = 0; i < data.length; i++) {
-                        if (text.length() == 0 && selected.contains(i)) {
-                            text.append(data[i]);
-                        } else if (selected.contains(i)) {
-                            text.append(", ").append(data[i]);
-                        }
-                    }
-                    MultipleDialog.this.view.setText(text);
                     MultipleDialog.this.view.setSelected(selected);
                     if (listener != null) {
                         listener.onMultipleSelected(selected);

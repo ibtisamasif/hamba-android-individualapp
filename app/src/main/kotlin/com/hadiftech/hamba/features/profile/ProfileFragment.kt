@@ -35,6 +35,7 @@ import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
 
@@ -215,7 +216,11 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
         }
 
         if (!details.interests.isNullOrEmpty()) {
-
+            var listOfInterests: ArrayList<Int> = ArrayList()
+            details!!.interests!!.forEach {
+                listOfInterests.add(resources.getStringArray(R.array.interests).indexOf(it))
+            }
+            spinner_interest.setSelected(listOfInterests)
         }
     }
 
@@ -335,6 +340,8 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
         editUserIndividualProfileRequest.enableNotification = swPushNotifications.isChecked
         editUserIndividualProfileRequest.enableNumberVisibility = swShowMyMobileNumber.isChecked
         editUserIndividualProfileRequest.enableAgeVisibility = swOthersCanSeeMyAge.isChecked
+        editUserIndividualProfileRequest.imgExtension = "http://profile_image_url"
+        editUserIndividualProfileRequest.interests = spinner_interest.multipleSelected
 
         var existingEmail = User.getUserProfile()!!.email
         if (existingEmail != null && existingEmail.isNotEmpty()) {
@@ -349,12 +356,6 @@ class ProfileFragment : HambaBaseFragment(), OnAvatarClickListener {
         } else {
             editUserIndividualProfileRequest.number = editText_phone.getPhoneNumber()
         }
-
-        //ToDo interest would be a different widget or multi select dropdown
-        val selectedInterests = ArrayList<String>()
-        selectedInterests.add(spinner_interest.text.toString())
-        editUserIndividualProfileRequest.interests = selectedInterests
-        editUserIndividualProfileRequest.imgExtension = "http://profile_image_url"
 
         return editUserIndividualProfileRequest
     }

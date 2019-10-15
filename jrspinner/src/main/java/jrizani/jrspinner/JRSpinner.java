@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import androidx.fragment.app.FragmentActivity;
 import androidx.core.content.ContextCompat;
+import android.text.InputFilter;
 import android.util.AttributeSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,8 @@ import java.util.List;
  * custom view that used as spinner
  */
 public class JRSpinner extends androidx.appcompat.widget.AppCompatEditText {
+
+    public static final int MaxLength = 38;
 
     /**
      * all items text to show in spinner dialog
@@ -80,6 +83,8 @@ public class JRSpinner extends androidx.appcompat.widget.AppCompatEditText {
         setFocusable(false);
         setSingleLine(true);
         expandTint = ContextCompat.getColor(getContext(), R.color.jrspinner_color_default);
+        setFilters(new InputFilter[] {new InputFilter.LengthFilter(MaxLength)});
+
         if (attrs != null) {
             TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.JRSpinner);
             if (typedArray != null) {
@@ -185,6 +190,19 @@ public class JRSpinner extends androidx.appcompat.widget.AppCompatEditText {
         }
     }
 
+    public List<String> getMultipleSelected() {
+
+        List<String> selectedItemsList = new ArrayList<>();
+        for (int i = 0; i < multipleSelected.size(); i++) {
+            selectedItemsList.add(items[multipleSelected.get(i)]);
+        }
+
+        if (selectedItemsList.size() == 0) {
+            selectedItemsList.add("");
+        }
+        return selectedItemsList;
+    }
+
     /**
      * call when click on spinner view and show the dialog
      */
@@ -243,9 +261,31 @@ public class JRSpinner extends androidx.appcompat.widget.AppCompatEditText {
      *
      * @param selected selected positions
      */
-    protected void setSelected(List<Integer> selected) {
+    public void setSelected(List<Integer> selected) {
         multipleSelected.clear();
         multipleSelected.addAll(selected);
+        displayMultipleSelectedItems(selected);
+    }
+
+    private void displayMultipleSelectedItems(List<Integer> selected) {
+        StringBuilder text = new StringBuilder();
+        for (int i = 0; i < items.length; i++) {
+            if (text.length() == 0 && selected.contains(i)) {
+                text.append(items[i]);
+            } else if (selected.contains(i)) {
+                text.append(", ").append(items[i]);
+            }
+        }
+
+        String truncatedString;
+        if (text.length() >= JRSpinner.MaxLength) {
+            truncatedString = text.substring(0, JRSpinner.MaxLength - 3);
+            truncatedString = truncatedString + "...";
+        } else {
+            truncatedString = text.toString();
+        }
+
+        setText(truncatedString);
     }
 
     /**
