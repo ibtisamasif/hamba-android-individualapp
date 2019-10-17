@@ -20,11 +20,13 @@ import com.hadiftech.hamba.R
 import com.hadiftech.hamba.core.Constants
 import com.hadiftech.hamba.core.HambaBaseActivity
 import com.hadiftech.hamba.core.HambaFrameActivity
+import com.hadiftech.hamba.core.Tags
 import com.hadiftech.hamba.core.session.Session
 import com.hadiftech.hamba.core.session.User
 import com.hadiftech.hamba.core.views.HambaTextView
 import com.hadiftech.hamba.features.login.LoginActivity
 import com.hadiftech.hamba.features.profile.ProfileFragment
+import com.hadiftech.hamba.features.support.SupportDialog
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -89,16 +91,12 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
 
-        val bundle = Bundle()
         menuItem.isChecked = true
         drawerLayout.closeDrawers()
 
         when (menuItem.itemId) {
             R.id.item_manage_profile -> {
-                bundle.putString(HambaFrameActivity.FRAGMENT_NAME_STRING, ProfileFragment::class.java.name)
-                bundle.putString(HambaFrameActivity.ACTIVITY_TITLE, resources.getString(R.string.edit_profile))
-                bundle.putBoolean(HambaFrameActivity.INFLATE_OPTIONS_MENU, true)
-                startActivity(Intent(applicationContext, HambaFrameActivity::class.java).putExtras(bundle))
+                moveToProfileScreen()
             }
             R.id.item_discovery_rules -> {
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
@@ -123,13 +121,10 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
             }
             R.id.item_sign_out -> {
                 Session.clearSession()
-                val loginIntent = Intent(this, LoginActivity::class.java)
-                loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(loginIntent)
-                finish()
+                moveToLoginScreen()
             }
             R.id.item_support -> {
-                Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
+                showSupportDialog()
             }
             R.id.item_faqs -> {
                 Toast.makeText(this, "Feature coming soon..", Toast.LENGTH_SHORT).show()
@@ -139,5 +134,24 @@ class DashboardActivity : HambaBaseActivity(), NavigationView.OnNavigationItemSe
             }
         }
         return true
+    }
+
+    private fun moveToProfileScreen() {
+        val bundle = Bundle()
+        bundle.putString(HambaFrameActivity.FRAGMENT_NAME_STRING, ProfileFragment::class.java.name)
+        bundle.putString(HambaFrameActivity.ACTIVITY_TITLE, resources.getString(R.string.edit_profile))
+        bundle.putBoolean(HambaFrameActivity.INFLATE_OPTIONS_MENU, true)
+        startActivity(Intent(applicationContext, HambaFrameActivity::class.java).putExtras(bundle))
+    }
+
+    private fun moveToLoginScreen() {
+        val loginIntent = Intent(this, LoginActivity::class.java)
+        loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(loginIntent)
+        finish()
+    }
+
+    private fun showSupportDialog() {
+        SupportDialog().show(supportFragmentManager.beginTransaction(), Tags.SupportDialogFragment)
     }
 }
