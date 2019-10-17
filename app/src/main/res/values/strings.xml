@@ -116,6 +116,7 @@
     <string name="faqs">FAQ\'s</string>
     <string name="enable_gps_description">GPS is disabled in your device. Would you like to enable it?</string>
     <string name="yes">Yes</string>
+    <string name="call_or_email_us">Email or Call Us</string>
 
     <!--API Module Content-->
     <string name="error">Error</string>
@@ -179,4 +180,9 @@
     <string name="please_select_valid_date">Please select valid date!!</string>
     <string name="you_are_signed_in_as_guest_please_login">You are signed in as a guest. Please login!</string>
     <string name="sorry_you_are_under_age">Sorry, You are under age!!</string>
+    <string name="support_number">+971 52 170 7001</string>
+    <string name="support_email">support@hamba.io</string>
+    <string name="customer_support_required">Customer Support Required</string>
+    <string name="mail_to">mailto:</string>
+    <string name="tel">tel:</string>
 </resources>

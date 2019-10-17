@@ -28,3 +28,7 @@ object EndPoints {
 object Key {
     const val AUTHORIZATION = "Authorization"
 }
+
+object Tags {
+    const val SupportDialogFragment = "SupportDialogFragment"
+}
